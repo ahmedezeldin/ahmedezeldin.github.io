@@ -11,90 +11,6 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="page-circuit-bg" aria-hidden="true">
-    <svg viewBox="0 0 1600 2600" class="page-circuit-svg">
-      <defs>
-        <filter id="circuitGlow">
-          <feGaussianBlur stdDeviation="4" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-
-      <!-- base traces -->
-      <path class="bg-trace base" d="M60 180 H320 V110 H520 V250 H860 V120 H1370" />
-      <path class="bg-trace base" d="M120 420 H360 V540 H640 V390 H980 V520 H1480" />
-      <path class="bg-trace base" d="M80 760 H280 V650 H560 V840 H920 V700 H1360" />
-      <path class="bg-trace base" d="M180 1080 H460 V1180 H710 V980 H1040 V1120 H1500" />
-      <path class="bg-trace base" d="M70 1410 H310 V1310 H610 V1500 H980 V1370 H1410" />
-      <path class="bg-trace base" d="M140 1740 H400 V1850 H680 V1680 H960 V1810 H1460" />
-      <path class="bg-trace base" d="M100 2060 H330 V1960 H590 V2140 H930 V2010 H1380" />
-      <path class="bg-trace base" d="M220 2360 H470 V2460 H760 V2300 H1080 V2440 H1500" />
-
-      <path class="bg-trace base" d="M760 80 V260 H980 V60 H1220 V220" />
-      <path class="bg-trace base" d="M980 620 V760 H1200 V690 H1450" />
-      <path class="bg-trace base" d="M840 1320 V1460 H1110 V1360 H1460" />
-      <path class="bg-trace base" d="M940 1900 V2050 H1210 V1960 H1500" />
-
-      <!-- animated traces -->
-      <path class="bg-trace active delay-1" d="M60 180 H320 V110 H520 V250 H860 V120 H1370" />
-      <path class="bg-trace active delay-2" d="M120 420 H360 V540 H640 V390 H980 V520 H1480" />
-      <path class="bg-trace active delay-3" d="M80 760 H280 V650 H560 V840 H920 V700 H1360" />
-      <path class="bg-trace active delay-4" d="M180 1080 H460 V1180 H710 V980 H1040 V1120 H1500" />
-      <path class="bg-trace active delay-5" d="M70 1410 H310 V1310 H610 V1500 H980 V1370 H1410" />
-      <path class="bg-trace active delay-6" d="M140 1740 H400 V1850 H680 V1680 H960 V1810 H1460" />
-      <path class="bg-trace active delay-7" d="M100 2060 H330 V1960 H590 V2140 H930 V2010 H1380" />
-      <path class="bg-trace active delay-8" d="M220 2360 H470 V2460 H760 V2300 H1080 V2440 H1500" />
-
-      <path class="bg-trace active delay-2" d="M760 80 V260 H980 V60 H1220 V220" />
-      <path class="bg-trace active delay-4" d="M980 620 V760 H1200 V690 H1450" />
-      <path class="bg-trace active delay-6" d="M840 1320 V1460 H1110 V1360 H1460" />
-      <path class="bg-trace active delay-8" d="M940 1900 V2050 H1210 V1960 H1500" />
-
-      <!-- nodes -->
-      <circle class="bg-node pulse-1" cx="320" cy="110" r="8" />
-      <circle class="bg-node pulse-2" cx="520" cy="250" r="8" />
-      <circle class="bg-node pulse-3" cx="860" cy="120" r="8" />
-      <circle class="bg-node pulse-4" cx="360" cy="540" r="8" />
-      <circle class="bg-node pulse-5" cx="640" cy="390" r="8" />
-      <circle class="bg-node pulse-6" cx="980" cy="520" r="8" />
-      <circle class="bg-node pulse-7" cx="280" cy="650" r="8" />
-      <circle class="bg-node pulse-8" cx="560" cy="840" r="8" />
-      <circle class="bg-node pulse-9" cx="920" cy="700" r="8" />
-      <circle class="bg-node pulse-10" cx="460" cy="1180" r="8" />
-      <circle class="bg-node pulse-11" cx="710" cy="980" r="8" />
-      <circle class="bg-node pulse-12" cx="1040" cy="1120" r="8" />
-      <circle class="bg-node pulse-13" cx="310" cy="1310" r="8" />
-      <circle class="bg-node pulse-14" cx="610" cy="1500" r="8" />
-      <circle class="bg-node pulse-15" cx="980" cy="1370" r="8" />
-      <circle class="bg-node pulse-16" cx="400" cy="1850" r="8" />
-      <circle class="bg-node pulse-17" cx="680" cy="1680" r="8" />
-      <circle class="bg-node pulse-18" cx="960" cy="1810" r="8" />
-      <circle class="bg-node pulse-19" cx="330" cy="1960" r="8" />
-      <circle class="bg-node pulse-20" cx="590" cy="2140" r="8" />
-      <circle class="bg-node pulse-21" cx="930" cy="2010" r="8" />
-      <circle class="bg-node pulse-22" cx="470" cy="2460" r="8" />
-      <circle class="bg-node pulse-23" cx="760" cy="2300" r="8" />
-      <circle class="bg-node pulse-24" cx="1080" cy="2440" r="8" />
-
-      <!-- signal dots -->
-      <circle class="signal-dot dot-1" r="6" filter="url(#circuitGlow)">
-        <animateMotion dur="9s" repeatCount="indefinite" path="M60 180 H320 V110 H520 V250 H860 V120 H1370" />
-      </circle>
-      <circle class="signal-dot dot-2" r="6" filter="url(#circuitGlow)">
-        <animateMotion dur="10s" begin="1.5s" repeatCount="indefinite" path="M120 420 H360 V540 H640 V390 H980 V520 H1480" />
-      </circle>
-      <circle class="signal-dot dot-3" r="6" filter="url(#circuitGlow)">
-        <animateMotion dur="11s" begin="2.2s" repeatCount="indefinite" path="M180 1080 H460 V1180 H710 V980 H1040 V1120 H1500" />
-      </circle>
-      <circle class="signal-dot dot-4" r="6" filter="url(#circuitGlow)">
-        <animateMotion dur="10.5s" begin="3.1s" repeatCount="indefinite" path="M140 1740 H400 V1850 H680 V1680 H960 V1810 H1460" />
-      </circle>
-    </svg>
-  </div>
-
   <header class="site-header">
     <nav class="nav">
       <a href="#top" class="brand">AE</a>
@@ -117,6 +33,59 @@
 
   <main id="top">
     <section class="hero">
+      <div class="hero-circuit-bg" aria-hidden="true">
+        <svg viewBox="0 0 1400 820" class="circuit-bg-svg">
+          <defs>
+            <filter id="heroCircuitGlow">
+              <feGaussianBlur stdDeviation="3.5" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- base traces -->
+          <path class="bg-trace base" d="M120 170 H340 V90 H540 V230 H860 V110 H1270" />
+          <path class="bg-trace base" d="M160 390 H420 V500 H710 V330 H1010 V460 H1320" />
+          <path class="bg-trace base" d="M90 640 H310 V530 H610 V710 H940 V580 H1250" />
+          <path class="bg-trace base" d="M760 70 V220 H980 V60 H1210 V210" />
+          <path class="bg-trace base" d="M930 300 V420 H1150 V360 H1320" />
+
+          <!-- active traces -->
+          <path class="bg-trace active delay-1" d="M120 170 H340 V90 H540 V230 H860 V110 H1270" />
+          <path class="bg-trace active delay-2" d="M160 390 H420 V500 H710 V330 H1010 V460 H1320" />
+          <path class="bg-trace active delay-3" d="M90 640 H310 V530 H610 V710 H940 V580 H1250" />
+          <path class="bg-trace active delay-4" d="M760 70 V220 H980 V60 H1210 V210" />
+          <path class="bg-trace active delay-5" d="M930 300 V420 H1150 V360 H1320" />
+
+          <!-- nodes -->
+          <circle class="bg-node pulse-1" cx="340" cy="90" r="7" />
+          <circle class="bg-node pulse-2" cx="540" cy="230" r="7" />
+          <circle class="bg-node pulse-3" cx="860" cy="110" r="7" />
+          <circle class="bg-node pulse-4" cx="420" cy="500" r="7" />
+          <circle class="bg-node pulse-5" cx="710" cy="330" r="7" />
+          <circle class="bg-node pulse-6" cx="1010" cy="460" r="7" />
+          <circle class="bg-node pulse-7" cx="310" cy="530" r="7" />
+          <circle class="bg-node pulse-8" cx="610" cy="710" r="7" />
+          <circle class="bg-node pulse-9" cx="940" cy="580" r="7" />
+          <circle class="bg-node pulse-10" cx="980" cy="60" r="7" />
+          <circle class="bg-node pulse-11" cx="1210" cy="210" r="7" />
+          <circle class="bg-node pulse-12" cx="1150" cy="360" r="7" />
+
+          <!-- signal dots -->
+          <circle class="signal-dot dot-1" r="5.5" filter="url(#heroCircuitGlow)">
+            <animateMotion dur="7.2s" repeatCount="indefinite" path="M120 170 H340 V90 H540 V230 H860 V110 H1270" />
+          </circle>
+          <circle class="signal-dot dot-2" r="5.5" filter="url(#heroCircuitGlow)">
+            <animateMotion dur="8.6s" begin="1.2s" repeatCount="indefinite" path="M160 390 H420 V500 H710 V330 H1010 V460 H1320" />
+          </circle>
+          <circle class="signal-dot dot-3" r="5.5" filter="url(#heroCircuitGlow)">
+            <animateMotion dur="9.1s" begin="2.1s" repeatCount="indefinite" path="M90 640 H310 V530 H610 V710 H940 V580 H1250" />
+          </circle>
+        </svg>
+      </div>
+
       <div class="hero-inner">
         <p class="hero-kicker">Engineering • Systems • Disciplined Technical Growth</p>
 
@@ -144,10 +113,11 @@
     <section id="about" class="section reveal reveal-group section-anchor" data-section="about">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector about-connector"></div>
-          <div class="section-node about-node"></div>
+          <div class="section-connector"></div>
+          <div class="section-node"></div>
           <div class="section-label">About</div>
         </div>
+
         <div class="section-content narrow">
           <h2 class="stagger">Focused on building the right foundation.</h2>
           <p class="stagger">
@@ -168,10 +138,11 @@
     <section id="education" class="section reveal reveal-group section-anchor" data-section="education">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector education-connector"></div>
-          <div class="section-node education-node"></div>
+          <div class="section-connector"></div>
+          <div class="section-node"></div>
           <div class="section-label">Education</div>
         </div>
+
         <div class="section-content">
           <h2 class="stagger">Current academic path.</h2>
 
@@ -210,10 +181,11 @@
     <section id="project" class="section reveal reveal-group section-anchor" data-section="project">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector project-connector"></div>
-          <div class="section-node project-node"></div>
+          <div class="section-connector"></div>
+          <div class="section-node"></div>
           <div class="section-label">Featured Project</div>
         </div>
+
         <div class="section-content">
           <h2 class="stagger">Medicine Cooler</h2>
 
@@ -279,10 +251,11 @@
     <section id="experience" class="section reveal reveal-group section-anchor" data-section="experience">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector experience-connector"></div>
-          <div class="section-node experience-node"></div>
+          <div class="section-connector"></div>
+          <div class="section-node"></div>
           <div class="section-label">Experience</div>
         </div>
+
         <div class="section-content">
           <h2 class="stagger">Work experience that built discipline.</h2>
 
@@ -305,10 +278,11 @@
     <section id="skills" class="section reveal reveal-group section-anchor" data-section="skills">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector skills-connector"></div>
-          <div class="section-node skills-node"></div>
+          <div class="section-connector"></div>
+          <div class="section-node"></div>
           <div class="section-label">Skills</div>
         </div>
+
         <div class="section-content">
           <h2 class="stagger">Core strengths.</h2>
 
@@ -331,10 +305,11 @@
     <section id="contact" class="section reveal reveal-group section-anchor" data-section="contact">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector contact-connector"></div>
-          <div class="section-node contact-node"></div>
+          <div class="section-connector"></div>
+          <div class="section-node"></div>
           <div class="section-label">Contact</div>
         </div>
+
         <div class="section-content narrow">
           <h2 class="stagger">Connect.</h2>
           <p class="stagger">
@@ -414,23 +389,23 @@
     const hero = document.querySelector(".hero");
     const heroGlow = document.querySelector(".hero-glow");
     const heroGrid = document.querySelector(".hero-grid");
-    const pageCircuitBg = document.querySelector(".page-circuit-bg");
+    const heroCircuitBg = document.querySelector(".hero-circuit-bg");
 
-    if (hero && heroGlow && heroGrid && pageCircuitBg) {
+    if (hero && heroGlow && heroGrid && heroCircuitBg) {
       hero.addEventListener("mousemove", (e) => {
         const rect = hero.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-        heroGlow.style.transform = `translate(${x * 20}px, ${y * 16}px) scale(1.02)`;
+        heroGlow.style.transform = `translate(${x * 22}px, ${y * 18}px) scale(1.02)`;
         heroGrid.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
-        pageCircuitBg.style.transform = `translate(${x * 6}px, ${y * 4}px)`;
+        heroCircuitBg.style.transform = `translate(${x * 10}px, ${y * 8}px) scale(1.01)`;
       });
 
       hero.addEventListener("mouseleave", () => {
         heroGlow.style.transform = "translate(0, 0) scale(1)";
         heroGrid.style.transform = "translate(0, 0)";
-        pageCircuitBg.style.transform = "translate(0, 0)";
+        heroCircuitBg.style.transform = "translate(0, 0) scale(1)";
       });
     }
 
@@ -457,17 +432,8 @@
 
     const sectionAnchors = document.querySelectorAll(".section-anchor");
 
-    function setActiveSection(name) {
-      document.querySelectorAll(".section-label-wrap").forEach((wrap) => {
-        wrap.classList.remove("is-active");
-      });
-
-      const activeSection = document.querySelector(`.section-anchor[data-section="${name}"] .section-label-wrap`);
-      if (activeSection) activeSection.classList.add("is-active");
-    }
-
     function detectActiveSection() {
-      let bestSection = "about";
+      let bestSection = null;
       let bestDistance = Infinity;
       const viewportCenter = window.innerHeight * 0.42;
 
@@ -476,11 +442,18 @@
         const distance = Math.abs(rect.top - viewportCenter);
         if (distance < bestDistance) {
           bestDistance = distance;
-          bestSection = section.dataset.section;
+          bestSection = section;
         }
       });
 
-      setActiveSection(bestSection);
+      document.querySelectorAll(".section-label-wrap").forEach((wrap) => {
+        wrap.classList.remove("is-active");
+      });
+
+      if (bestSection) {
+        const wrap = bestSection.querySelector(".section-label-wrap");
+        if (wrap) wrap.classList.add("is-active");
+      }
     }
 
     window.addEventListener("scroll", detectActiveSection, { passive: true });
