@@ -13,7 +13,7 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a href="#top" class="brand">Ahmed Ezeldin</a>
+      <a href="#top" class="brand">AE</a>
 
       <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
         <span></span>
@@ -34,71 +34,31 @@
   <main id="top">
     <section class="hero">
       <div class="hero-circuit-bg" aria-hidden="true">
-        <svg viewBox="0 0 1200 700" class="circuit-bg-svg">
-          <defs>
-            <filter id="bgGlow">
-              <feGaussianBlur stdDeviation="4" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
+        <svg viewBox="0 0 1400 800" class="circuit-bg-svg">
+          <path class="bg-trace base" d="M80 180 H360 V90 H560 V250 H840 V120 H1260" />
+          <path class="bg-trace base" d="M140 380 H420 V470 H700 V310 H980 V420 H1320" />
+          <path class="bg-trace base" d="M60 610 H300 V500 H560 V660 H900 V540 H1220" />
+          <path class="bg-trace base" d="M760 70 V170 H980 V40 H1200 V220" />
+          <path class="bg-trace base" d="M880 250 V360 H1090 V300 H1320" />
 
-          <!-- base traces -->
-          <path class="bg-trace base" d="M120 170 H360 V110 H520 V240 H730 V150 H1040" />
-          <path class="bg-trace base" d="M180 360 H430 V430 H620 V300 H860 V390 H1090" />
-          <path class="bg-trace base" d="M90 540 H300 V470 H510 V590 H760 V500 H980" />
-          <path class="bg-trace base" d="M640 90 V190 H850 V70 H1030 V210" />
-          <path class="bg-trace base" d="M760 260 V360 H930 V300 H1090" />
+          <path class="bg-trace active delay-1" d="M80 180 H360 V90 H560 V250 H840 V120 H1260" />
+          <path class="bg-trace active delay-2" d="M140 380 H420 V470 H700 V310 H980 V420 H1320" />
+          <path class="bg-trace active delay-3" d="M60 610 H300 V500 H560 V660 H900 V540 H1220" />
+          <path class="bg-trace active delay-4" d="M760 70 V170 H980 V40 H1200 V220" />
+          <path class="bg-trace active delay-5" d="M880 250 V360 H1090 V300 H1320" />
 
-          <!-- animated highlights -->
-          <path class="bg-trace active delay-1" d="M120 170 H360 V110 H520 V240 H730 V150 H1040" />
-          <path class="bg-trace active delay-2" d="M180 360 H430 V430 H620 V300 H860 V390 H1090" />
-          <path class="bg-trace active delay-3" d="M90 540 H300 V470 H510 V590 H760 V500 H980" />
-          <path class="bg-trace active delay-4" d="M640 90 V190 H850 V70 H1030 V210" />
-          <path class="bg-trace active delay-5" d="M760 260 V360 H930 V300 H1090" />
-
-          <!-- nodes -->
-          <circle class="bg-node pulse-1" cx="360" cy="110" r="6" />
-          <circle class="bg-node pulse-2" cx="520" cy="240" r="6" />
-          <circle class="bg-node pulse-3" cx="730" cy="150" r="6" />
-          <circle class="bg-node pulse-4" cx="430" cy="430" r="6" />
-          <circle class="bg-node pulse-5" cx="620" cy="300" r="6" />
-          <circle class="bg-node pulse-6" cx="860" cy="390" r="6" />
-          <circle class="bg-node pulse-7" cx="300" cy="470" r="6" />
-          <circle class="bg-node pulse-8" cx="510" cy="590" r="6" />
-          <circle class="bg-node pulse-9" cx="760" cy="500" r="6" />
-          <circle class="bg-node pulse-10" cx="850" cy="70" r="6" />
-          <circle class="bg-node pulse-11" cx="1030" cy="210" r="6" />
-          <circle class="bg-node pulse-12" cx="930" cy="300" r="6" />
-
-          <!-- moving signal dots -->
-          <circle class="signal-dot dot-1" r="6" filter="url(#bgGlow)">
-            <animateMotion
-              dur="7s"
-              repeatCount="indefinite"
-              path="M120 170 H360 V110 H520 V240 H730 V150 H1040"
-            />
-          </circle>
-
-          <circle class="signal-dot dot-2" r="6" filter="url(#bgGlow)">
-            <animateMotion
-              dur="8.5s"
-              begin="1.2s"
-              repeatCount="indefinite"
-              path="M180 360 H430 V430 H620 V300 H860 V390 H1090"
-            />
-          </circle>
-
-          <circle class="signal-dot dot-3" r="6" filter="url(#bgGlow)">
-            <animateMotion
-              dur="9s"
-              begin="2.1s"
-              repeatCount="indefinite"
-              path="M90 540 H300 V470 H510 V590 H760 V500 H980"
-            />
-          </circle>
+          <circle class="bg-node pulse-1" cx="360" cy="90" r="8" />
+          <circle class="bg-node pulse-2" cx="560" cy="250" r="8" />
+          <circle class="bg-node pulse-3" cx="840" cy="120" r="8" />
+          <circle class="bg-node pulse-4" cx="420" cy="470" r="8" />
+          <circle class="bg-node pulse-5" cx="700" cy="310" r="8" />
+          <circle class="bg-node pulse-6" cx="980" cy="420" r="8" />
+          <circle class="bg-node pulse-7" cx="300" cy="500" r="8" />
+          <circle class="bg-node pulse-8" cx="560" cy="660" r="8" />
+          <circle class="bg-node pulse-9" cx="900" cy="540" r="8" />
+          <circle class="bg-node pulse-10" cx="980" cy="40" r="8" />
+          <circle class="bg-node pulse-11" cx="1200" cy="220" r="8" />
+          <circle class="bg-node pulse-12" cx="1090" cy="300" r="8" />
         </svg>
       </div>
 
@@ -350,6 +310,8 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
           }
         });
       },
