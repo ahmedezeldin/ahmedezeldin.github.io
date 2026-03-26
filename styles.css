@@ -71,7 +71,7 @@ a {
 .brand {
   font-size: 0.98rem;
   font-weight: 600;
-  letter-spacing: 0.01em;
+  letter-spacing: 0.08em;
 }
 
 .nav-links {
@@ -197,11 +197,12 @@ a {
 
 .hero-circuit-bg {
   position: absolute;
-  inset: 0;
+  inset: -4% -6% -4% 28%;
   z-index: 1;
   pointer-events: none;
   transition: transform 0.5s ease, opacity 0.9s ease;
   will-change: transform;
+  opacity: 0.42;
 }
 
 .circuit-bg-svg {
@@ -218,16 +219,16 @@ a {
 }
 
 .bg-trace.base {
-  stroke: rgba(137, 183, 255, 0.07);
-  stroke-width: 3;
+  stroke: rgba(137, 183, 255, 0.08);
+  stroke-width: 4;
 }
 
 .bg-trace.active {
-  stroke: rgba(137, 183, 255, 0.34);
-  stroke-width: 3;
-  stroke-dasharray: 48 500;
-  stroke-dashoffset: 548;
-  animation: bgSignalTravel 9s linear infinite;
+  stroke: rgba(137, 183, 255, 0.32);
+  stroke-width: 4;
+  stroke-dasharray: 90 700;
+  stroke-dashoffset: 790;
+  animation: bgSignalTravel 7.5s linear infinite;
 }
 
 .bg-trace.delay-1 { animation-delay: 0s; }
@@ -237,8 +238,8 @@ a {
 .bg-trace.delay-5 { animation-delay: 4.2s; }
 
 .bg-node {
-  fill: rgba(137, 183, 255, 0.45);
-  filter: drop-shadow(0 0 8px rgba(137, 183, 255, 0.16));
+  fill: rgba(137, 183, 255, 0.42);
+  filter: drop-shadow(0 0 10px rgba(137, 183, 255, 0.18));
 }
 
 .pulse-1 { animation: bgNodePulse 3.2s ease-in-out infinite; }
@@ -253,15 +254,6 @@ a {
 .pulse-10 { animation: bgNodePulse 3.2s ease-in-out 2.25s infinite; }
 .pulse-11 { animation: bgNodePulse 3.2s ease-in-out 2.5s infinite; }
 .pulse-12 { animation: bgNodePulse 3.2s ease-in-out 2.75s infinite; }
-
-.signal-dot {
-  fill: rgba(220, 236, 255, 0.9);
-  opacity: 0.9;
-}
-
-.dot-1 { filter: drop-shadow(0 0 14px rgba(137, 183, 255, 0.5)); }
-.dot-2 { filter: drop-shadow(0 0 14px rgba(137, 183, 255, 0.5)); }
-.dot-3 { filter: drop-shadow(0 0 14px rgba(137, 183, 255, 0.5)); }
 
 .hero-glow {
   position: absolute;
@@ -583,8 +575,7 @@ a {
 }
 
 @keyframes ambientFloat {
-  0%,
-  100% {
+  0%, 100% {
     transform: translate(0, 0) scale(1);
   }
   50% {
@@ -594,7 +585,7 @@ a {
 
 @keyframes bgSignalTravel {
   0% {
-    stroke-dashoffset: 548;
+    stroke-dashoffset: 790;
   }
   100% {
     stroke-dashoffset: 0;
@@ -602,8 +593,7 @@ a {
 }
 
 @keyframes bgNodePulse {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0.22;
     transform: scale(1);
   }
@@ -629,7 +619,8 @@ a {
   }
 
   .hero-circuit-bg {
-    opacity: 0.55 !important;
+    inset: 8% -20% -2% 10%;
+    opacity: 0.62 !important;
   }
 }
 
