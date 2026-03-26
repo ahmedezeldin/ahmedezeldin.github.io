@@ -316,31 +316,34 @@ a {
   position: relative;
   display: flex;
   align-items: center;
+  gap: 0.65rem;
   min-height: 28px;
-  padding-left: 1.45rem;
+  transition: transform 0.25s ease;
 }
 
 .section-connector {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 16px;
+  width: 18px;
   height: 2px;
-  background: rgba(137, 183, 255, 0.12);
-  transform: translateY(-50%);
-  transition: width 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+  background: rgba(137, 183, 255, 0.10);
+  transition:
+    width 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+  opacity: 0.75;
 }
 
 .section-node {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 999px;
-  background: rgba(137, 183, 255, 0.24);
-  transform: translate(-50%, -50%);
-  transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  background: rgba(137, 183, 255, 0.18);
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    opacity 0.25s ease;
+  opacity: 0.8;
 }
 
 .section-label {
@@ -348,24 +351,36 @@ a {
   font-size: 0.9rem;
   text-transform: uppercase;
   letter-spacing: 0.16em;
-  transition: color 0.25s ease, transform 0.25s ease;
+  transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+  opacity: 0.86;
 }
 
 .section-label-wrap.is-active .section-connector {
-  width: 26px;
-  background: rgba(137, 183, 255, 0.55);
-  box-shadow: 0 0 12px rgba(137, 183, 255, 0.18);
+  width: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(137, 183, 255, 0.18),
+    rgba(137, 183, 255, 0.72)
+  );
+  box-shadow: 0 0 14px rgba(137, 183, 255, 0.18);
+  opacity: 1;
+  animation: connectorPulse 2.6s ease-in-out infinite;
 }
 
 .section-label-wrap.is-active .section-node {
   background: rgba(137, 183, 255, 0.95);
-  box-shadow: 0 0 14px rgba(137, 183, 255, 0.30);
-  transform: translate(-50%, -50%) scale(1.18);
+  box-shadow:
+    0 0 0 6px rgba(137, 183, 255, 0.08),
+    0 0 16px rgba(137, 183, 255, 0.30);
+  transform: scale(1.22);
+  opacity: 1;
+  animation: activeNodePulse 2.6s ease-in-out infinite;
 }
 
 .section-label-wrap.is-active .section-label {
   color: rgba(232, 242, 255, 0.95);
   transform: translateX(2px);
+  opacity: 1;
 }
 
 .section-content h2 {
@@ -659,6 +674,32 @@ a {
   50% {
     opacity: 0.55;
     transform: scale(1.12);
+  }
+}
+
+@keyframes activeNodePulse {
+  0%, 100% {
+    transform: scale(1.18);
+    box-shadow:
+      0 0 0 6px rgba(137, 183, 255, 0.06),
+      0 0 14px rgba(137, 183, 255, 0.24);
+  }
+  50% {
+    transform: scale(1.3);
+    box-shadow:
+      0 0 0 10px rgba(137, 183, 255, 0.10),
+      0 0 20px rgba(137, 183, 255, 0.34);
+  }
+}
+
+@keyframes connectorPulse {
+  0%, 100% {
+    opacity: 0.85;
+    box-shadow: 0 0 10px rgba(137, 183, 255, 0.14);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 16px rgba(137, 183, 255, 0.24);
   }
 }
 
