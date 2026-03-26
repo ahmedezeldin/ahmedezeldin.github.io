@@ -39,7 +39,7 @@ body.loaded .hero h1,
 body.loaded .hero-title,
 body.loaded .hero-subtext,
 body.loaded .hero-actions,
-body.loaded .hero-circuit {
+body.loaded .hero-circuit-bg {
   opacity: 1;
   transform: translateY(0);
 }
@@ -135,7 +135,7 @@ a {
 .hero-title,
 .hero-subtext,
 .hero-actions,
-.hero-circuit {
+.hero-circuit-bg {
   opacity: 0;
   transform: translateY(26px);
   transition:
@@ -143,12 +143,12 @@ a {
     transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.hero-kicker { transition-delay: 120ms; }
-.hero h1 { transition-delay: 240ms; }
-.hero-circuit { transition-delay: 340ms; }
-.hero-title { transition-delay: 420ms; }
-.hero-subtext { transition-delay: 540ms; }
-.hero-actions { transition-delay: 660ms; }
+.hero-circuit-bg { transition-delay: 120ms; }
+.hero-kicker { transition-delay: 220ms; }
+.hero h1 { transition-delay: 340ms; }
+.hero-title { transition-delay: 460ms; }
+.hero-subtext { transition-delay: 580ms; }
+.hero-actions { transition-delay: 700ms; }
 
 .hero-kicker {
   color: var(--accent);
@@ -158,75 +158,14 @@ a {
   margin-bottom: 1.25rem;
 }
 
-.hero-title-row {
-  display: flex;
-  align-items: center;
-  gap: 1.4rem;
-  flex-wrap: wrap;
-}
-
 .hero h1 {
   margin: 0;
   max-width: 920px;
   font-size: clamp(3.35rem, 9vw, 7.35rem);
   line-height: 0.94;
   letter-spacing: -0.055em;
-}
-
-.hero-circuit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 280px;
-  max-width: 100%;
-  flex: 0 0 auto;
-}
-
-.circuit-svg {
-  width: 100%;
-  height: auto;
-  overflow: visible;
-}
-
-.circuit-path {
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.base-path {
-  stroke: rgba(137, 183, 255, 0.16);
-  stroke-width: 2.1;
-}
-
-.overlay-path {
-  stroke: rgba(137, 183, 255, 0.65);
-  stroke-width: 2.1;
-  stroke-dasharray: 18 220;
-  stroke-dashoffset: 0;
-  animation: circuitTravel 4.2s linear infinite;
-}
-
-.circuit-node {
-  fill: #89b7ff;
-  opacity: 0.85;
-  filter: drop-shadow(0 0 7px rgba(137, 183, 255, 0.38));
-  animation: nodePulse 3.2s ease-in-out infinite;
-}
-
-.node-1 { animation-delay: 0s; }
-.node-2 { animation-delay: 0.4s; }
-.node-3 { animation-delay: 0.8s; }
-.node-4 { animation-delay: 1.2s; }
-
-.circuit-pulse {
-  fill: #dcecff;
-  opacity: 0.95;
-}
-
-.circuit-pulse-glow {
-  fill: rgba(137, 183, 255, 0.33);
-  opacity: 0.75;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-title {
@@ -234,6 +173,8 @@ a {
   max-width: 760px;
   font-size: clamp(1.15rem, 2vw, 1.62rem);
   color: #dbe4ef;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-subtext {
@@ -241,6 +182,8 @@ a {
   max-width: 720px;
   color: var(--muted);
   font-size: 1.06rem;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-actions {
@@ -248,7 +191,77 @@ a {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
+  position: relative;
+  z-index: 2;
 }
+
+.hero-circuit-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.9s ease;
+  will-change: transform;
+}
+
+.circuit-bg-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.bg-trace {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.bg-trace.base {
+  stroke: rgba(137, 183, 255, 0.07);
+  stroke-width: 3;
+}
+
+.bg-trace.active {
+  stroke: rgba(137, 183, 255, 0.34);
+  stroke-width: 3;
+  stroke-dasharray: 48 500;
+  stroke-dashoffset: 548;
+  animation: bgSignalTravel 9s linear infinite;
+}
+
+.bg-trace.delay-1 { animation-delay: 0s; }
+.bg-trace.delay-2 { animation-delay: 1.2s; }
+.bg-trace.delay-3 { animation-delay: 2.2s; }
+.bg-trace.delay-4 { animation-delay: 3s; }
+.bg-trace.delay-5 { animation-delay: 4.2s; }
+
+.bg-node {
+  fill: rgba(137, 183, 255, 0.45);
+  filter: drop-shadow(0 0 8px rgba(137, 183, 255, 0.16));
+}
+
+.pulse-1 { animation: bgNodePulse 3.2s ease-in-out infinite; }
+.pulse-2 { animation: bgNodePulse 3.2s ease-in-out 0.25s infinite; }
+.pulse-3 { animation: bgNodePulse 3.2s ease-in-out 0.5s infinite; }
+.pulse-4 { animation: bgNodePulse 3.2s ease-in-out 0.75s infinite; }
+.pulse-5 { animation: bgNodePulse 3.2s ease-in-out 1s infinite; }
+.pulse-6 { animation: bgNodePulse 3.2s ease-in-out 1.25s infinite; }
+.pulse-7 { animation: bgNodePulse 3.2s ease-in-out 1.5s infinite; }
+.pulse-8 { animation: bgNodePulse 3.2s ease-in-out 1.75s infinite; }
+.pulse-9 { animation: bgNodePulse 3.2s ease-in-out 2s infinite; }
+.pulse-10 { animation: bgNodePulse 3.2s ease-in-out 2.25s infinite; }
+.pulse-11 { animation: bgNodePulse 3.2s ease-in-out 2.5s infinite; }
+.pulse-12 { animation: bgNodePulse 3.2s ease-in-out 2.75s infinite; }
+
+.signal-dot {
+  fill: rgba(220, 236, 255, 0.9);
+  opacity: 0.9;
+}
+
+.dot-1 { filter: drop-shadow(0 0 14px rgba(137, 183, 255, 0.5)); }
+.dot-2 { filter: drop-shadow(0 0 14px rgba(137, 183, 255, 0.5)); }
+.dot-3 { filter: drop-shadow(0 0 14px rgba(137, 183, 255, 0.5)); }
 
 .hero-glow {
   position: absolute;
@@ -263,6 +276,7 @@ a {
   transition: transform 0.5s ease;
   will-change: transform;
   animation: ambientFloat 9s ease-in-out infinite;
+  z-index: 0;
 }
 
 .hero-grid {
@@ -277,6 +291,7 @@ a {
   opacity: 0.22;
   transition: transform 0.5s ease;
   will-change: transform;
+  z-index: 0;
 }
 
 .section {
@@ -577,36 +592,24 @@ a {
   }
 }
 
-@keyframes circuitTravel {
+@keyframes bgSignalTravel {
   0% {
-    stroke-dashoffset: 240;
+    stroke-dashoffset: 548;
   }
   100% {
     stroke-dashoffset: 0;
   }
 }
 
-@keyframes nodePulse {
+@keyframes bgNodePulse {
   0%,
   100% {
-    opacity: 0.45;
+    opacity: 0.22;
     transform: scale(1);
   }
   50% {
-    opacity: 1;
-    transform: scale(1.16);
-  }
-}
-
-@media (max-width: 980px) {
-  .hero-title-row {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .hero-circuit {
-    width: 220px;
+    opacity: 0.75;
+    transform: scale(1.18);
   }
 }
 
@@ -623,6 +626,10 @@ a {
   .project-grid,
   .project-detail {
     grid-template-columns: 1fr;
+  }
+
+  .hero-circuit-bg {
+    opacity: 0.55 !important;
   }
 }
 
@@ -658,8 +665,8 @@ a {
     font-size: 1rem;
   }
 
-  .hero-circuit {
-    width: 180px;
+  .hero-circuit-bg {
+    opacity: 0.4 !important;
   }
 
   .info-card,
