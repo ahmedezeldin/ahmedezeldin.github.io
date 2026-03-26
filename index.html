@@ -31,37 +31,46 @@
     </nav>
   </header>
 
+  <div class="side-circuit" aria-hidden="true">
+    <svg viewBox="0 0 220 1000" class="side-circuit-svg">
+      <!-- spine -->
+      <path class="spine-base" d="M110 40 V930" />
+      <path class="spine-active" id="spineActive" d="M110 40 V930" />
+
+      <!-- branches -->
+      <path class="branch branch-about" d="M110 180 H155" />
+      <path class="branch branch-education" d="M110 320 H170" />
+      <path class="branch branch-project" d="M110 470 H160" />
+      <path class="branch branch-experience" d="M110 620 H172" />
+      <path class="branch branch-skills" d="M110 770 H158" />
+      <path class="branch branch-contact" d="M110 910 H168" />
+
+      <!-- nodes -->
+      <circle class="node node-about" cx="110" cy="180" r="8" />
+      <circle class="node node-education" cx="110" cy="320" r="8" />
+      <circle class="node node-project" cx="110" cy="470" r="8" />
+      <circle class="node node-experience" cx="110" cy="620" r="8" />
+      <circle class="node node-skills" cx="110" cy="770" r="8" />
+      <circle class="node node-contact" cx="110" cy="910" r="8" />
+
+      <!-- active halo -->
+      <circle class="active-halo" id="activeHalo" cx="110" cy="180" r="16" />
+
+      <!-- labels -->
+      <text class="circuit-label label-about" x="178" y="185">About</text>
+      <text class="circuit-label label-education" x="178" y="325">Education</text>
+      <text class="circuit-label label-project" x="178" y="475">Project</text>
+      <text class="circuit-label label-experience" x="178" y="625">Experience</text>
+      <text class="circuit-label label-skills" x="178" y="775">Skills</text>
+      <text class="circuit-label label-contact" x="178" y="915">Contact</text>
+
+      <!-- moving signal -->
+      <circle class="signal-dot" id="signalDot" cx="110" cy="180" r="6" />
+    </svg>
+  </div>
+
   <main id="top">
-    <section class="hero">
-      <div class="hero-circuit-bg" aria-hidden="true">
-        <svg viewBox="0 0 1400 800" class="circuit-bg-svg">
-          <path class="bg-trace base" d="M80 180 H360 V90 H560 V250 H840 V120 H1260" />
-          <path class="bg-trace base" d="M140 380 H420 V470 H700 V310 H980 V420 H1320" />
-          <path class="bg-trace base" d="M60 610 H300 V500 H560 V660 H900 V540 H1220" />
-          <path class="bg-trace base" d="M760 70 V170 H980 V40 H1200 V220" />
-          <path class="bg-trace base" d="M880 250 V360 H1090 V300 H1320" />
-
-          <path class="bg-trace active delay-1" d="M80 180 H360 V90 H560 V250 H840 V120 H1260" />
-          <path class="bg-trace active delay-2" d="M140 380 H420 V470 H700 V310 H980 V420 H1320" />
-          <path class="bg-trace active delay-3" d="M60 610 H300 V500 H560 V660 H900 V540 H1220" />
-          <path class="bg-trace active delay-4" d="M760 70 V170 H980 V40 H1200 V220" />
-          <path class="bg-trace active delay-5" d="M880 250 V360 H1090 V300 H1320" />
-
-          <circle class="bg-node pulse-1" cx="360" cy="90" r="8" />
-          <circle class="bg-node pulse-2" cx="560" cy="250" r="8" />
-          <circle class="bg-node pulse-3" cx="840" cy="120" r="8" />
-          <circle class="bg-node pulse-4" cx="420" cy="470" r="8" />
-          <circle class="bg-node pulse-5" cx="700" cy="310" r="8" />
-          <circle class="bg-node pulse-6" cx="980" cy="420" r="8" />
-          <circle class="bg-node pulse-7" cx="300" cy="500" r="8" />
-          <circle class="bg-node pulse-8" cx="560" cy="660" r="8" />
-          <circle class="bg-node pulse-9" cx="900" cy="540" r="8" />
-          <circle class="bg-node pulse-10" cx="980" cy="40" r="8" />
-          <circle class="bg-node pulse-11" cx="1200" cy="220" r="8" />
-          <circle class="bg-node pulse-12" cx="1090" cy="300" r="8" />
-        </svg>
-      </div>
-
+    <section class="hero hero-anchor" data-section="about">
       <div class="hero-inner">
         <p class="hero-kicker">Engineering • Systems • Disciplined Technical Growth</p>
 
@@ -86,17 +95,17 @@
       <div class="hero-grid" aria-hidden="true"></div>
     </section>
 
-    <section id="about" class="section reveal">
+    <section id="about" class="section reveal reveal-group section-anchor" data-section="about">
       <div class="section-shell">
         <div class="section-label">About</div>
         <div class="section-content narrow">
-          <h2>Focused on building the right foundation.</h2>
-          <p>
+          <h2 class="stagger">Focused on building the right foundation.</h2>
+          <p class="stagger">
             I’m an engineering transfer student currently studying at the University of Lethbridge.
             My focus is on developing the technical foundation, discipline, and practical mindset
             needed to grow into larger engineering opportunities over time.
           </p>
-          <p>
+          <p class="stagger">
             I’m especially interested in engineering design, infrastructure, and technology, with
             a strong emphasis on learning by doing. Through coursework, team projects, and
             structured work experience, I’m continuing to build skills in communication,
@@ -106,7 +115,7 @@
       </div>
     </section>
 
-    <section id="education" class="section reveal reveal-group">
+    <section id="education" class="section reveal reveal-group section-anchor" data-section="education">
       <div class="section-shell">
         <div class="section-label">Education</div>
         <div class="section-content">
@@ -144,7 +153,7 @@
       </div>
     </section>
 
-    <section id="project" class="section reveal reveal-group">
+    <section id="project" class="section reveal reveal-group section-anchor" data-section="project">
       <div class="section-shell">
         <div class="section-label">Featured Project</div>
         <div class="section-content">
@@ -209,7 +218,7 @@
       </div>
     </section>
 
-    <section id="experience" class="section reveal reveal-group">
+    <section id="experience" class="section reveal reveal-group section-anchor" data-section="experience">
       <div class="section-shell">
         <div class="section-label">Experience</div>
         <div class="section-content">
@@ -231,7 +240,7 @@
       </div>
     </section>
 
-    <section id="skills" class="section reveal reveal-group">
+    <section id="skills" class="section reveal reveal-group section-anchor" data-section="skills">
       <div class="section-shell">
         <div class="section-label">Skills</div>
         <div class="section-content">
@@ -253,7 +262,7 @@
       </div>
     </section>
 
-    <section id="contact" class="section reveal reveal-group">
+    <section id="contact" class="section reveal reveal-group section-anchor" data-section="contact">
       <div class="section-shell">
         <div class="section-label">Contact</div>
         <div class="section-content narrow">
@@ -328,30 +337,30 @@
     document.querySelectorAll(".reveal-group").forEach((group) => {
       const children = group.querySelectorAll(".stagger");
       children.forEach((child, index) => {
-        child.style.setProperty("--delay", `${index * 120}ms`);
+        child.style.setProperty("--delay", `${index * 110}ms`);
       });
     });
 
     const hero = document.querySelector(".hero");
     const heroGlow = document.querySelector(".hero-glow");
     const heroGrid = document.querySelector(".hero-grid");
-    const heroCircuitBg = document.querySelector(".hero-circuit-bg");
+    const sideCircuit = document.querySelector(".side-circuit");
 
-    if (hero && heroGlow && heroGrid && heroCircuitBg) {
+    if (hero && heroGlow && heroGrid && sideCircuit) {
       hero.addEventListener("mousemove", (e) => {
         const rect = hero.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
         const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-        heroGlow.style.transform = `translate(${x * 28}px, ${y * 24}px) scale(1.02)`;
-        heroGrid.style.transform = `translate(${x * 12}px, ${y * 10}px)`;
-        heroCircuitBg.style.transform = `translate(${x * 18}px, ${y * 14}px) scale(1.01)`;
+        heroGlow.style.transform = `translate(${x * 22}px, ${y * 18}px) scale(1.02)`;
+        heroGrid.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
+        sideCircuit.style.transform = `translateY(-50%) translateX(${x * 5}px)`;
       });
 
       hero.addEventListener("mouseleave", () => {
         heroGlow.style.transform = "translate(0, 0) scale(1)";
         heroGrid.style.transform = "translate(0, 0)";
-        heroCircuitBg.style.transform = "translate(0, 0) scale(1)";
+        sideCircuit.style.transform = "translateY(-50%) translateX(0)";
       });
     }
 
@@ -375,6 +384,64 @@
         card.style.transform = "";
       });
     });
+
+    const sectionMap = {
+      about: 180,
+      education: 320,
+      project: 470,
+      experience: 620,
+      skills: 770,
+      contact: 910
+    };
+
+    const orderedSections = ["about", "education", "project", "experience", "skills", "contact"];
+    const activeHalo = document.getElementById("activeHalo");
+    const signalDot = document.getElementById("signalDot");
+    const spineActive = document.getElementById("spineActive");
+    const sectionAnchors = document.querySelectorAll(".section-anchor");
+
+    function setActiveSection(name) {
+      const y = sectionMap[name] || 180;
+
+      activeHalo.setAttribute("cy", y);
+      signalDot.setAttribute("cy", y);
+
+      document.querySelectorAll(".node, .branch, .circuit-label").forEach((el) => {
+        el.classList.remove("is-active");
+      });
+
+      const node = document.querySelector(`.node-${name}`);
+      const branch = document.querySelector(`.branch-${name}`);
+      const label = document.querySelector(`.label-${name}`);
+
+      if (node) node.classList.add("is-active");
+      if (branch) branch.classList.add("is-active");
+      if (label) label.classList.add("is-active");
+
+      const targetY = Math.max(40, y);
+      spineActive.setAttribute("d", `M110 40 V${targetY}`);
+    }
+
+    function detectActiveSection() {
+      let bestSection = "about";
+      let bestDistance = Infinity;
+      const viewportCenter = window.innerHeight * 0.42;
+
+      sectionAnchors.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top - viewportCenter);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestSection = section.dataset.section;
+        }
+      });
+
+      setActiveSection(bestSection);
+    }
+
+    window.addEventListener("scroll", detectActiveSection, { passive: true });
+    window.addEventListener("resize", detectActiveSection);
+    detectActiveSection();
   </script>
 </body>
 </html>
