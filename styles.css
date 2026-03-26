@@ -316,28 +316,30 @@ a {
   position: relative;
   display: flex;
   align-items: center;
-  gap: 0.65rem;
   min-height: 28px;
   transition: transform 0.25s ease;
 }
 
 .section-connector {
-  width: 18px;
+  width: 26px;
   height: 2px;
-  background: rgba(137, 183, 255, 0.10);
+  background: rgba(137, 183, 255, 0.12);
+  margin-right: -1px;
   transition:
-    width 0.25s ease,
     background 0.25s ease,
     box-shadow 0.25s ease,
+    width 0.25s ease,
     opacity 0.25s ease;
   opacity: 0.75;
 }
 
 .section-node {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   border-radius: 999px;
-  background: rgba(137, 183, 255, 0.18);
+  background: rgba(137, 183, 255, 0.22);
+  flex: 0 0 8px;
+  margin-right: 0.65rem;
   transition:
     background 0.25s ease,
     box-shadow 0.25s ease,
@@ -356,7 +358,7 @@ a {
 }
 
 .section-label-wrap.is-active .section-connector {
-  width: 30px;
+  width: 34px;
   background: linear-gradient(
     90deg,
     rgba(137, 183, 255, 0.18),
