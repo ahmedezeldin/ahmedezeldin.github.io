@@ -38,7 +38,8 @@ body.loaded .hero-kicker,
 body.loaded .hero h1,
 body.loaded .hero-title,
 body.loaded .hero-subtext,
-body.loaded .hero-actions {
+body.loaded .hero-actions,
+body.loaded .hero-circuit {
   opacity: 1;
   transform: translateY(0);
 }
@@ -133,7 +134,8 @@ a {
 .hero h1,
 .hero-title,
 .hero-subtext,
-.hero-actions {
+.hero-actions,
+.hero-circuit {
   opacity: 0;
   transform: translateY(26px);
   transition:
@@ -143,9 +145,10 @@ a {
 
 .hero-kicker { transition-delay: 120ms; }
 .hero h1 { transition-delay: 240ms; }
-.hero-title { transition-delay: 360ms; }
-.hero-subtext { transition-delay: 480ms; }
-.hero-actions { transition-delay: 600ms; }
+.hero-circuit { transition-delay: 340ms; }
+.hero-title { transition-delay: 420ms; }
+.hero-subtext { transition-delay: 540ms; }
+.hero-actions { transition-delay: 660ms; }
 
 .hero-kicker {
   color: var(--accent);
@@ -155,12 +158,75 @@ a {
   margin-bottom: 1.25rem;
 }
 
+.hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
+}
+
 .hero h1 {
   margin: 0;
   max-width: 920px;
   font-size: clamp(3.35rem, 9vw, 7.35rem);
   line-height: 0.94;
   letter-spacing: -0.055em;
+}
+
+.hero-circuit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 280px;
+  max-width: 100%;
+  flex: 0 0 auto;
+}
+
+.circuit-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.circuit-path {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.base-path {
+  stroke: rgba(137, 183, 255, 0.16);
+  stroke-width: 2.1;
+}
+
+.overlay-path {
+  stroke: rgba(137, 183, 255, 0.65);
+  stroke-width: 2.1;
+  stroke-dasharray: 18 220;
+  stroke-dashoffset: 0;
+  animation: circuitTravel 4.2s linear infinite;
+}
+
+.circuit-node {
+  fill: #89b7ff;
+  opacity: 0.85;
+  filter: drop-shadow(0 0 7px rgba(137, 183, 255, 0.38));
+  animation: nodePulse 3.2s ease-in-out infinite;
+}
+
+.node-1 { animation-delay: 0s; }
+.node-2 { animation-delay: 0.4s; }
+.node-3 { animation-delay: 0.8s; }
+.node-4 { animation-delay: 1.2s; }
+
+.circuit-pulse {
+  fill: #dcecff;
+  opacity: 0.95;
+}
+
+.circuit-pulse-glow {
+  fill: rgba(137, 183, 255, 0.33);
+  opacity: 0.75;
 }
 
 .hero-title {
@@ -511,6 +577,39 @@ a {
   }
 }
 
+@keyframes circuitTravel {
+  0% {
+    stroke-dashoffset: 240;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes nodePulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.16);
+  }
+}
+
+@media (max-width: 980px) {
+  .hero-title-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .hero-circuit {
+    width: 220px;
+  }
+}
+
 @media (max-width: 900px) {
   .section-shell {
     grid-template-columns: 1fr;
@@ -557,6 +656,10 @@ a {
 
   .hero-subtext {
     font-size: 1rem;
+  }
+
+  .hero-circuit {
+    width: 180px;
   }
 
   .info-card,
