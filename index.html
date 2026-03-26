@@ -337,128 +337,130 @@
   </footer>
 
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
 
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-        const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-        menuToggle.setAttribute("aria-expanded", String(!expanded));
-      });
-
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("open");
-          menuToggle.setAttribute("aria-expanded", "false");
-        });
-      });
-    }
-
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
     });
 
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          } else {
-            entry.target.classList.remove("visible");
-          }
-        });
-      },
-      {
-        threshold: 0.14,
-        rootMargin: "0px 0px -40px 0px"
-      }
-    );
-
-    document.querySelectorAll(".reveal, .reveal-group").forEach((el) => {
-      revealObserver.observe(el);
-    });
-
-    document.querySelectorAll(".reveal-group").forEach((group) => {
-      const children = group.querySelectorAll(".stagger");
-      children.forEach((child, index) => {
-        child.style.setProperty("--delay", `${index * 110}ms`);
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
       });
     });
+  }
 
-    const hero = document.querySelector(".hero");
-    const heroGlow = document.querySelector(".hero-glow");
-    const heroGrid = document.querySelector(".hero-grid");
-    const heroCircuitBg = document.querySelector(".hero-circuit-bg");
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+  });
 
-    if (hero && heroGlow && heroGrid && heroCircuitBg) {
-      hero.addEventListener("mousemove", (e) => {
-        const rect = hero.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width - 0.5;
-        const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-        heroGlow.style.transform = `translate(${x * 22}px, ${y * 18}px) scale(1.02)`;
-        heroGrid.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
-        heroCircuitBg.style.transform = `translate(${x * 10}px, ${y * 8}px) scale(1.01)`;
-      });
-
-      hero.addEventListener("mouseleave", () => {
-        heroGlow.style.transform = "translate(0, 0) scale(1)";
-        heroGrid.style.transform = "translate(0, 0)";
-        heroCircuitBg.style.transform = "translate(0, 0) scale(1)";
-      });
-    }
-
-    const tiltCards = document.querySelectorAll(".info-card, .project-card, .mini-card, .project-detail-block");
-
-    tiltCards.forEach((card) => {
-      card.addEventListener("mousemove", (e) => {
-        if (window.innerWidth < 900) return;
-
-        const rect = card.getBoundingClientRect();
-        const x = (e.clientX - rect.left) / rect.width;
-        const y = (e.clientY - rect.top) / rect.height;
-
-        const rotateY = (x - 0.5) * 4;
-        const rotateX = (0.5 - y) * 4;
-
-        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-      });
-
-      card.addEventListener("mouseleave", () => {
-        card.style.transform = "";
-      });
-    });
-
-    const sectionAnchors = document.querySelectorAll(".section-anchor");
-
-    function detectActiveSection() {
-      let bestSection = null;
-      let bestDistance = Infinity;
-      const viewportCenter = window.innerHeight * 0.42;
-
-      sectionAnchors.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        const distance = Math.abs(rect.top - viewportCenter);
-        if (distance < bestDistance) {
-          bestDistance = distance;
-          bestSection = section;
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        } else {
+          entry.target.classList.remove("visible");
         }
       });
-
-      document.querySelectorAll(".section-label-wrap").forEach((wrap) => {
-        wrap.classList.remove("is-active");
-      });
-
-      if (bestSection) {
-        const wrap = bestSection.querySelector(".section-label-wrap");
-        if (wrap) wrap.classList.add("is-active");
-      }
+    },
+    {
+      threshold: 0.14,
+      rootMargin: "0px 0px -40px 0px"
     }
+  );
 
-    window.addEventListener("scroll", detectActiveSection, { passive: true });
-    window.addEventListener("resize", detectActiveSection);
-    detectActiveSection();
-  </script>
+  document.querySelectorAll(".reveal, .reveal-group").forEach((el) => {
+    revealObserver.observe(el);
+  });
+
+  document.querySelectorAll(".reveal-group").forEach((group) => {
+    const children = group.querySelectorAll(".stagger");
+    children.forEach((child, index) => {
+      child.style.setProperty("--delay", `${index * 110}ms`);
+    });
+  });
+
+  const hero = document.querySelector(".hero");
+  const heroGlow = document.querySelector(".hero-glow");
+  const heroGrid = document.querySelector(".hero-grid");
+  const pageCircuitBg = document.querySelector(".page-circuit-bg");
+
+  if (hero && heroGlow && heroGrid && pageCircuitBg) {
+    hero.addEventListener("mousemove", (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      heroGlow.style.transform = `translate(${x * 20}px, ${y * 16}px) scale(1.02)`;
+      heroGrid.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
+      pageCircuitBg.style.transform = `translate(${x * 4}px, ${y * 3}px)`;
+    });
+
+    hero.addEventListener("mouseleave", () => {
+      heroGlow.style.transform = "translate(0, 0) scale(1)";
+      heroGrid.style.transform = "translate(0, 0)";
+      pageCircuitBg.style.transform = "translate(0, 0)";
+    });
+  }
+
+  const tiltCards = document.querySelectorAll(".info-card, .project-card, .mini-card, .project-detail-block");
+
+  tiltCards.forEach((card) => {
+    card.addEventListener("mousemove", (e) => {
+      if (window.innerWidth < 900) return;
+
+      const rect = card.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width;
+      const y = (e.clientY - rect.top) / rect.height;
+
+      const rotateY = (x - 0.5) * 4;
+      const rotateX = (0.5 - y) * 4;
+
+      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+    });
+
+    card.addEventListener("mouseleave", () => {
+      card.style.transform = "";
+    });
+  });
+
+  const sectionAnchors = document.querySelectorAll(".section-anchor");
+
+  function setActiveSection(name) {
+    document.querySelectorAll(".section-label-wrap").forEach((wrap) => {
+      wrap.classList.remove("is-active");
+    });
+
+    const activeWrap = document.querySelector(`.section-anchor[data-section="${name}"] .section-label-wrap`);
+    if (activeWrap) activeWrap.classList.add("is-active");
+  }
+
+  function detectActiveSection() {
+    let bestSection = "about";
+    let bestDistance = Infinity;
+    const viewportCenter = window.innerHeight * 0.42;
+
+    sectionAnchors.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top - viewportCenter);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        bestSection = section.dataset.section;
+      }
+    });
+
+    setActiveSection(bestSection);
+  }
+
+  window.addEventListener("scroll", detectActiveSection, { passive: true });
+  window.addEventListener("resize", detectActiveSection);
+  detectActiveSection();
+</script>
 </body>
 </html>
