@@ -32,7 +32,7 @@
   </header>
 
   <main id="top">
-    <section class="hero reveal">
+    <section class="hero">
       <div class="hero-inner">
         <p class="hero-kicker">Engineering • Systems • Disciplined Technical Growth</p>
 
@@ -43,9 +43,8 @@
         </p>
 
         <p class="hero-subtext">
-          Built with discipline and focused on engineering design, technical foundations,
-          and practical problem solving — developing the skills, mindset, and experience
-          needed for larger opportunities ahead.
+          Built with discipline and focused on engineering systems, design, and technical growth
+          — developing the foundation for larger opportunities ahead.
         </p>
 
         <div class="hero-actions">
@@ -78,13 +77,13 @@
       </div>
     </section>
 
-    <section id="education" class="section reveal">
+    <section id="education" class="section reveal reveal-group">
       <div class="section-shell">
         <div class="section-label">Education</div>
         <div class="section-content">
-          <h2>Current academic path.</h2>
+          <h2 class="stagger">Current academic path.</h2>
 
-          <div class="info-card">
+          <div class="info-card stagger">
             <div class="card-topline">University of Lethbridge</div>
             <div class="card-title">Pre-Professional Engineering Transfer Program</div>
             <div class="card-meta">Lethbridge, Alberta • September 2025 – Present</div>
@@ -116,20 +115,20 @@
       </div>
     </section>
 
-    <section id="project" class="section reveal">
+    <section id="project" class="section reveal reveal-group">
       <div class="section-shell">
         <div class="section-label">Featured Project</div>
         <div class="section-content">
-          <h2>Medicine Cooler</h2>
+          <h2 class="stagger">Medicine Cooler</h2>
 
-          <div class="project-card">
+          <div class="project-card stagger">
             <p class="project-intro">
               A portable temperature-controlled medication storage concept designed to support
               safer transport and storage of temperature-sensitive medication such as insulin.
             </p>
 
             <div class="project-grid">
-              <div class="mini-card">
+              <div class="mini-card stagger">
                 <h3>Problem</h3>
                 <p>
                   Many medications must remain within a controlled temperature range to preserve
@@ -138,7 +137,7 @@
                 </p>
               </div>
 
-              <div class="mini-card">
+              <div class="mini-card stagger">
                 <h3>Design Goal</h3>
                 <p>
                   Create a lightweight, practical, and more budget-friendly alternative to
@@ -147,7 +146,7 @@
                 </p>
               </div>
 
-              <div class="mini-card">
+              <div class="mini-card stagger">
                 <h3>System Thinking</h3>
                 <p>
                   The concept combines cooling, control, power, and structural components —
@@ -158,7 +157,7 @@
             </div>
 
             <div class="project-detail">
-              <div class="project-detail-block">
+              <div class="project-detail-block stagger">
                 <h3>My Contribution</h3>
                 <p>
                   Contributed to design system development, enclosure and insulation planning,
@@ -167,7 +166,7 @@
                 </p>
               </div>
 
-              <div class="project-detail-block">
+              <div class="project-detail-block stagger">
                 <h3>What It Demonstrates</h3>
                 <p>
                   Engineering design process, systems thinking, practical problem solving,
@@ -181,13 +180,13 @@
       </div>
     </section>
 
-    <section id="experience" class="section reveal">
+    <section id="experience" class="section reveal reveal-group">
       <div class="section-shell">
         <div class="section-label">Experience</div>
         <div class="section-content">
-          <h2>Work experience that built discipline.</h2>
+          <h2 class="stagger">Work experience that built discipline.</h2>
 
-          <div class="info-card">
+          <div class="info-card stagger">
             <div class="card-topline">The Home Depot Canada</div>
             <div class="card-title">Sales Associate</div>
             <div class="card-meta">Calgary, Alberta • April 2025 – July 2025</div>
@@ -203,13 +202,13 @@
       </div>
     </section>
 
-    <section id="skills" class="section reveal">
+    <section id="skills" class="section reveal reveal-group">
       <div class="section-shell">
         <div class="section-label">Skills</div>
         <div class="section-content">
-          <h2>Core strengths.</h2>
+          <h2 class="stagger">Core strengths.</h2>
 
-          <div class="skills-wrap">
+          <div class="skills-wrap stagger">
             <span>Engineering Design</span>
             <span>Technical Communication</span>
             <span>Problem Solving</span>
@@ -225,17 +224,17 @@
       </div>
     </section>
 
-    <section id="contact" class="section reveal">
+    <section id="contact" class="section reveal reveal-group">
       <div class="section-shell">
         <div class="section-label">Contact</div>
         <div class="section-content narrow">
-          <h2>Connect.</h2>
-          <p>
+          <h2 class="stagger">Connect.</h2>
+          <p class="stagger">
             I’m continuing to build my engineering foundation through coursework, projects,
             and meaningful opportunities. You can reach me through the links below.
           </p>
 
-          <div class="contact-links">
+          <div class="contact-links stagger">
             <a href="mailto:ahmed.asaad703@gmail.com" class="btn btn-primary">Email</a>
             <a href="Ahmed_Ezeldin_Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Resume</a>
             <a
@@ -258,20 +257,26 @@
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", String(!expanded));
-    });
-
-    document.querySelectorAll(".nav-links a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!expanded));
       });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
     });
 
-    const observer = new IntersectionObserver(
+    const revealObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -279,10 +284,63 @@
           }
         });
       },
-      { threshold: 0.12 }
+      {
+        threshold: 0.14,
+        rootMargin: "0px 0px -40px 0px"
+      }
     );
 
-    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    document.querySelectorAll(".reveal, .reveal-group").forEach((el) => {
+      revealObserver.observe(el);
+    });
+
+    document.querySelectorAll(".reveal-group").forEach((group) => {
+      const children = group.querySelectorAll(".stagger");
+      children.forEach((child, index) => {
+        child.style.setProperty("--delay", `${index * 120}ms`);
+      });
+    });
+
+    const hero = document.querySelector(".hero");
+    const heroGlow = document.querySelector(".hero-glow");
+    const heroGrid = document.querySelector(".hero-grid");
+
+    if (hero && heroGlow && heroGrid) {
+      hero.addEventListener("mousemove", (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        heroGlow.style.transform = `translate(${x * 28}px, ${y * 24}px) scale(1.02)`;
+        heroGrid.style.transform = `translate(${x * 12}px, ${y * 10}px)`;
+      });
+
+      hero.addEventListener("mouseleave", () => {
+        heroGlow.style.transform = "translate(0, 0) scale(1)";
+        heroGrid.style.transform = "translate(0, 0)";
+      });
+    }
+
+    const tiltCards = document.querySelectorAll(".info-card, .project-card, .mini-card, .project-detail-block");
+
+    tiltCards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        if (window.innerWidth < 900) return;
+
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+
+        const rotateY = (x - 0.5) * 4;
+        const rotateX = (0.5 - y) * 4;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+      });
+    });
   </script>
 </body>
 </html>
