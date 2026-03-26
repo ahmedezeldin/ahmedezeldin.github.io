@@ -33,69 +33,79 @@
 
   <main id="top">
     <section class="hero">
+      <div class="hero-circuit-bg" aria-hidden="true">
+        <svg viewBox="0 0 1200 700" class="circuit-bg-svg">
+          <defs>
+            <filter id="bgGlow">
+              <feGaussianBlur stdDeviation="4" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+          <!-- base traces -->
+          <path class="bg-trace base" d="M120 170 H360 V110 H520 V240 H730 V150 H1040" />
+          <path class="bg-trace base" d="M180 360 H430 V430 H620 V300 H860 V390 H1090" />
+          <path class="bg-trace base" d="M90 540 H300 V470 H510 V590 H760 V500 H980" />
+          <path class="bg-trace base" d="M640 90 V190 H850 V70 H1030 V210" />
+          <path class="bg-trace base" d="M760 260 V360 H930 V300 H1090" />
+
+          <!-- animated highlights -->
+          <path class="bg-trace active delay-1" d="M120 170 H360 V110 H520 V240 H730 V150 H1040" />
+          <path class="bg-trace active delay-2" d="M180 360 H430 V430 H620 V300 H860 V390 H1090" />
+          <path class="bg-trace active delay-3" d="M90 540 H300 V470 H510 V590 H760 V500 H980" />
+          <path class="bg-trace active delay-4" d="M640 90 V190 H850 V70 H1030 V210" />
+          <path class="bg-trace active delay-5" d="M760 260 V360 H930 V300 H1090" />
+
+          <!-- nodes -->
+          <circle class="bg-node pulse-1" cx="360" cy="110" r="6" />
+          <circle class="bg-node pulse-2" cx="520" cy="240" r="6" />
+          <circle class="bg-node pulse-3" cx="730" cy="150" r="6" />
+          <circle class="bg-node pulse-4" cx="430" cy="430" r="6" />
+          <circle class="bg-node pulse-5" cx="620" cy="300" r="6" />
+          <circle class="bg-node pulse-6" cx="860" cy="390" r="6" />
+          <circle class="bg-node pulse-7" cx="300" cy="470" r="6" />
+          <circle class="bg-node pulse-8" cx="510" cy="590" r="6" />
+          <circle class="bg-node pulse-9" cx="760" cy="500" r="6" />
+          <circle class="bg-node pulse-10" cx="850" cy="70" r="6" />
+          <circle class="bg-node pulse-11" cx="1030" cy="210" r="6" />
+          <circle class="bg-node pulse-12" cx="930" cy="300" r="6" />
+
+          <!-- moving signal dots -->
+          <circle class="signal-dot dot-1" r="6" filter="url(#bgGlow)">
+            <animateMotion
+              dur="7s"
+              repeatCount="indefinite"
+              path="M120 170 H360 V110 H520 V240 H730 V150 H1040"
+            />
+          </circle>
+
+          <circle class="signal-dot dot-2" r="6" filter="url(#bgGlow)">
+            <animateMotion
+              dur="8.5s"
+              begin="1.2s"
+              repeatCount="indefinite"
+              path="M180 360 H430 V430 H620 V300 H860 V390 H1090"
+            />
+          </circle>
+
+          <circle class="signal-dot dot-3" r="6" filter="url(#bgGlow)">
+            <animateMotion
+              dur="9s"
+              begin="2.1s"
+              repeatCount="indefinite"
+              path="M90 540 H300 V470 H510 V590 H760 V500 H980"
+            />
+          </circle>
+        </svg>
+      </div>
+
       <div class="hero-inner">
         <p class="hero-kicker">Engineering • Systems • Disciplined Technical Growth</p>
 
-        <div class="hero-title-row">
-          <h1>Ahmed Ezeldin</h1>
-
-          <div class="hero-circuit" aria-hidden="true">
-            <svg viewBox="0 0 260 120" class="circuit-svg">
-              <defs>
-                <linearGradient id="circuitLine" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stop-color="rgba(137,183,255,0.12)" />
-                  <stop offset="45%" stop-color="rgba(137,183,255,0.7)" />
-                  <stop offset="100%" stop-color="rgba(137,183,255,0.18)" />
-                </linearGradient>
-
-                <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="rgba(137,183,255,0.95)" />
-                  <stop offset="100%" stop-color="rgba(137,183,255,0.0)" />
-                </radialGradient>
-
-                <filter id="softGlow">
-                  <feGaussianBlur stdDeviation="2.4" result="blur" />
-                  <feMerge>
-                    <feMergeNode in="blur" />
-                    <feMergeNode in="SourceGraphic" />
-                  </feMerge>
-                </filter>
-              </defs>
-
-              <path
-                class="circuit-path base-path"
-                d="M10 60 H70 V32 H120 V88 H172 V48 H250"
-              />
-              <path
-                class="circuit-path overlay-path"
-                d="M10 60 H70 V32 H120 V88 H172 V48 H250"
-              />
-
-              <circle class="circuit-node node-1" cx="70" cy="32" r="4" />
-              <circle class="circuit-node node-2" cx="120" cy="88" r="4" />
-              <circle class="circuit-node node-3" cx="172" cy="48" r="4" />
-              <circle class="circuit-node node-4" cx="250" cy="48" r="4" />
-
-              <circle class="circuit-pulse" r="5">
-                <animateMotion
-                  dur="4.2s"
-                  repeatCount="indefinite"
-                  rotate="auto"
-                  path="M10 60 H70 V32 H120 V88 H172 V48 H250"
-                />
-              </circle>
-
-              <circle class="circuit-pulse-glow" r="10" filter="url(#softGlow)">
-                <animateMotion
-                  dur="4.2s"
-                  repeatCount="indefinite"
-                  rotate="auto"
-                  path="M10 60 H70 V32 H120 V88 H172 V48 H250"
-                />
-              </circle>
-            </svg>
-          </div>
-        </div>
+        <h1>Ahmed Ezeldin</h1>
 
         <p class="hero-title">
           Engineering Transfer Student at the University of Lethbridge
@@ -363,8 +373,9 @@
     const hero = document.querySelector(".hero");
     const heroGlow = document.querySelector(".hero-glow");
     const heroGrid = document.querySelector(".hero-grid");
+    const heroCircuitBg = document.querySelector(".hero-circuit-bg");
 
-    if (hero && heroGlow && heroGrid) {
+    if (hero && heroGlow && heroGrid && heroCircuitBg) {
       hero.addEventListener("mousemove", (e) => {
         const rect = hero.getBoundingClientRect();
         const x = (e.clientX - rect.left) / rect.width - 0.5;
@@ -372,11 +383,13 @@
 
         heroGlow.style.transform = `translate(${x * 28}px, ${y * 24}px) scale(1.02)`;
         heroGrid.style.transform = `translate(${x * 12}px, ${y * 10}px)`;
+        heroCircuitBg.style.transform = `translate(${x * 18}px, ${y * 14}px) scale(1.01)`;
       });
 
       hero.addEventListener("mouseleave", () => {
         heroGlow.style.transform = "translate(0, 0) scale(1)";
         heroGrid.style.transform = "translate(0, 0)";
+        heroCircuitBg.style.transform = "translate(0, 0) scale(1)";
       });
     }
 
