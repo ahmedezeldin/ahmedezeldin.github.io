@@ -36,7 +36,66 @@
       <div class="hero-inner">
         <p class="hero-kicker">Engineering • Systems • Disciplined Technical Growth</p>
 
-        <h1>Ahmed Ezeldin</h1>
+        <div class="hero-title-row">
+          <h1>Ahmed Ezeldin</h1>
+
+          <div class="hero-circuit" aria-hidden="true">
+            <svg viewBox="0 0 260 120" class="circuit-svg">
+              <defs>
+                <linearGradient id="circuitLine" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="rgba(137,183,255,0.12)" />
+                  <stop offset="45%" stop-color="rgba(137,183,255,0.7)" />
+                  <stop offset="100%" stop-color="rgba(137,183,255,0.18)" />
+                </linearGradient>
+
+                <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="rgba(137,183,255,0.95)" />
+                  <stop offset="100%" stop-color="rgba(137,183,255,0.0)" />
+                </radialGradient>
+
+                <filter id="softGlow">
+                  <feGaussianBlur stdDeviation="2.4" result="blur" />
+                  <feMerge>
+                    <feMergeNode in="blur" />
+                    <feMergeNode in="SourceGraphic" />
+                  </feMerge>
+                </filter>
+              </defs>
+
+              <path
+                class="circuit-path base-path"
+                d="M10 60 H70 V32 H120 V88 H172 V48 H250"
+              />
+              <path
+                class="circuit-path overlay-path"
+                d="M10 60 H70 V32 H120 V88 H172 V48 H250"
+              />
+
+              <circle class="circuit-node node-1" cx="70" cy="32" r="4" />
+              <circle class="circuit-node node-2" cx="120" cy="88" r="4" />
+              <circle class="circuit-node node-3" cx="172" cy="48" r="4" />
+              <circle class="circuit-node node-4" cx="250" cy="48" r="4" />
+
+              <circle class="circuit-pulse" r="5">
+                <animateMotion
+                  dur="4.2s"
+                  repeatCount="indefinite"
+                  rotate="auto"
+                  path="M10 60 H70 V32 H120 V88 H172 V48 H250"
+                />
+              </circle>
+
+              <circle class="circuit-pulse-glow" r="10" filter="url(#softGlow)">
+                <animateMotion
+                  dur="4.2s"
+                  repeatCount="indefinite"
+                  rotate="auto"
+                  path="M10 60 H70 V32 H120 V88 H172 V48 H250"
+                />
+              </circle>
+            </svg>
+          </div>
+        </div>
 
         <p class="hero-title">
           Engineering Transfer Student at the University of Lethbridge
