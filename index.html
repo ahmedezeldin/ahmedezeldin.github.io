@@ -3,85 +3,230 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmed Ezeldin | Actor • Producer • Entrepreneur</title>
-  <meta name="description" content="Official website of Ahmed Ezeldin — Actor, Producer, Entrepreneur." />
+  <title>Ahmed Ezeldin | Engineering Transfer Student</title>
+  <meta
+    name="description"
+    content="Ahmed Ezeldin is an Engineering Transfer Student at the University of Lethbridge, focused on technical growth, engineering design, and hands-on problem solving."
+  />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="hero">
-    <nav class="navbar">
-      <div class="logo">Ahmed Ezeldin</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#work">Work</a></li>
-        <li><a href="#vision">Vision</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#top" class="brand">Ahmed Ezeldin</a>
 
-    <div class="hero-content">
-      <p class="eyebrow">Official Website</p>
-      <h1>Ahmed Ezeldin</h1>
-      <p class="subtitle">Actor • Producer • Entrepreneur</p>
-      <p class="hero-text">
-        Building stories, brands, and bold creative ventures with a long-term vision for impact.
-      </p>
-      <a href="#contact" class="cta-button">Connect</a>
-    </div>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#project">Project</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
   </header>
 
-  <section id="about" class="section">
-    <div class="container">
-      <h2>About</h2>
-      <p>
-        I’m Ahmed Ezeldin — an actor, producer, and entrepreneur focused on building a career at the intersection of storytelling, media, and business. My mission is to create meaningful work, develop powerful brands, and grow projects that inspire at scale.
-      </p>
-    </div>
-  </section>
+  <main id="top">
+    <section class="hero reveal">
+      <div class="hero-inner">
+        <p class="hero-kicker">Engineering • Design • Technical Growth</p>
+        <h1>Ahmed Ezeldin</h1>
+        <p class="hero-title">Engineering Transfer Student at the University of Lethbridge</p>
+        <p class="hero-subtext">
+          Building a strong foundation in engineering, problem solving, and technical communication
+          through academic work, hands-on projects, and structured professional experience.
+        </p>
 
-  <section id="work" class="section alt">
-    <div class="container">
-      <h2>What I’m Building</h2>
-      <div class="cards">
-        <div class="card">
-          <h3>Acting</h3>
-          <p>Developing a long-term career in performance across film, theatre, and on-camera storytelling.</p>
-        </div>
-        <div class="card">
-          <h3>Production</h3>
-          <p>Creating cinematic content, trailers, and future original projects through a strong creative brand.</p>
-        </div>
-        <div class="card">
-          <h3>Business</h3>
-          <p>Building ventures that create freedom, scale, and long-term impact beyond the entertainment industry.</p>
+        <div class="hero-actions">
+          <a href="#experience" class="btn btn-primary">Explore Experience</a>
+          <a href="#contact" class="btn btn-secondary">Get in Touch</a>
         </div>
       </div>
-    </div>
-  </section>
 
-  <section id="vision" class="section">
-    <div class="container">
-      <h2>Vision</h2>
-      <p>
-        This is just the beginning. Over time, this platform will evolve into a home for my portfolio, creative projects, media ventures, collaborations, and future productions.
-      </p>
-    </div>
-  </section>
+      <div class="hero-glow" aria-hidden="true"></div>
+    </section>
 
-  <section id="contact" class="section alt">
-    <div class="container">
-      <h2>Contact</h2>
-      <p>For inquiries, collaborations, or opportunities, connect with me below.</p>
-      <div class="contact-links">
-        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
-        <a href="https://www.instagram.com" target="_blank">Instagram</a>
-        <a href="mailto:your@email.com">Email</a>
+    <section id="about" class="section reveal">
+      <div class="section-shell">
+        <div class="section-label">About</div>
+        <div class="section-content narrow">
+          <h2>Focused on building the right foundation.</h2>
+          <p>
+            I’m an engineering transfer student currently studying at the University of Lethbridge.
+            My focus is on developing the technical foundation, discipline, and practical mindset
+            needed to grow into larger engineering opportunities over time.
+          </p>
+          <p>
+            I’m especially interested in engineering design, infrastructure, and technology, with a
+            strong emphasis on learning by doing. Through coursework, team projects, and real-world
+            work experience, I’m continuing to build skills in communication, collaboration, and
+            problem solving.
+          </p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <section id="education" class="section reveal">
+      <div class="section-shell">
+        <div class="section-label">Education</div>
+        <div class="section-content">
+          <h2>Current academic path.</h2>
+
+          <div class="info-card">
+            <div class="card-topline">University of Lethbridge</div>
+            <div class="card-title">Pre-Professional Engineering Transfer Program</div>
+            <div class="card-meta">Lethbridge, Alberta • September 2025 – Present</div>
+            <p>
+              Currently completing engineering transfer studies while building a foundation in
+              mathematics, physics, chemistry, programming, and engineering design.
+            </p>
+            <p class="muted-line">
+              Expected transfer to the University of Alberta Faculty of Engineering: Fall 2026
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project" class="section reveal">
+      <div class="section-shell">
+        <div class="section-label">Featured Project</div>
+        <div class="section-content">
+          <h2>Medicine Cooler</h2>
+
+          <div class="project-card">
+            <p class="project-intro">
+              A design-focused engineering project centered on practical problem solving,
+              user needs, and clear technical communication.
+            </p>
+
+            <div class="project-grid">
+              <div class="mini-card">
+                <h3>Project Focus</h3>
+                <p>
+                  Developing a concept related to temperature-sensitive medication storage and transport,
+                  with an emphasis on real-world usability and design thinking.
+                </p>
+              </div>
+
+              <div class="mini-card">
+                <h3>What It Demonstrates</h3>
+                <p>
+                  Engineering design process, structured teamwork, communication, and the ability
+                  to turn an idea into a more organized technical concept.
+                </p>
+              </div>
+
+              <div class="mini-card">
+                <h3>My Growth Through It</h3>
+                <p>
+                  Strengthened my ability to think through constraints, contribute to team-based
+                  problem solving, and communicate technical ideas in a clearer, more professional way.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section reveal">
+      <div class="section-shell">
+        <div class="section-label">Experience</div>
+        <div class="section-content">
+          <h2>Work experience that built discipline.</h2>
+
+          <div class="info-card">
+            <div class="card-topline">The Home Depot Canada</div>
+            <div class="card-title">Sales Associate</div>
+            <div class="card-meta">Calgary, Alberta • April 2025 – July 2025</div>
+            <ul class="clean-list">
+              <li>Worked in a fast-paced retail environment supporting daily floor operations.</li>
+              <li>Assisted customers with product navigation and general inquiries.</li>
+              <li>Contributed to stocking, organization, and maintaining a strong customer experience.</li>
+              <li>Strengthened communication, teamwork, adaptability, and problem-solving under pressure.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section reveal">
+      <div class="section-shell">
+        <div class="section-label">Skills</div>
+        <div class="section-content">
+          <h2>Core strengths.</h2>
+
+          <div class="skills-wrap">
+            <span>Technical Communication</span>
+            <span>Team Collaboration</span>
+            <span>Problem Solving</span>
+            <span>Engineering Design</span>
+            <span>Adaptability</span>
+            <span>Structured Work Environments</span>
+            <span>Organization</span>
+            <span>Microsoft Office</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section reveal">
+      <div class="section-shell">
+        <div class="section-label">Contact</div>
+        <div class="section-content narrow">
+          <h2>Connect.</h2>
+          <p>
+            I’m continuing to build my engineering foundation through coursework, projects, and
+            meaningful opportunities. You can reach me through the links below.
+          </p>
+
+          <div class="contact-links">
+            <a href="mailto:ahmed.asaad703@gmail.com" class="btn btn-primary">Email</a>
+            <a href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="footer">
-    <p>© 2026 Ahmed Ezeldin. All rights reserved.</p>
+    <p>© 2026 Ahmed Ezeldin</p>
   </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
+    });
+
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
