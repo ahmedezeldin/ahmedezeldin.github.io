@@ -3,39 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmed Ezeldin | Engineering Transfer Student</title>
+  <title>Ahmed Ezeldin | Engineering Portfolio</title>
   <meta
     name="description"
-    content="Ahmed Ezeldin is an Engineering Transfer Student at the University of Lethbridge focused on engineering design, technical growth, and building a strong foundation through coursework, projects, and hands-on experience."
+    content="Ahmed Ezeldin — Engineering transfer student focused on systems, design, and disciplined technical growth."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="site-header">
-    <nav class="nav">
-      <a href="#top" class="brand">AE</a>
+  <div class="site-shell">
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#project">Project</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <main id="top">
-    <div class="page-rail" aria-hidden="true"></div>
-<svg class="connector-layer" id="connectorLayer" aria-hidden="true"></svg>
+    <!-- BACKGROUND CIRCUIT -->
     <div class="page-circuit-bg" aria-hidden="true">
-      <svg viewBox="0 0 1600 2800" class="page-circuit-svg" preserveAspectRatio="none">
+      <svg viewBox="0 0 1600 3000" class="page-circuit-svg" preserveAspectRatio="none">
         <defs>
           <filter id="circuitGlow">
             <feGaussianBlur stdDeviation="4" result="blur" />
@@ -46,121 +32,217 @@
           </filter>
         </defs>
 
-        <path class="trace base" d="M0 220 H230 V130 H520 V330 H860 V180 H1600" />
-        <path class="trace active d1" d="M0 220 H230 V130 H520 V330 H860 V180 H1600" />
+        <!-- MAIN ROUTE 1 -->
+        <path class="trace base" d="M0 220 H220 V120 H520 V340 H860 V180 H1600" />
+        <path class="trace active d1" d="M0 220 H220 V120 H520 V340 H860 V180 H1600" />
+        <circle class="trace-node" cx="220" cy="120" r="8" />
+        <circle class="trace-node" cx="520" cy="340" r="8" />
+        <circle class="trace-node" cx="860" cy="180" r="8" />
 
-        <path class="trace base" d="M0 560 H270 V720 H650 V560 H1040 V760 H1600" />
-        <path class="trace active d2" d="M0 560 H270 V720 H650 V560 H1040 V760 H1600" />
+        <!-- BRANCHES 1 -->
+        <path class="trace branch" d="M220 120 V300 H40" />
+        <path class="trace branch" d="M520 340 V560 H720" />
+        <path class="trace branch" d="M860 180 V360 H1060" />
+        <path class="trace branch" d="M1260 180 V60 H1460" />
 
-        <path class="trace base" d="M0 1080 H240 V930 H500 V1210 H850 V1020 H1600" />
-        <path class="trace active d3" d="M0 1080 H240 V930 H500 V1210 H850 V1020 H1600" />
+        <!-- MAIN ROUTE 2 -->
+        <path class="trace base" d="M0 620 H300 V820 H650 V610 H1040 V860 H1600" />
+        <path class="trace active d2" d="M0 620 H300 V820 H650 V610 H1040 V860 H1600" />
+        <circle class="trace-node" cx="300" cy="820" r="8" />
+        <circle class="trace-node" cx="650" cy="610" r="8" />
+        <circle class="trace-node" cx="1040" cy="860" r="8" />
 
-        <path class="trace base" d="M0 1490 H290 V1650 H680 V1450 H1080 V1640 H1600" />
-        <path class="trace active d4" d="M0 1490 H290 V1650 H680 V1450 H1080 V1640 H1600" />
+        <!-- BRANCHES 2 -->
+        <path class="trace branch" d="M300 820 V980 H120" />
+        <path class="trace branch" d="M650 610 V900 H840" />
+        <path class="trace branch" d="M1040 860 V650 H1280" />
+        <path class="trace branch" d="M1380 860 V1060 H1600" />
 
-        <path class="trace base" d="M0 1890 H250 V1760 H610 V2010 H970 V1830 H1600" />
-        <path class="trace active d5" d="M0 1890 H250 V1760 H610 V2010 H970 V1830 H1600" />
+        <!-- MAIN ROUTE 3 -->
+        <path class="trace base" d="M0 1080 H250 V930 H560 V1260 H920 V1040 H1600" />
+        <path class="trace active d3" d="M0 1080 H250 V930 H560 V1260 H920 V1040 H1600" />
+        <circle class="trace-node" cx="250" cy="930" r="8" />
+        <circle class="trace-node" cx="560" cy="1260" r="8" />
+        <circle class="trace-node" cx="920" cy="1040" r="8" />
 
-        <path class="trace base" d="M0 2230 H230 V2380 H590 V2190 H980 V2390 H1600" />
-        <path class="trace active d6" d="M0 2230 H230 V2380 H590 V2190 H980 V2390 H1600" />
+        <!-- BRANCHES 3 -->
+        <path class="trace branch" d="M250 930 V760 H80" />
+        <path class="trace branch" d="M560 1260 V1450 H760" />
+        <path class="trace branch" d="M920 1040 V1360 H1180" />
+        <path class="trace branch" d="M1320 1040 V860 H1500" />
 
-        <path class="trace base" d="M0 2520 H320 V2660 H720 V2470 H1120 V2310 H1600" />
-        <path class="trace active d7" d="M0 2520 H320 V2660 H720 V2470 H1120 V2310 H1600" />
+        <!-- MAIN ROUTE 4 -->
+        <path class="trace base" d="M0 1510 H340 V1710 H700 V1490 H1100 V1780 H1600" />
+        <path class="trace active d4" d="M0 1510 H340 V1710 H700 V1490 H1100 V1780 H1600" />
+        <circle class="trace-node" cx="340" cy="1710" r="8" />
+        <circle class="trace-node" cx="700" cy="1490" r="8" />
+        <circle class="trace-node" cx="1100" cy="1780" r="8" />
 
-        <circle class="cnode" cx="230" cy="130" r="8" />
-        <circle class="cnode" cx="520" cy="330" r="8" />
-        <circle class="cnode" cx="270" cy="720" r="8" />
-        <circle class="cnode" cx="650" cy="560" r="8" />
-        <circle class="cnode" cx="500" cy="1210" r="8" />
-        <circle class="cnode" cx="680" cy="1450" r="8" />
-        <circle class="cnode" cx="610" cy="2010" r="8" />
-        <circle class="cnode" cx="590" cy="2190" r="8" />
-        <circle class="cnode" cx="720" cy="2470" r="8" />
+        <!-- BRANCHES 4 -->
+        <path class="trace branch" d="M340 1710 V1900 H150" />
+        <path class="trace branch" d="M700 1490 V1290 H900" />
+        <path class="trace branch" d="M1100 1780 V1540 H1320" />
+        <path class="trace branch" d="M1450 1780 V1980 H1600" />
 
-        <circle class="signal" r="5" filter="url(#circuitGlow)">
-          <animateMotion dur="7.4s" repeatCount="indefinite" path="M0 220 H230 V130 H520 V330 H860 V180 H1600" />
+        <!-- MAIN ROUTE 5 -->
+        <path class="trace base" d="M0 2010 H280 V2210 H620 V1980 H980 V2270 H1600" />
+        <path class="trace active d5" d="M0 2010 H280 V2210 H620 V1980 H980 V2270 H1600" />
+        <circle class="trace-node" cx="280" cy="2210" r="8" />
+        <circle class="trace-node" cx="620" cy="1980" r="8" />
+        <circle class="trace-node" cx="980" cy="2270" r="8" />
+
+        <!-- BRANCHES 5 -->
+        <path class="trace branch" d="M280 2210 V2430 H100" />
+        <path class="trace branch" d="M620 1980 V1760 H820" />
+        <path class="trace branch" d="M980 2270 V2470 H1220" />
+        <path class="trace branch" d="M1360 2270 V2060 H1540" />
+
+        <!-- MAIN ROUTE 6 -->
+        <path class="trace base" d="M0 2480 H360 V2660 H760 V2420 H1160 V2740 H1600" />
+        <path class="trace active d6" d="M0 2480 H360 V2660 H760 V2420 H1160 V2740 H1600" />
+        <circle class="trace-node" cx="360" cy="2660" r="8" />
+        <circle class="trace-node" cx="760" cy="2420" r="8" />
+        <circle class="trace-node" cx="1160" cy="2740" r="8" />
+
+        <!-- BRANCHES 6 -->
+        <path class="trace branch" d="M360 2660 V2860 H180" />
+        <path class="trace branch" d="M760 2420 V2220 H960" />
+        <path class="trace branch" d="M1160 2740 V2520 H1380" />
+
+        <!-- FLOATERS / RANDOM ATMOSPHERE -->
+        <path class="trace branch faint" d="M1460 380 H1600" />
+        <path class="trace branch faint" d="M120 960 H260" />
+        <path class="trace branch faint" d="M1480 1360 H1600" />
+        <path class="trace branch faint" d="M80 1880 H240" />
+        <path class="trace branch faint" d="M1420 2420 H1600" />
+        <path class="trace branch faint" d="M200 2860 H340" />
+
+        <!-- MOVING SIGNALS -->
+        <circle class="signal s1" r="5" filter="url(#circuitGlow)">
+          <animateMotion dur="8s" repeatCount="indefinite" rotate="auto"
+            path="M0 220 H220 V120 H520 V340 H860 V180 H1600" />
         </circle>
-        <circle class="signal" r="5" filter="url(#circuitGlow)">
-          <animateMotion dur="8.8s" begin="1.2s" repeatCount="indefinite" path="M0 1490 H290 V1650 H680 V1450 H1080 V1640 H1600" />
+
+        <circle class="signal s2" r="4.5" filter="url(#circuitGlow)">
+          <animateMotion dur="9.5s" repeatCount="indefinite" rotate="auto"
+            path="M0 620 H300 V820 H650 V610 H1040 V860 H1600" />
         </circle>
-        <circle class="signal" r="5" filter="url(#circuitGlow)">
-          <animateMotion dur="9.2s" begin="2.3s" repeatCount="indefinite" path="M0 2520 H320 V2660 H720 V2470 H1120 V2310 H1600" />
+
+        <circle class="signal s3" r="5" filter="url(#circuitGlow)">
+          <animateMotion dur="10.5s" repeatCount="indefinite" rotate="auto"
+            path="M0 1080 H250 V930 H560 V1260 H920 V1040 H1600" />
+        </circle>
+
+        <circle class="signal s4" r="4.5" filter="url(#circuitGlow)">
+          <animateMotion dur="11s" repeatCount="indefinite" rotate="auto"
+            path="M0 1510 H340 V1710 H700 V1490 H1100 V1780 H1600" />
+        </circle>
+
+        <circle class="signal s5" r="5" filter="url(#circuitGlow)">
+          <animateMotion dur="9s" repeatCount="indefinite" rotate="auto"
+            path="M0 2010 H280 V2210 H620 V1980 H980 V2270 H1600" />
+        </circle>
+
+        <circle class="signal s6" r="4.5" filter="url(#circuitGlow)">
+          <animateMotion dur="12s" repeatCount="indefinite" rotate="auto"
+            path="M0 2480 H360 V2660 H760 V2420 H1160 V2740 H1600" />
         </circle>
       </svg>
     </div>
 
-    <div class="page-rail" aria-hidden="true"></div>
-
-    <svg class="connector-layer" id="connectorLayer" aria-hidden="true"></svg>
-
-    <section class="hero">
-      <div class="hero-inner">
-        <p class="hero-kicker">Engineering • Systems • Disciplined Technical Growth</p>
-        <h1>Ahmed Ezeldin</h1>
-        <p class="hero-title">Engineering Transfer Student at the University of Lethbridge</p>
-        <p class="hero-subtext">
-          Built with discipline and focused on engineering systems, design, and technical growth
-          — developing the foundation for larger opportunities ahead.
-        </p>
-
-        <div class="hero-actions">
-          <a href="#experience" class="btn btn-primary">Explore Experience</a>
-          <a href="Ahmed_Ezeldin_Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">View Resume</a>
-        </div>
+    <!-- NAV -->
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="#top" class="brand">AE</a>
+        <nav class="nav-links">
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#project">Project</a>
+          <a href="#experience">Experience</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
       </div>
+    </header>
 
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-grid" aria-hidden="true"></div>
-    </section>
-
-    <section id="about" class="section reveal section-anchor" data-section="about">
-      <div class="section-shell">
-        <div class="section-label-wrap">
-          <div class="section-node"></div>
-          <div class="section-label">About</div>
-        </div>
-        <div class="section-content narrow">
-          <h2>Focused on building the right foundation.</h2>
-          <p>
-            I’m an engineering transfer student currently studying at the University of Lethbridge.
-            My focus is on developing the technical foundation, discipline, and practical mindset
-            needed to grow into larger engineering opportunities over time.
-          </p>
-          <p>
-            I’m especially interested in engineering design, infrastructure, and technology, with
-            a strong emphasis on learning by doing. Through coursework, team projects, and
-            structured work experience, I’m continuing to build skills in communication,
-            collaboration, analysis, and problem solving.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="education" class="section reveal section-anchor" data-section="education">
-      <div class="section-shell">
-        <div class="section-label-wrap">
-          <div class="section-node"></div>
-          <div class="section-label">Education</div>
-        </div>
-        <div class="section-content">
-          <h2>Current academic path.</h2>
-          <div class="info-card">
-            <div class="card-topline">University of Lethbridge</div>
-            <div class="card-title">Pre-Professional Engineering Transfer Program</div>
-            <div class="card-meta">Lethbridge, Alberta • September 2025 – Present</div>
-            <p>
-              Currently completing engineering transfer studies while building a foundation in
-              mathematics, physics, chemistry, programming, engineering mechanics, design,
-              and technical communication.
+    <main id="top">
+      <!-- HERO -->
+      <section class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-copy reveal">
+            <p class="eyebrow">Engineering • Systems • Disciplined Technical Growth</p>
+            <h1>Ahmed Ezeldin</h1>
+            <h2>Engineering Transfer Student at the University of Lethbridge</h2>
+            <p class="hero-text">
+              Built with discipline and focused on engineering systems, design, and technical growth —
+              developing the foundation for larger opportunities ahead.
             </p>
-            <p class="muted-line">Expected transfer to the University of Alberta Faculty of Engineering: Fall 2026</p>
-            <div class="coursework-block">
-              <h3>Relevant Coursework</h3>
-              <div class="course-tags">
+
+            <div class="hero-actions">
+              <a href="#experience" class="btn btn-primary">Explore Experience</a>
+              <a href="Ahmed%20Ezeldin%20Resume%20v2.pdf" class="btn btn-secondary" target="_blank">View Resume</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="content-section">
+        <div class="container section-grid">
+          <div class="section-side reveal">
+            <div class="section-label-wrap">
+              <span class="section-node"></span>
+              <span class="section-label">About</span>
+            </div>
+          </div>
+
+          <div class="section-main reveal">
+            <h2>Focused on building the right foundation.</h2>
+            <p>
+              I’m an engineering transfer student currently studying at the University of Lethbridge.
+              My focus is on developing the technical foundation, discipline, and practical mindset
+              needed to grow into larger engineering opportunities over time.
+            </p>
+            <p>
+              I’m especially interested in engineering design, infrastructure, and technology, with a
+              strong emphasis on learning by doing. Through coursework, team projects, and structured
+              work experience, I’m continuing to build skills in communication, collaboration, analysis,
+              and problem solving.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education" class="content-section">
+        <div class="container section-grid">
+          <div class="section-side reveal">
+            <div class="section-label-wrap">
+              <span class="section-node"></span>
+              <span class="section-label">Education</span>
+            </div>
+          </div>
+
+          <div class="section-main reveal">
+            <h2>Current academic path.</h2>
+
+            <div class="glass-card">
+              <p class="card-kicker">University of Lethbridge</p>
+              <h3>Pre-Professional Engineering Transfer Program</h3>
+              <p class="card-meta">Lethbridge, Alberta • September 2025 – Present</p>
+
+              <p>
+                Currently completing engineering transfer studies while building a foundation in mathematics,
+                physics, chemistry, programming, engineering mechanics, design, and technical communication.
+              </p>
+
+              <p><strong>Expected transfer to the University of Alberta Faculty of Engineering: Fall 2026</strong></p>
+
+              <div class="skill-cluster">
                 <span>Engineering Design</span>
                 <span>Engineering Mechanics (Statics)</span>
-                <span>Accelerated Calculus I &amp; II</span>
-                <span>General Chemistry I &amp; II</span>
+                <span>Accelerated Calculus I & II</span>
+                <span>General Chemistry I & II</span>
                 <span>Fundamentals of Programming I</span>
                 <span>Waves, Optics and Sound</span>
                 <span>Writing for Engineering Students</span>
@@ -168,244 +250,191 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="project" class="section reveal section-anchor" data-section="project">
-      <div class="section-shell">
-        <div class="section-label-wrap">
-          <div class="section-node"></div>
-          <div class="section-label">Featured Project</div>
+      <!-- PROJECT -->
+      <section id="project" class="content-section">
+        <div class="container section-grid">
+          <div class="section-side reveal">
+            <div class="section-label-wrap">
+              <span class="section-node"></span>
+              <span class="section-label">Featured Project</span>
+            </div>
+          </div>
+
+          <div class="section-main reveal">
+            <h2>Medicine Cooler</h2>
+
+            <div class="glass-card">
+              <p>
+                A portable temperature-controlled medication storage concept designed to support safer transport
+                and storage of temperature-sensitive medication such as insulin.
+              </p>
+
+              <div class="project-grid">
+                <div class="mini-card">
+                  <h4>Problem</h4>
+                  <p>
+                    Temperature-sensitive medication needs safer storage during travel, transport, and everyday use.
+                  </p>
+                </div>
+
+                <div class="mini-card">
+                  <h4>Design Goal</h4>
+                  <p>
+                    Create a lightweight, practical, and more budget-friendly alternative while maintaining 2°C to 8°C storage.
+                  </p>
+                </div>
+
+                <div class="mini-card">
+                  <h4>System Thinking</h4>
+                  <p>
+                    The concept combines cooling, control, sensing, insulation, display feedback, and rechargeable power.
+                  </p>
+                </div>
+
+                <div class="mini-card">
+                  <h4>My Contribution</h4>
+                  <p>
+                    I contributed to system design, enclosure and insulation planning, layout decisions, and overall concept structure.
+                  </p>
+                </div>
+
+                <div class="mini-card">
+                  <h4>What It Demonstrates</h4>
+                  <p>
+                    Engineering design process, systems thinking, practical problem solving, and structured technical planning.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="section-content">
-          <h2>Medicine Cooler</h2>
-          <div class="project-card">
-            <p class="project-intro">
-              A portable temperature-controlled medication storage concept designed to support
-              safer transport and storage of temperature-sensitive medication such as insulin.
+      </section>
+
+      <!-- EXPERIENCE -->
+      <section id="experience" class="content-section">
+        <div class="container section-grid">
+          <div class="section-side reveal">
+            <div class="section-label-wrap">
+              <span class="section-node"></span>
+              <span class="section-label">Experience</span>
+            </div>
+          </div>
+
+          <div class="section-main reveal">
+            <h2>Work experience that built discipline.</h2>
+
+            <div class="glass-card">
+              <p class="card-kicker">The Home Depot Canada</p>
+              <h3>Sales Associate</h3>
+              <p class="card-meta">Calgary, Alberta • April 2025 – July 2025</p>
+
+              <ul class="clean-list">
+                <li>Worked in a fast-paced retail environment supporting daily floor operations.</li>
+                <li>Assisted customers with product navigation and general inquiries.</li>
+                <li>Contributed to stocking, organization, and maintaining a strong customer experience.</li>
+                <li>Strengthened communication, teamwork, adaptability, and problem solving under pressure.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills" class="content-section">
+        <div class="container section-grid">
+          <div class="section-side reveal">
+            <div class="section-label-wrap">
+              <span class="section-node"></span>
+              <span class="section-label">Skills</span>
+            </div>
+          </div>
+
+          <div class="section-main reveal">
+            <h2>Core strengths.</h2>
+
+            <div class="skill-cluster large">
+              <span>Engineering Design</span>
+              <span>Technical Communication</span>
+              <span>Problem Solving</span>
+              <span>Team Collaboration</span>
+              <span>Systems Thinking</span>
+              <span>Technical Reporting</span>
+              <span>Research & Analysis</span>
+              <span>Presentation Skills</span>
+              <span>Microsoft Office</span>
+              <span>Adaptability</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="content-section contact-section">
+        <div class="container section-grid">
+          <div class="section-side reveal">
+            <div class="section-label-wrap">
+              <span class="section-node"></span>
+              <span class="section-label">Contact</span>
+            </div>
+          </div>
+
+          <div class="section-main reveal">
+            <h2>Connect.</h2>
+            <p>
+              I’m continuing to build my engineering foundation through coursework, projects, and meaningful
+              opportunities. You can reach me through the links below.
             </p>
 
-            <div class="project-grid">
-              <div class="mini-card">
-                <h3>Problem</h3>
-                <p>Temperature-sensitive medication needs safer storage during travel, transport, and everyday use.</p>
-              </div>
-              <div class="mini-card">
-                <h3>Design Goal</h3>
-                <p>Create a lightweight, practical, and more budget-friendly alternative while maintaining 2°C to 8°C storage.</p>
-              </div>
-              <div class="mini-card">
-                <h3>System Thinking</h3>
-                <p>The concept combines cooling, control, sensing, insulation, display feedback, and rechargeable power.</p>
-              </div>
-            </div>
-
-            <div class="project-detail">
-              <div class="project-detail-block">
-                <h3>My Contribution</h3>
-                <p>I contributed to system design, enclosure and insulation planning, layout decisions, and overall concept structure.</p>
-              </div>
-              <div class="project-detail-block">
-                <h3>What It Demonstrates</h3>
-                <p>Engineering design process, systems thinking, practical problem solving, and structured technical planning.</p>
-              </div>
+            <div class="hero-actions">
+              <a href="mailto:ahmedasaad19730@gmail.com" class="btn btn-primary">Email</a>
+              <a href="Ahmed%20Ezeldin%20Resume%20v2.pdf" class="btn btn-secondary" target="_blank">Resume</a>
+              <a href="https://www.linkedin.com/" class="btn btn-secondary" target="_blank">LinkedIn</a>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <section id="experience" class="section reveal section-anchor" data-section="experience">
-      <div class="section-shell">
-        <div class="section-label-wrap">
-          <div class="section-node"></div>
-          <div class="section-label">Experience</div>
-        </div>
-        <div class="section-content">
-          <h2>Work experience that built discipline.</h2>
-          <div class="info-card">
-            <div class="card-topline">The Home Depot Canada</div>
-            <div class="card-title">Sales Associate</div>
-            <div class="card-meta">Calgary, Alberta • April 2025 – July 2025</div>
-            <ul class="clean-list">
-              <li>Worked in a fast-paced retail environment supporting daily floor operations.</li>
-              <li>Assisted customers with product navigation and general inquiries.</li>
-              <li>Contributed to stocking, organization, and maintaining a strong customer experience.</li>
-              <li>Strengthened communication, teamwork, adaptability, and problem solving under pressure.</li>
-            </ul>
-          </div>
-        </div>
+    <footer class="site-footer">
+      <div class="container">
+        <p>© 2026 Ahmed Ezeldin</p>
       </div>
-    </section>
-
-    <section id="skills" class="section reveal section-anchor" data-section="skills">
-      <div class="section-shell">
-        <div class="section-label-wrap">
-          <div class="section-node"></div>
-          <div class="section-label">Skills</div>
-        </div>
-        <div class="section-content">
-          <h2>Core strengths.</h2>
-          <div class="skills-wrap">
-            <span>Engineering Design</span>
-            <span>Technical Communication</span>
-            <span>Problem Solving</span>
-            <span>Team Collaboration</span>
-            <span>Systems Thinking</span>
-            <span>Technical Reporting</span>
-            <span>Research &amp; Analysis</span>
-            <span>Presentation Skills</span>
-            <span>Microsoft Office</span>
-            <span>Adaptability</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section reveal section-anchor" data-section="contact">
-      <div class="section-shell">
-        <div class="section-label-wrap">
-          <div class="section-node"></div>
-          <div class="section-label">Contact</div>
-        </div>
-        <div class="section-content narrow">
-          <h2>Connect.</h2>
-          <p>
-            I’m continuing to build my engineering foundation through coursework, projects,
-            and meaningful opportunities. You can reach me through the links below.
-          </p>
-          <div class="contact-links">
-            <a href="mailto:ahmed.asaad703@gmail.com" class="btn btn-primary">Email</a>
-            <a href="Ahmed_Ezeldin_Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Resume</a>
-            <a href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>© 2026 Ahmed Ezeldin</p>
-  </footer>
+    </footer>
+  </div>
 
   <script>
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
-  const connectorLayer = document.getElementById("connectorLayer");
-  const main = document.querySelector("main");
-  const rail = document.querySelector(".page-rail");
-
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      menuToggle.setAttribute(
-        "aria-expanded",
-        navLinks.classList.contains("open") ? "true" : "false"
-      );
-    });
-
-    document.querySelectorAll(".nav-links a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-      });
-    });
-  }
-
-  function drawConnectors() {
-    if (!connectorLayer || !main || !rail || window.innerWidth <= 900) {
-      if (connectorLayer) connectorLayer.innerHTML = "";
-      return;
-    }
-
-    const mainRect = main.getBoundingClientRect();
-    const railRect = rail.getBoundingClientRect();
-    const railX = railRect.left - mainRect.left + railRect.width / 2;
-
-    const width = Math.max(main.scrollWidth, Math.ceil(mainRect.width));
-    const height = Math.max(main.scrollHeight, Math.ceil(mainRect.height));
-
-    connectorLayer.setAttribute("viewBox", `0 0 ${width} ${height}`);
-    connectorLayer.setAttribute("width", width);
-    connectorLayer.setAttribute("height", height);
-    connectorLayer.innerHTML = "";
-
-    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-    const filter = document.createElementNS("http://www.w3.org/2000/svg", "filter");
-    filter.setAttribute("id", "connectorGlow");
-    filter.innerHTML = `
-      <feGaussianBlur stdDeviation="2.2" result="blur"></feGaussianBlur>
-      <feMerge>
-        <feMergeNode in="blur"></feMergeNode>
-        <feMergeNode in="SourceGraphic"></feMergeNode>
-      </feMerge>
-    `;
-    defs.appendChild(filter);
-    connectorLayer.appendChild(defs);
-
-    document.querySelectorAll(".section-label-wrap .section-node").forEach((node, index) => {
-      const rect = node.getBoundingClientRect();
-      const x = rect.left - mainRect.left + rect.width / 2;
-      const y = rect.top - mainRect.top + rect.height / 2;
-
-      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-      path.setAttribute("d", `M ${railX} ${y} H ${x}`);
-      path.setAttribute("class", "connector-path");
-      path.style.setProperty("--delay", `${index * 0.1}s`);
-      path.setAttribute("filter", "url(#connectorGlow)");
-      connectorLayer.appendChild(path);
-    });
-  }
-
-  window.addEventListener("load", () => {
-    document.body.classList.add("loaded");
-    drawConnectors();
-    setTimeout(drawConnectors, 120);
-  });
-
-  window.addEventListener("resize", drawConnectors);
-
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        entry.target.classList.toggle("visible", entry.isIntersecting);
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
-    },
-    { threshold: 0.12 }
-  );
+    }, { threshold: 0.18 });
 
-  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+    revealEls.forEach((el) => observer.observe(el));
 
-  const sectionAnchors = document.querySelectorAll(".section-anchor");
+    // Light up section dots when section is active
+    const sections = document.querySelectorAll('.content-section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const labelWrap = entry.target.querySelector('.section-label-wrap');
+        if (!labelWrap) return;
 
-  function setActiveSection(name) {
-    document.querySelectorAll(".section-label-wrap").forEach((wrap) => {
-      wrap.classList.remove("is-active");
-    });
-    const activeWrap = document.querySelector(`.section-anchor[data-section="${name}"] .section-label-wrap`);
-    if (activeWrap) activeWrap.classList.add("is-active");
-  }
-
-  function detectActiveSection() {
-    let best = null;
-    let bestDistance = Infinity;
-    const center = window.innerHeight * 0.42;
-
-    sectionAnchors.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      const distance = Math.abs(rect.top - center);
-      if (distance < bestDistance) {
-        bestDistance = distance;
-        best = section.dataset.section;
-      }
+        if (entry.isIntersecting) {
+          labelWrap.classList.add('is-active');
+        } else {
+          labelWrap.classList.remove('is-active');
+        }
+      });
+    }, {
+      threshold: 0.35
     });
 
-    if (best) setActiveSection(best);
-  }
-
-  window.addEventListener("scroll", detectActiveSection, { passive: true });
-  window.addEventListener("resize", detectActiveSection);
-  detectActiveSection();
-</script>
+    sections.forEach((section) => sectionObserver.observe(section));
+  </script>
 </body>
 </html>
