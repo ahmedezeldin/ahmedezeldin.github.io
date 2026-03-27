@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap"
     rel="stylesheet"
   />
   <link rel="stylesheet" href="styles.css" />
@@ -19,7 +19,6 @@
 <body>
   <div class="site-shell">
 
-    <!-- BACKGROUND CIRCUIT -->
     <div class="page-circuit-bg" aria-hidden="true">
       <svg viewBox="0 0 1600 3000" class="page-circuit-svg" preserveAspectRatio="xMidYMid slice">
         <defs>
@@ -32,84 +31,65 @@
           </filter>
         </defs>
 
-        <!-- MAIN ROUTE 1 -->
         <path class="trace base" d="M0 220 H220 V120 H520 V340 H860 V180 H1600" />
         <path class="trace active d1" d="M0 220 H220 V120 H520 V340 H860 V180 H1600" />
         <circle class="trace-node" cx="220" cy="120" r="8" />
         <circle class="trace-node" cx="520" cy="340" r="8" />
         <circle class="trace-node" cx="860" cy="180" r="8" />
-
-        <!-- BRANCHES 1 -->
         <path class="trace branch" d="M220 120 V300 H40" />
         <path class="trace branch" d="M520 340 V560 H720" />
         <path class="trace branch" d="M860 180 V360 H1060" />
         <path class="trace branch" d="M1260 180 V60 H1460" />
 
-        <!-- MAIN ROUTE 2 -->
         <path class="trace base" d="M0 620 H300 V820 H650 V610 H1040 V860 H1600" />
         <path class="trace active d2" d="M0 620 H300 V820 H650 V610 H1040 V860 H1600" />
         <circle class="trace-node" cx="300" cy="820" r="8" />
         <circle class="trace-node" cx="650" cy="610" r="8" />
         <circle class="trace-node" cx="1040" cy="860" r="8" />
-
-        <!-- BRANCHES 2 -->
         <path class="trace branch" d="M300 820 V980 H120" />
         <path class="trace branch" d="M650 610 V900 H840" />
-        <path class="trace branch" d="M1040 860 V650 H1280" />
+        <path class="trace branch" d="M1040 860 V600 H1260" />
         <path class="trace branch" d="M1380 860 V1060 H1600" />
 
-        <!-- MAIN ROUTE 3 -->
         <path class="trace base" d="M0 1080 H250 V930 H560 V1260 H920 V1040 H1600" />
         <path class="trace active d3" d="M0 1080 H250 V930 H560 V1260 H920 V1040 H1600" />
         <circle class="trace-node" cx="250" cy="930" r="8" />
         <circle class="trace-node" cx="560" cy="1260" r="8" />
         <circle class="trace-node" cx="920" cy="1040" r="8" />
-
-        <!-- BRANCHES 3 -->
         <path class="trace branch" d="M250 930 V760 H80" />
         <path class="trace branch" d="M560 1260 V1450 H760" />
         <path class="trace branch" d="M920 1040 V1360 H1180" />
         <path class="trace branch" d="M1320 1040 V860 H1500" />
 
-        <!-- MAIN ROUTE 4 -->
         <path class="trace base" d="M0 1510 H340 V1710 H700 V1490 H1100 V1780 H1600" />
         <path class="trace active d4" d="M0 1510 H340 V1710 H700 V1490 H1100 V1780 H1600" />
         <circle class="trace-node" cx="340" cy="1710" r="8" />
         <circle class="trace-node" cx="700" cy="1490" r="8" />
         <circle class="trace-node" cx="1100" cy="1780" r="8" />
-
-        <!-- BRANCHES 4 -->
         <path class="trace branch" d="M340 1710 V1900 H150" />
         <path class="trace branch" d="M700 1490 V1290 H900" />
         <path class="trace branch" d="M1100 1780 V1540 H1320" />
         <path class="trace branch" d="M1450 1780 V1980 H1600" />
 
-        <!-- MAIN ROUTE 5 -->
         <path class="trace base" d="M0 2010 H280 V2210 H620 V1980 H980 V2270 H1600" />
         <path class="trace active d5" d="M0 2010 H280 V2210 H620 V1980 H980 V2270 H1600" />
         <circle class="trace-node" cx="280" cy="2210" r="8" />
         <circle class="trace-node" cx="620" cy="1980" r="8" />
         <circle class="trace-node" cx="980" cy="2270" r="8" />
-
-        <!-- BRANCHES 5 -->
         <path class="trace branch" d="M280 2210 V2430 H100" />
         <path class="trace branch" d="M620 1980 V1760 H820" />
         <path class="trace branch" d="M980 2270 V2470 H1220" />
         <path class="trace branch" d="M1360 2270 V2060 H1540" />
 
-        <!-- MAIN ROUTE 6 -->
         <path class="trace base" d="M0 2480 H360 V2660 H760 V2420 H1160 V2740 H1600" />
         <path class="trace active d6" d="M0 2480 H360 V2660 H760 V2420 H1160 V2740 H1600" />
         <circle class="trace-node" cx="360" cy="2660" r="8" />
         <circle class="trace-node" cx="760" cy="2420" r="8" />
         <circle class="trace-node" cx="1160" cy="2740" r="8" />
-
-        <!-- BRANCHES 6 -->
         <path class="trace branch" d="M360 2660 V2860 H180" />
         <path class="trace branch" d="M760 2420 V2220 H960" />
         <path class="trace branch" d="M1160 2740 V2520 H1380" />
 
-        <!-- FLOATERS / RANDOM ATMOSPHERE -->
         <path class="trace branch faint" d="M1460 380 H1600" />
         <path class="trace branch faint" d="M120 960 H260" />
         <path class="trace branch faint" d="M1480 1360 H1600" />
@@ -117,32 +97,26 @@
         <path class="trace branch faint" d="M1420 2420 H1600" />
         <path class="trace branch faint" d="M200 2860 H340" />
 
-        <!-- MOVING SIGNALS -->
         <circle class="signal s1" r="5" filter="url(#circuitGlow)">
           <animateMotion dur="8s" repeatCount="indefinite" rotate="auto"
             path="M0 220 H220 V120 H520 V340 H860 V180 H1600" />
         </circle>
-
         <circle class="signal s2" r="4.5" filter="url(#circuitGlow)">
           <animateMotion dur="9.5s" repeatCount="indefinite" rotate="auto"
             path="M0 620 H300 V820 H650 V610 H1040 V860 H1600" />
         </circle>
-
         <circle class="signal s3" r="5" filter="url(#circuitGlow)">
           <animateMotion dur="10.5s" repeatCount="indefinite" rotate="auto"
             path="M0 1080 H250 V930 H560 V1260 H920 V1040 H1600" />
         </circle>
-
         <circle class="signal s4" r="4.5" filter="url(#circuitGlow)">
           <animateMotion dur="11s" repeatCount="indefinite" rotate="auto"
             path="M0 1510 H340 V1710 H700 V1490 H1100 V1780 H1600" />
         </circle>
-
         <circle class="signal s5" r="5" filter="url(#circuitGlow)">
           <animateMotion dur="9s" repeatCount="indefinite" rotate="auto"
             path="M0 2010 H280 V2210 H620 V1980 H980 V2270 H1600" />
         </circle>
-
         <circle class="signal s6" r="4.5" filter="url(#circuitGlow)">
           <animateMotion dur="12s" repeatCount="indefinite" rotate="auto"
             path="M0 2480 H360 V2660 H760 V2420 H1160 V2740 H1600" />
@@ -150,82 +124,98 @@
       </svg>
     </div>
 
-    <!-- NAV -->
-   <header class="site-header">
-  <div class="container nav-wrap">
-    <a href="#top" class="brand">AE</a>
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="#top" class="brand">AE</a>
 
-    <button
-      class="menu-toggle"
-      id="menuToggle"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="mobileMenu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+        <div class="header-actions">
+          <div class="lang-toggle" aria-label="Language toggle">
+            <button type="button" class="lang-btn active" id="langEn">EN</button>
+            <span class="lang-divider">|</span>
+            <button type="button" class="lang-btn" id="langAr">AR</button>
+          </div>
 
-    <nav class="nav-links desktop-nav">
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#project">Project</a>
-      <a href="#experience">Experience</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+          <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
 
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#about">About</a>
-    <a href="#education">Education</a>
-    <a href="#project">Project</a>
-    <a href="#experience">Experience</a>
-    <a href="#skills">Skills</a>
-    <a href="#contact">Contact</a>
-  </div>
-</header>
+          <nav class="nav-links desktop-nav">
+            <a href="#about" data-en="About" data-ar="نبذة">About</a>
+            <a href="#education" data-en="Education" data-ar="التعليم">Education</a>
+            <a href="#project" data-en="Project" data-ar="المشروع">Project</a>
+            <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
+            <a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a>
+            <a href="#contact" data-en="Contact" data-ar="التواصل">Contact</a>
+          </nav>
+        </div>
+      </div>
+
+      <div class="mobile-menu" id="mobileMenu">
+        <a href="#about" data-en="About" data-ar="نبذة">About</a>
+        <a href="#education" data-en="Education" data-ar="التعليم">Education</a>
+        <a href="#project" data-en="Project" data-ar="المشروع">Project</a>
+        <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
+        <a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a>
+        <a href="#contact" data-en="Contact" data-ar="التواصل">Contact</a>
+      </div>
+    </header>
 
     <main id="top">
-      <!-- HERO -->
       <section class="hero-section">
         <div class="container hero-grid">
           <div class="hero-copy reveal">
-            <p class="eyebrow">Engineering • Systems • Disciplined Technical Growth</p>
-            <h1>Ahmed Ezeldin</h1>
-            <h2>Engineering Transfer Student at the University of Lethbridge</h2>
-            <p class="hero-text">
+            <p class="eyebrow" data-en="Engineering • Systems • Disciplined Technical Growth" data-ar="الهندسة • الأنظمة • نمو تقني منضبط">
+              Engineering • Systems • Disciplined Technical Growth
+            </p>
+
+            <h1 data-en="Ahmed Ezeldin" data-ar="أحمد عزالدين">Ahmed Ezeldin</h1>
+
+            <h2 data-en="Engineering Transfer Student at the University of Lethbridge" data-ar="طالب تحويل في الهندسة بجامعة ليثبريدج">
+              Engineering Transfer Student at the University of Lethbridge
+            </h2>
+
+            <p class="hero-text" data-en="Built with discipline and focused on engineering systems, design, and technical growth — developing the foundation for larger opportunities ahead." data-ar="أبني مساري بانضباط، مع تركيز على الأنظمة الهندسية، والتصميم، والنمو التقني — لتأسيس قاعدة قوية لفرص أكبر في المستقبل.">
               Built with discipline and focused on engineering systems, design, and technical growth —
               developing the foundation for larger opportunities ahead.
             </p>
 
             <div class="hero-actions">
-              <a href="#experience" class="btn btn-primary">Explore Experience</a>
-              <a href="Ahmed%20Ezeldin%20Resume%20v2.pdf" class="btn btn-secondary" target="_blank">View Resume</a>
+              <a href="#experience" class="btn btn-primary" data-en="Explore Experience" data-ar="استعرض الخبرة">Explore Experience</a>
+              <a href="Ahmed%20Ezeldin%20Resume%20v2.pdf" class="btn btn-secondary" target="_blank" data-en="View Resume" data-ar="عرض السيرة الذاتية">View Resume</a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ABOUT -->
       <section id="about" class="content-section">
         <div class="container section-grid">
           <div class="section-side reveal">
             <div class="section-label-wrap">
               <span class="section-node"></span>
-              <span class="section-label">About</span>
+              <span class="section-label" data-en="About" data-ar="نبذة">About</span>
             </div>
           </div>
 
           <div class="section-main reveal">
-            <h2>Focused on building the right foundation.</h2>
-            <p>
+            <h2 data-en="Focused on building the right foundation." data-ar="أركز على بناء الأساس الصحيح.">
+              Focused on building the right foundation.
+            </h2>
+
+            <p data-en="I’m an engineering transfer student currently studying at the University of Lethbridge. My focus is on developing the technical foundation, discipline, and practical mindset needed to grow into larger engineering opportunities over time." data-ar="أنا طالب تحويل في الهندسة أدرس حاليًا في جامعة ليثبريدج. أركز على تطوير الأساس التقني، والانضباط، والعقلية العملية اللازمة للنمو نحو فرص هندسية أكبر مع الوقت.">
               I’m an engineering transfer student currently studying at the University of Lethbridge.
               My focus is on developing the technical foundation, discipline, and practical mindset
               needed to grow into larger engineering opportunities over time.
             </p>
-            <p>
+
+            <p data-en="I’m especially interested in engineering design, infrastructure, and technology, with a strong emphasis on learning by doing. Through coursework, team projects, and structured work experience, I’m continuing to build skills in communication, collaboration, analysis, and problem solving." data-ar="أهتم بشكل خاص بالتصميم الهندسي، والبنية التحتية، والتقنية، مع تركيز كبير على التعلم بالممارسة. ومن خلال المقررات الدراسية، والمشاريع الجماعية، والخبرة العملية المنظمة، أواصل تطوير مهاراتي في التواصل، والتعاون، والتحليل، وحل المشكلات.">
               I’m especially interested in engineering design, infrastructure, and technology, with a
               strong emphasis on learning by doing. Through coursework, team projects, and structured
               work experience, I’m continuing to build skills in communication, collaboration, analysis,
@@ -235,96 +225,104 @@
         </div>
       </section>
 
-      <!-- EDUCATION -->
       <section id="education" class="content-section">
         <div class="container section-grid">
           <div class="section-side reveal">
             <div class="section-label-wrap">
               <span class="section-node"></span>
-              <span class="section-label">Education</span>
+              <span class="section-label" data-en="Education" data-ar="التعليم">Education</span>
             </div>
           </div>
 
           <div class="section-main reveal">
-            <h2>Current academic path.</h2>
+            <h2 data-en="Current academic path." data-ar="المسار الأكاديمي الحالي.">Current academic path.</h2>
 
             <div class="glass-card">
-              <p class="card-kicker">University of Lethbridge</p>
-              <h3>Pre-Professional Engineering Transfer Program</h3>
-              <p class="card-meta">Lethbridge, Alberta • September 2025 – Present</p>
+              <p class="card-kicker" data-en="University of Lethbridge" data-ar="جامعة ليثبريدج">University of Lethbridge</p>
 
-              <p>
+              <h3 data-en="Pre-Professional Engineering Transfer Program" data-ar="برنامج التحويل التمهيدي للهندسة">
+                Pre-Professional Engineering Transfer Program
+              </h3>
+
+              <p class="card-meta" data-en="Lethbridge, Alberta • September 2025 – Present" data-ar="ليثبريدج، ألبرتا • سبتمبر 2025 – حتى الآن">
+                Lethbridge, Alberta • September 2025 – Present
+              </p>
+
+              <p data-en="Currently completing engineering transfer studies while building a foundation in mathematics, physics, chemistry, programming, engineering mechanics, design, and technical communication." data-ar="أكمل حاليًا دراسات التحويل الهندسي مع بناء أساس قوي في الرياضيات، والفيزياء، والكيمياء، والبرمجة، وميكانيكا الهندسة، والتصميم، والتواصل التقني.">
                 Currently completing engineering transfer studies while building a foundation in mathematics,
                 physics, chemistry, programming, engineering mechanics, design, and technical communication.
               </p>
 
-              <p><strong>Expected transfer to the University of Alberta Faculty of Engineering: Fall 2026</strong></p>
+              <p>
+                <strong data-en="Expected transfer to the University of Alberta Faculty of Engineering: Fall 2026" data-ar="التحويل المتوقع إلى كلية الهندسة بجامعة ألبرتا: خريف 2026">
+                  Expected transfer to the University of Alberta Faculty of Engineering: Fall 2026
+                </strong>
+              </p>
 
               <div class="skill-cluster">
-                <span>Engineering Design</span>
-                <span>Engineering Mechanics (Statics)</span>
-                <span>Accelerated Calculus I & II</span>
-                <span>General Chemistry I & II</span>
-                <span>Fundamentals of Programming I</span>
-                <span>Waves, Optics and Sound</span>
-                <span>Writing for Engineering Students</span>
+                <span data-en="Engineering Design" data-ar="التصميم الهندسي">Engineering Design</span>
+                <span data-en="Engineering Mechanics (Statics)" data-ar="ميكانيكا الهندسة (الاستاتيكا)">Engineering Mechanics (Statics)</span>
+                <span data-en="Accelerated Calculus I & II" data-ar="التفاضل والتكامل المكثف 1 و2">Accelerated Calculus I & II</span>
+                <span data-en="General Chemistry I & II" data-ar="الكيمياء العامة 1 و2">General Chemistry I & II</span>
+                <span data-en="Fundamentals of Programming I" data-ar="أساسيات البرمجة 1">Fundamentals of Programming I</span>
+                <span data-en="Waves, Optics and Sound" data-ar="الموجات والبصريات والصوت">Waves, Optics and Sound</span>
+                <span data-en="Writing for Engineering Students" data-ar="الكتابة لطلاب الهندسة">Writing for Engineering Students</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- PROJECT -->
       <section id="project" class="content-section">
         <div class="container section-grid">
           <div class="section-side reveal">
             <div class="section-label-wrap">
               <span class="section-node"></span>
-              <span class="section-label">Featured Project</span>
+              <span class="section-label" data-en="Featured Project" data-ar="المشروع المميز">Featured Project</span>
             </div>
           </div>
 
           <div class="section-main reveal">
-            <h2>Medicine Cooler</h2>
+            <h2 data-en="Medicine Cooler" data-ar="مبرد الأدوية">Medicine Cooler</h2>
 
             <div class="glass-card">
-              <p>
+              <p data-en="A portable temperature-controlled medication storage concept designed to support safer transport and storage of temperature-sensitive medication such as insulin." data-ar="فكرة لحافظة أدوية محمولة ومتحكم بدرجتها الحرارية، صُممت لدعم نقل وتخزين أكثر أمانًا للأدوية الحساسة للحرارة مثل الإنسولين.">
                 A portable temperature-controlled medication storage concept designed to support safer transport
                 and storage of temperature-sensitive medication such as insulin.
               </p>
 
               <div class="project-grid">
                 <div class="mini-card">
-                  <h4>Problem</h4>
-                  <p>
+                  <h4 data-en="Problem" data-ar="المشكلة">Problem</h4>
+                  <p data-en="Temperature-sensitive medication needs safer storage during travel, transport, and everyday use." data-ar="الأدوية الحساسة للحرارة تحتاج إلى تخزين أكثر أمانًا أثناء السفر، والنقل، والاستخدام اليومي.">
                     Temperature-sensitive medication needs safer storage during travel, transport, and everyday use.
                   </p>
                 </div>
 
                 <div class="mini-card">
-                  <h4>Design Goal</h4>
-                  <p>
+                  <h4 data-en="Design Goal" data-ar="هدف التصميم">Design Goal</h4>
+                  <p data-en="Create a lightweight, practical, and more budget-friendly alternative while maintaining 2°C to 8°C storage." data-ar="إنشاء بديل خفيف وعملي وأوفر تكلفة مع الحفاظ على تخزين بدرجة حرارة بين 2 و8 درجات مئوية.">
                     Create a lightweight, practical, and more budget-friendly alternative while maintaining 2°C to 8°C storage.
                   </p>
                 </div>
 
                 <div class="mini-card">
-                  <h4>System Thinking</h4>
-                  <p>
+                  <h4 data-en="System Thinking" data-ar="التفكير المنظومي">System Thinking</h4>
+                  <p data-en="The concept combines cooling, control, sensing, insulation, display feedback, and rechargeable power." data-ar="يجمع المفهوم بين التبريد، والتحكم، والاستشعار، والعزل، وعرض البيانات، والطاقة القابلة لإعادة الشحن.">
                     The concept combines cooling, control, sensing, insulation, display feedback, and rechargeable power.
                   </p>
                 </div>
 
                 <div class="mini-card">
-                  <h4>My Contribution</h4>
-                  <p>
+                  <h4 data-en="My Contribution" data-ar="مساهمتي">My Contribution</h4>
+                  <p data-en="I contributed to system design, enclosure and insulation planning, layout decisions, and overall concept structure." data-ar="ساهمت في تصميم النظام، وتخطيط الغلاف والعزل، وقرارات الترتيب الداخلي، والبنية العامة للمفهوم.">
                     I contributed to system design, enclosure and insulation planning, layout decisions, and overall concept structure.
                   </p>
                 </div>
 
                 <div class="mini-card">
-                  <h4>What It Demonstrates</h4>
-                  <p>
+                  <h4 data-en="What It Demonstrates" data-ar="ما الذي يبرزه">What It Demonstrates</h4>
+                  <p data-en="Engineering design process, systems thinking, practical problem solving, and structured technical planning." data-ar="يوضح عملية التصميم الهندسي، والتفكير المنظومي، وحل المشكلات عمليًا، والتخطيط التقني المنظم.">
                     Engineering design process, systems thinking, practical problem solving, and structured technical planning.
                   </p>
                 </div>
@@ -334,85 +332,97 @@
         </div>
       </section>
 
-      <!-- EXPERIENCE -->
       <section id="experience" class="content-section">
         <div class="container section-grid">
           <div class="section-side reveal">
             <div class="section-label-wrap">
               <span class="section-node"></span>
-              <span class="section-label">Experience</span>
+              <span class="section-label" data-en="Experience" data-ar="الخبرة">Experience</span>
             </div>
           </div>
 
           <div class="section-main reveal">
-            <h2>Work experience that built discipline.</h2>
+            <h2 data-en="Work experience that built discipline." data-ar="خبرة عملية بنت الانضباط.">
+              Work experience that built discipline.
+            </h2>
 
             <div class="glass-card">
-              <p class="card-kicker">The Home Depot Canada</p>
-              <h3>Sales Associate</h3>
-              <p class="card-meta">Calgary, Alberta • April 2025 – July 2025</p>
+              <p class="card-kicker" data-en="The Home Depot Canada" data-ar="هوم ديبوت كندا">The Home Depot Canada</p>
+
+              <h3 data-en="Sales Associate" data-ar="موظف مبيعات">Sales Associate</h3>
+
+              <p class="card-meta" data-en="Calgary, Alberta • April 2025 – July 2025" data-ar="كالغاري، ألبرتا • أبريل 2025 – يوليو 2025">
+                Calgary, Alberta • April 2025 – July 2025
+              </p>
 
               <ul class="clean-list">
-                <li>Worked in a fast-paced retail environment supporting daily floor operations.</li>
-                <li>Assisted customers with product navigation and general inquiries.</li>
-                <li>Contributed to stocking, organization, and maintaining a strong customer experience.</li>
-                <li>Strengthened communication, teamwork, adaptability, and problem solving under pressure.</li>
+                <li data-en="Worked in a fast-paced retail environment supporting daily floor operations." data-ar="عملت في بيئة بيع بالتجزئة سريعة الإيقاع مع دعم العمليات اليومية داخل المتجر.">
+                  Worked in a fast-paced retail environment supporting daily floor operations.
+                </li>
+                <li data-en="Assisted customers with product navigation and general inquiries." data-ar="ساعدت العملاء في الوصول إلى المنتجات والرد على الاستفسارات العامة.">
+                  Assisted customers with product navigation and general inquiries.
+                </li>
+                <li data-en="Contributed to stocking, organization, and maintaining a strong customer experience." data-ar="ساهمت في ترتيب وتخزين المنتجات والمحافظة على تجربة عميل قوية.">
+                  Contributed to stocking, organization, and maintaining a strong customer experience.
+                </li>
+                <li data-en="Strengthened communication, teamwork, adaptability, and problem solving under pressure." data-ar="طورت مهارات التواصل، والعمل الجماعي، والتكيف، وحل المشكلات تحت الضغط.">
+                  Strengthened communication, teamwork, adaptability, and problem solving under pressure.
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- SKILLS -->
       <section id="skills" class="content-section">
         <div class="container section-grid">
           <div class="section-side reveal">
             <div class="section-label-wrap">
               <span class="section-node"></span>
-              <span class="section-label">Skills</span>
+              <span class="section-label" data-en="Skills" data-ar="المهارات">Skills</span>
             </div>
           </div>
 
           <div class="section-main reveal">
-            <h2>Core strengths.</h2>
+            <h2 data-en="Core strengths." data-ar="نقاط القوة الأساسية.">Core strengths.</h2>
 
             <div class="skill-cluster large">
-              <span>Engineering Design</span>
-              <span>Technical Communication</span>
-              <span>Problem Solving</span>
-              <span>Team Collaboration</span>
-              <span>Systems Thinking</span>
-              <span>Technical Reporting</span>
-              <span>Research & Analysis</span>
-              <span>Presentation Skills</span>
-              <span>Microsoft Office</span>
-              <span>Adaptability</span>
+              <span data-en="Engineering Design" data-ar="التصميم الهندسي">Engineering Design</span>
+              <span data-en="Technical Communication" data-ar="التواصل التقني">Technical Communication</span>
+              <span data-en="Problem Solving" data-ar="حل المشكلات">Problem Solving</span>
+              <span data-en="Team Collaboration" data-ar="العمل الجماعي">Team Collaboration</span>
+              <span data-en="Systems Thinking" data-ar="التفكير المنظومي">Systems Thinking</span>
+              <span data-en="Technical Reporting" data-ar="التقارير التقنية">Technical Reporting</span>
+              <span data-en="Research & Analysis" data-ar="البحث والتحليل">Research & Analysis</span>
+              <span data-en="Presentation Skills" data-ar="مهارات العرض">Presentation Skills</span>
+              <span data-en="Microsoft Office" data-ar="مايكروسوفت أوفيس">Microsoft Office</span>
+              <span data-en="Adaptability" data-ar="القدرة على التكيف">Adaptability</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CONTACT -->
       <section id="contact" class="content-section contact-section">
         <div class="container section-grid">
           <div class="section-side reveal">
             <div class="section-label-wrap">
               <span class="section-node"></span>
-              <span class="section-label">Contact</span>
+              <span class="section-label" data-en="Contact" data-ar="التواصل">Contact</span>
             </div>
           </div>
 
           <div class="section-main reveal">
-            <h2>Connect.</h2>
-            <p>
+            <h2 data-en="Connect." data-ar="تواصل معي.">Connect.</h2>
+
+            <p data-en="I’m continuing to build my engineering foundation through coursework, projects, and meaningful opportunities. You can reach me through the links below." data-ar="أواصل بناء أساس هندسي قوي من خلال الدراسة، والمشاريع، والفرص الهادفة. يمكنك التواصل معي من خلال الروابط أدناه.">
               I’m continuing to build my engineering foundation through coursework, projects, and meaningful
               opportunities. You can reach me through the links below.
             </p>
 
             <div class="hero-actions">
-              <a href="mailto:ahmedasaad19730@gmail.com" class="btn btn-primary">Email</a>
-              <a href="Ahmed%20Ezeldin%20Resume%20v2.pdf" class="btn btn-secondary" target="_blank">Resume</a>
-              <a href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217/" class="btn btn-secondary" target="_blank">LinkedIn</a>
+              <a href="mailto:ahmedasaad19730@gmail.com" class="btn btn-primary" data-en="Email" data-ar="البريد الإلكتروني">Email</a>
+              <a href="Ahmed%20Ezeldin%20Resume%20v2.pdf" class="btn btn-secondary" target="_blank" data-en="Resume" data-ar="السيرة الذاتية">Resume</a>
+              <a href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-en="LinkedIn" data-ar="لينكدإن">LinkedIn</a>
             </div>
           </div>
         </div>
@@ -421,60 +431,89 @@
 
     <footer class="site-footer">
       <div class="container">
-        <p>© 2026 Ahmed Ezeldin</p>
+        <p data-en="© 2026 Ahmed Ezeldin" data-ar="© 2026 أحمد عزالدين">© 2026 Ahmed Ezeldin</p>
       </div>
     </footer>
   </div>
 
   <script>
-  const revealEls = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.18 });
-
-  revealEls.forEach((el) => observer.observe(el));
-
-  const sections = document.querySelectorAll('.content-section');
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      const labelWrap = entry.target.querySelector('.section-label-wrap');
-      if (!labelWrap) return;
-
-      if (entry.isIntersecting) {
-        labelWrap.classList.add('is-active');
-      } else {
-        labelWrap.classList.remove('is-active');
-      }
-    });
-  }, {
-    threshold: 0.35
-  });
-
-  sections.forEach((section) => sectionObserver.observe(section));
-
-  const menuToggle = document.getElementById('menuToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileLinks = document.querySelectorAll('#mobileMenu a');
-
-  if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      menuToggle.classList.toggle('open', isOpen);
-      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-    });
-
-    mobileLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        menuToggle.classList.remove('open');
-        menuToggle.setAttribute('aria-expanded', 'false');
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
       });
+    }, { threshold: 0.18 });
+
+    revealEls.forEach((el) => observer.observe(el));
+
+    const sections = document.querySelectorAll('.content-section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const labelWrap = entry.target.querySelector('.section-label-wrap');
+        if (!labelWrap) return;
+
+        if (entry.isIntersecting) {
+          labelWrap.classList.add('is-active');
+        } else {
+          labelWrap.classList.remove('is-active');
+        }
+      });
+    }, {
+      threshold: 0.35
     });
-  }
-</script>
+
+    sections.forEach((section) => sectionObserver.observe(section));
+
+    const menuToggle = document.getElementById('menuToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const mobileLinks = document.querySelectorAll('#mobileMenu a');
+
+    if (menuToggle && mobileMenu) {
+      menuToggle.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.toggle('open');
+        menuToggle.classList.toggle('open', isOpen);
+        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      mobileLinks.forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('open');
+          menuToggle.classList.remove('open');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+
+    const langEn = document.getElementById('langEn');
+    const langAr = document.getElementById('langAr');
+
+    function setLanguage(lang) {
+      const isArabic = lang === 'ar';
+      document.documentElement.lang = lang;
+      document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
+      document.body.classList.toggle('rtl', isArabic);
+
+      document.querySelectorAll('[data-en][data-ar]').forEach((el) => {
+        el.textContent = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
+      });
+
+      if (langEn && langAr) {
+        langEn.classList.toggle('active', !isArabic);
+        langAr.classList.toggle('active', isArabic);
+      }
+
+      localStorage.setItem('site-language', lang);
+    }
+
+    if (langEn && langAr) {
+      langEn.addEventListener('click', () => setLanguage('en'));
+      langAr.addEventListener('click', () => setLanguage('ar'));
+    }
+
+    const savedLang = localStorage.getItem('site-language') || 'en';
+    setLanguage(savedLang);
+  </script>
 </body>
 </html>
