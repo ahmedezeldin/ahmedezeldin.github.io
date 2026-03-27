@@ -394,13 +394,20 @@ main,
 .section-grid {
   display: grid;
   grid-template-columns: 180px minmax(0, 1fr);
+  grid-template-areas: "side main";
   gap: 32px;
   align-items: start;
 }
 
 .section-side {
+  grid-area: side;
   position: sticky;
   top: 110px;
+  align-self: start;
+}
+
+.section-main {
+  grid-area: main;
 }
 
 .section-label-wrap {
@@ -597,10 +604,10 @@ body.rtl .site-footer {
 }
 
 body.rtl .hero-copy h1 {
-  font-size: clamp(2.8rem, 7vw, 5.4rem);
-  line-height: 1.12;
+  font-size: clamp(3rem, 7vw, 5.2rem);
+  line-height: 1.18;
   letter-spacing: 0;
-  word-spacing: 0.08em;
+  word-spacing: 0.12em;
   font-weight: 800;
   max-width: 100%;
 }
@@ -620,34 +627,6 @@ body.rtl .skill-cluster {
   justify-content: flex-start;
 }
 
-/* KEY FIX: grid stays LTR for placement, content stays RTL */
-body.rtl .section-grid {
-  direction: ltr;
-  grid-template-columns: minmax(0, 1fr) 180px;
-}
-
-body.rtl .section-side {
-  grid-column: 2;
-  justify-self: end;
-  text-align: right;
-  position: sticky;
-  top: 110px;
-}
-
-body.rtl .section-main {
-  grid-column: 1;
-  text-align: right;
-}
-
-body.rtl .section-label-wrap {
-  direction: rtl;
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-direction: row-reverse;
-  gap: 12px;
-}
-
 body.rtl .clean-list {
   padding-left: 0;
   padding-right: 20px;
@@ -658,15 +637,41 @@ body.rtl .nav-links a::after {
   right: 0;
 }
 
+/* RTL mirrored sections */
+body.rtl .section-grid {
+  direction: ltr;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  grid-template-areas: "main side";
+}
+
+body.rtl .section-side {
+  grid-area: side;
+  justify-self: end;
+  text-align: right;
+}
+
+body.rtl .section-main {
+  grid-area: main;
+  text-align: right;
+}
+
+body.rtl .section-label-wrap {
+  direction: rtl;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
 /* RESPONSIVE */
 @media (max-width: 1100px) {
   .section-grid {
     grid-template-columns: 150px minmax(0, 1fr);
+    grid-template-areas: "side main";
     gap: 24px;
   }
 
   body.rtl .section-grid {
     grid-template-columns: minmax(0, 1fr) 150px;
+    grid-template-areas: "main side";
   }
 }
 
@@ -689,6 +694,9 @@ body.rtl .nav-links a::after {
 
   .section-grid {
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "side"
+      "main";
     gap: 16px;
   }
 
@@ -704,10 +712,12 @@ body.rtl .nav-links a::after {
   body.rtl .section-grid {
     direction: rtl;
     grid-template-columns: 1fr;
+    grid-template-areas:
+      "side"
+      "main";
   }
 
   body.rtl .section-side {
-    grid-column: auto;
     justify-self: stretch;
     text-align: right;
     position: relative;
@@ -715,7 +725,6 @@ body.rtl .nav-links a::after {
   }
 
   body.rtl .section-main {
-    grid-column: auto;
     text-align: right;
   }
 
@@ -830,86 +839,5 @@ body.rtl .nav-links a::after {
 
   .page-circuit-svg {
     transform: scale(1.22);
-  }
-}
-/* ===== RTL labels pinned near right edge of screen ===== */
-@media (min-width: 901px) {
-  body.rtl .content-section {
-    position: relative;
-  }
-
-  body.rtl .section-grid {
-    grid-template-columns: minmax(0, 1fr) !important;
-    position: relative;
-  }
-
-  body.rtl .section-side {
-    position: absolute !important;
-    top: 0;
-    right: max(24px, calc((100vw - var(--max)) / 2 + 24px)) !important;
-    width: 180px;
-    text-align: right !important;
-    display: flex !important;
-    justify-content: flex-end !important;
-    z-index: 3;
-  }
-
-  body.rtl .section-main {
-    grid-column: 1 !important;
-    text-align: right !important;
-  }
-
-  body.rtl .section-label-wrap {
-    width: 100%;
-    display: inline-flex !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-    flex-direction: row-reverse !important;
-    gap: 12px !important;
-  }
-}
-body.rtl .hero-copy h1 {
-  font-size: clamp(3rem, 7vw, 5.2rem) !important;
-  line-height: 1.18 !important;
-  letter-spacing: 0 !important;
-  word-spacing: 0.12em !important;
-}
-
-/* ===== FORCE RTL SECTION LABELS TO RIGHT EDGE ===== */
-@media (min-width: 901px) {
-  body.rtl .content-section {
-    position: relative;
-  }
-
-  body.rtl .section-grid {
-    display: block !important;
-    position: relative !important;
-  }
-
-  body.rtl .section-side {
-    position: absolute !important;
-    top: 0 !important;
-    right: 40px !important;
-    width: 180px !important;
-    text-align: right !important;
-    display: flex !important;
-    justify-content: flex-end !important;
-    z-index: 5 !important;
-  }
-
-  body.rtl .section-main {
-    width: min(100%, 860px) !important;
-    margin-right: auto !important;
-    margin-left: 0 !important;
-    text-align: right !important;
-  }
-
-  body.rtl .section-label-wrap {
-    width: 100% !important;
-    display: inline-flex !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-    flex-direction: row-reverse !important;
-    gap: 12px !important;
   }
 }
