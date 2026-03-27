@@ -784,3 +784,18 @@ body.rtl .nav-links a::after {
     transform: scale(1.22);
   }
 }
+/* Better Arabic headline spacing */
+body.rtl .hero-copy h1 {
+  letter-spacing: 0;
+  line-height: 1.08;
+  font-weight: 800;
+}
+
+body.rtl .hero-copy h2 {
+  letter-spacing: 0;
+  line-height: 1.35;
+}
+
+body.rtl .eyebrow {
+  letter-spacing: 0.08em;
+}
