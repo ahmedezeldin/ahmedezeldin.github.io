@@ -583,7 +583,7 @@ main,
   transform: translateY(0);
 }
 
-/* RTL */
+/* RTL GENERAL */
 body.rtl .nav-wrap {
   direction: rtl;
 }
@@ -637,7 +637,7 @@ body.rtl .nav-links a::after {
   right: 0;
 }
 
-/* RTL mirrored sections */
+/* RTL SECTIONS - HARD FIX */
 body.rtl .section-grid {
   direction: ltr;
   grid-template-columns: minmax(0, 1fr) 180px;
@@ -648,6 +648,9 @@ body.rtl .section-side {
   grid-area: side;
   justify-self: end;
   text-align: right;
+  direction: ltr;
+  display: flex;
+  justify-content: flex-end;
 }
 
 body.rtl .section-main {
@@ -656,9 +659,24 @@ body.rtl .section-main {
 }
 
 body.rtl .section-label-wrap {
+  display: inline-grid;
+  grid-template-columns: auto 12px;
+  align-items: center;
+  justify-content: end;
+  column-gap: 12px;
+  width: max-content;
+  margin: 0;
+}
+
+body.rtl .section-label {
+  grid-column: 1;
+  text-align: right;
   direction: rtl;
-  flex-direction: row-reverse;
-  justify-content: flex-end;
+}
+
+body.rtl .section-node {
+  grid-column: 2;
+  margin: 0;
 }
 
 /* RESPONSIVE */
@@ -722,6 +740,8 @@ body.rtl .section-label-wrap {
     text-align: right;
     position: relative;
     top: auto;
+    direction: rtl;
+    display: block;
   }
 
   body.rtl .section-main {
@@ -729,8 +749,13 @@ body.rtl .section-label-wrap {
   }
 
   body.rtl .section-label-wrap {
-    justify-content: flex-end;
-    flex-direction: row-reverse;
+    display: inline-grid;
+    grid-template-columns: auto 12px;
+    align-items: center;
+    justify-content: end;
+    column-gap: 12px;
+    width: max-content;
+    margin: 0 0 8px auto;
   }
 
   .project-grid {
@@ -840,32 +865,4 @@ body.rtl .section-label-wrap {
   .page-circuit-svg {
     transform: scale(1.22);
   }
-}
-/* ===== FINAL RTL SECTION LABEL ALIGNMENT FIX ===== */
-body.rtl .section-side {
-  text-align: right !important;
-  direction: rtl !important;
-  display: flex !important;
-  justify-content: flex-end !important;
-}
-
-body.rtl .section-label-wrap {
-  direction: rtl !important;
-  display: inline-flex !important;
-  flex-direction: row-reverse !important;
-  justify-content: flex-end !important;
-  align-items: center !important;
-  gap: 12px !important;
-  width: 100% !important;
-  margin: 0 !important;
-}
-
-body.rtl .section-label {
-  text-align: right !important;
-  direction: rtl !important;
-}
-
-body.rtl .section-node {
-  order: 0 !important;
-  margin: 0 !important;
 }
