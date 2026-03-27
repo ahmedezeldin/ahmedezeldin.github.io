@@ -818,3 +818,77 @@ body.rtl .section-label-wrap {
   justify-content: flex-end;
   flex-direction: row-reverse;
 }
+/* ===== FINAL RTL FIXES ===== */
+
+/* Arabic hero spacing */
+body.rtl .hero-copy {
+  text-align: right !important;
+}
+
+body.rtl .hero-copy h1 {
+  font-size: clamp(2.8rem, 7vw, 5.4rem) !important;
+  line-height: 1.12 !important;
+  letter-spacing: 0 !important;
+  word-spacing: 0.08em !important;
+  font-weight: 800 !important;
+  max-width: 100% !important;
+}
+
+body.rtl .hero-copy h2 {
+  letter-spacing: 0 !important;
+  line-height: 1.45 !important;
+  word-spacing: 0.03em !important;
+}
+
+body.rtl .eyebrow {
+  letter-spacing: 0.08em !important;
+}
+
+/* Put section label column on the RIGHT in Arabic */
+body.rtl .section-grid {
+  grid-template-columns: minmax(0, 1fr) 180px !important;
+}
+
+body.rtl .section-side {
+  grid-column: 2 !important;
+  justify-self: end !important;
+  text-align: right !important;
+  order: unset !important;
+}
+
+body.rtl .section-main {
+  grid-column: 1 !important;
+  order: unset !important;
+  text-align: right !important;
+}
+
+body.rtl .section-label-wrap {
+  display: inline-flex !important;
+  flex-direction: row-reverse !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+
+/* mobile / tablet Arabic */
+@media (max-width: 900px) {
+  body.rtl .section-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body.rtl .section-side {
+    grid-column: auto !important;
+    justify-self: stretch !important;
+    text-align: right !important;
+  }
+
+  body.rtl .section-main {
+    grid-column: auto !important;
+    text-align: right !important;
+  }
+
+  body.rtl .section-label-wrap {
+    justify-content: flex-end !important;
+    flex-direction: row-reverse !important;
+  }
+}
