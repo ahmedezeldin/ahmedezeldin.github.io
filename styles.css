@@ -867,3 +867,7 @@ body.rtl .section-label {
 body.rtl .section-node {
   order: -1 !important;
 }
+body.rtl .section-label-wrap .section-node {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
