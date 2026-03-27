@@ -33,91 +33,93 @@
 
   <main id="top">
     <div class="page-circuit-bg" aria-hidden="true">
-      <svg viewBox="0 0 1600 2700" class="page-circuit-svg" preserveAspectRatio="none">
-        <defs>
-          <filter id="circuitGlow">
-            <feGaussianBlur stdDeviation="3.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
+  <svg viewBox="0 0 1600 2700" class="page-circuit-svg" preserveAspectRatio="none">
+    <defs>
+      <filter id="circuitGlow">
+        <feGaussianBlur stdDeviation="3.5" result="blur" />
+        <feMerge>
+          <feMergeNode in="blur" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+    </defs>
 
-        <!-- hero network -->
-        <path class="trace base" d="M560 190 H760 V110 H990 V290 H1270" />
-        <path class="trace base" d="M650 440 H860 V600 H1120 V480 H1410" />
-        <path class="trace base" d="M990 290 V640 H460" />
-        <path class="trace base" d="M860 600 H460" />
+    <!-- HERO -->
+    <path class="trace base" d="M520 180 H760 V110 H1000 V290 H1340" />
+    <path class="trace base" d="M620 430 H860 V600 H1120 V470 H1480" />
+    <path class="trace base" d="M1000 290 V640 H332" />
+    <path class="trace base" d="M860 600 H332" />
 
-        <!-- main trunk aligned with label nodes -->
-        <path class="trace base" d="M460 640 V2460" />
+    <!-- MAIN TRUNK: SAME COLUMN AS SECTION NODES -->
+    <path class="trace base" d="M332 640 V2460" />
 
-        <!-- section connections -->
-        <path class="trace base" d="M70 860 H460" />
-        <path class="trace base" d="M95 1185 H460" />
-        <path class="trace base" d="M60 1510 H460" />
-        <path class="trace base" d="M100 1835 H460" />
-        <path class="trace base" d="M75 2160 H460" />
-        <path class="trace base" d="M90 2420 H460" />
+    <!-- SECTION CONNECTIONS: these now actually terminate on the node line -->
+    <path class="trace base" d="M0 860 H332" />
+    <path class="trace base" d="M0 1185 H332" />
+    <path class="trace base" d="M0 1510 H332" />
+    <path class="trace base" d="M0 1835 H332" />
+    <path class="trace base" d="M0 2160 H332" />
+    <path class="trace base" d="M0 2420 H332" />
 
-        <!-- right fill -->
-        <path class="trace base" d="M460 860 H710 V740 H1090 H1450" />
-        <path class="trace base" d="M460 1185 H700 V1035 H1160 H1485" />
-        <path class="trace base" d="M460 1510 H770 V1630 H1240 H1490" />
-        <path class="trace base" d="M460 1835 H770 V1690 H1310 H1490" />
-        <path class="trace base" d="M460 2160 H700 V2280 H1210 H1460" />
-        <path class="trace base" d="M460 2420 H770 V2510 H1160 H1450" />
+    <!-- LEFT FILL -->
+    <path class="trace base" d="M170 860 V740 H0" />
+    <path class="trace base" d="M210 1185 V1315 H20" />
+    <path class="trace base" d="M160 1510 V1385 H0" />
+    <path class="trace base" d="M220 1835 V1975 H25" />
+    <path class="trace base" d="M170 2160 V2040 H0" />
+    <path class="trace base" d="M220 2420 V2550 H30" />
 
-        <!-- left fill -->
-        <path class="trace base" d="M280 860 V760 H80" />
-        <path class="trace base" d="M300 1185 V1305 H95" />
-        <path class="trace base" d="M260 1510 V1395 H70" />
-        <path class="trace base" d="M320 1835 V1950 H120" />
-        <path class="trace base" d="M270 2160 V2045 H85" />
-        <path class="trace base" d="M305 2420 V2535 H120" />
+    <!-- RIGHT FILL -->
+    <path class="trace base" d="M332 860 H680 V730 H1100 H1600" />
+    <path class="trace base" d="M332 1185 H690 V1030 H1190 H1600" />
+    <path class="trace base" d="M332 1510 H760 V1640 H1290 H1600" />
+    <path class="trace base" d="M332 1835 H760 V1690 H1360 H1600" />
+    <path class="trace base" d="M332 2160 H700 V2280 H1240 H1600" />
+    <path class="trace base" d="M332 2420 H770 V2510 H1190 H1600" />
 
-        <!-- animated overlays -->
-        <path class="trace active d1" d="M560 190 H760 V110 H990 V290 H1270" />
-        <path class="trace active d2" d="M650 440 H860 V600 H1120 V480 H1410" />
-        <path class="trace active d3" d="M990 290 V640 H460" />
-        <path class="trace active d4" d="M460 640 V2460" />
+    <!-- ACTIVE TRACES -->
+    <path class="trace active d1" d="M520 180 H760 V110 H1000 V290 H1340" />
+    <path class="trace active d2" d="M620 430 H860 V600 H1120 V470 H1480" />
+    <path class="trace active d3" d="M1000 290 V640 H332" />
+    <path class="trace active d4" d="M332 640 V2460" />
 
-        <path class="trace active d5" d="M70 860 H460" />
-        <path class="trace active d6" d="M95 1185 H460" />
-        <path class="trace active d7" d="M60 1510 H460" />
-        <path class="trace active d8" d="M100 1835 H460" />
-        <path class="trace active d5" d="M75 2160 H460" />
-        <path class="trace active d6" d="M90 2420 H460" />
+    <path class="trace active d5" d="M0 860 H332" />
+    <path class="trace active d6" d="M0 1185 H332" />
+    <path class="trace active d7" d="M0 1510 H332" />
+    <path class="trace active d8" d="M0 1835 H332" />
+    <path class="trace active d5" d="M0 2160 H332" />
+    <path class="trace active d6" d="M0 2420 H332" />
 
-        <path class="trace active d2" d="M460 1185 H700 V1035 H1160 H1485" />
-        <path class="trace active d4" d="M460 1835 H770 V1690 H1310 H1490" />
+    <path class="trace active d2" d="M332 1185 H690 V1030 H1190 H1600" />
+    <path class="trace active d4" d="M332 1835 H760 V1690 H1360 H1600" />
 
-        <!-- nodes -->
-        <circle class="cnode p1" cx="760" cy="110" r="7" />
-        <circle class="cnode p2" cx="990" cy="290" r="7" />
-        <circle class="cnode p3" cx="860" cy="600" r="7" />
-        <circle class="cnode p4" cx="460" cy="640" r="7" />
+    <!-- JUNCTION NODES -->
+    <circle class="cnode" cx="760" cy="110" r="7" />
+    <circle class="cnode" cx="1000" cy="290" r="7" />
+    <circle class="cnode" cx="860" cy="600" r="7" />
+    <circle class="cnode" cx="332" cy="640" r="7" />
 
-        <circle class="cnode p5" cx="460" cy="860" r="7" />
-        <circle class="cnode p6" cx="460" cy="1185" r="7" />
-        <circle class="cnode p7" cx="460" cy="1510" r="7" />
-        <circle class="cnode p8" cx="460" cy="1835" r="7" />
-        <circle class="cnode p9" cx="460" cy="2160" r="7" />
-        <circle class="cnode p10" cx="460" cy="2420" r="7" />
+    <circle class="cnode" cx="332" cy="860" r="7" />
+    <circle class="cnode" cx="332" cy="1185" r="7" />
+    <circle class="cnode" cx="332" cy="1510" r="7" />
+    <circle class="cnode" cx="332" cy="1835" r="7" />
+    <circle class="cnode" cx="332" cy="2160" r="7" />
+    <circle class="cnode" cx="332" cy="2420" r="7" />
 
-        <!-- moving signals -->
-        <circle class="signal" r="5" filter="url(#circuitGlow)">
-          <animateMotion dur="7.5s" repeatCount="indefinite" path="M990 290 V640 H460" />
-        </circle>
-        <circle class="signal" r="5" filter="url(#circuitGlow)">
-          <animateMotion dur="11s" begin="1.2s" repeatCount="indefinite" path="M460 640 V2460" />
-        </circle>
-        <circle class="signal" r="5" filter="url(#circuitGlow)">
-          <animateMotion dur="8.8s" begin="2.4s" repeatCount="indefinite" path="M460 1835 H770 V1690 H1310 H1490" />
-        </circle>
-      </svg>
-    </div>
+    <!-- SIGNALS -->
+    <circle class="signal" r="5" filter="url(#circuitGlow)">
+      <animateMotion dur="7.5s" repeatCount="indefinite" path="M1000 290 V640 H332" />
+    </circle>
+
+    <circle class="signal" r="5" filter="url(#circuitGlow)">
+      <animateMotion dur="11s" begin="1.2s" repeatCount="indefinite" path="M332 640 V2460" />
+    </circle>
+
+    <circle class="signal" r="5" filter="url(#circuitGlow)">
+      <animateMotion dur="8.8s" begin="2.4s" repeatCount="indefinite" path="M332 1835 H760 V1690 H1360 H1600" />
+    </circle>
+  </svg>
+</div>
 
     <section class="hero">
       <div class="hero-inner">
