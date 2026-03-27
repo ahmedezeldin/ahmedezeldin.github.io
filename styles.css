@@ -841,3 +841,29 @@ body.rtl .section-label-wrap {
     transform: scale(1.22);
   }
 }
+/* ===== FINAL RTL SECTION LABEL ALIGNMENT FIX ===== */
+body.rtl .section-side {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+body.rtl .section-label-wrap {
+  direction: rtl !important;
+  display: inline-flex !important;
+  flex-direction: row-reverse !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 12px !important;
+  width: auto !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+body.rtl .section-label {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+body.rtl .section-node {
+  order: -1 !important;
+}
