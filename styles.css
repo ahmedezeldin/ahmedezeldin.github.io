@@ -123,10 +123,7 @@ body.loaded .page-circuit-bg {
 }
 
 .connector-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
+  display: none;
 }
 
 .connector-path {
@@ -339,6 +336,19 @@ body.loaded .hero-actions {
   padding-left: 96px;
 }
 
+/* horizontal connector from the rail to the dot */
+.section-label-wrap::before {
+  content: "";
+  position: absolute;
+  left: 74px;
+  top: 50%;
+  width: 42px;
+  height: 2px;
+  background: rgba(137, 183, 255, 0.18);
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
 .section-node {
   position: absolute;
   left: 74px;
@@ -367,6 +377,10 @@ body.loaded .hero-actions {
     0 0 0 7px rgba(137, 183, 255, 0.08),
     0 0 16px rgba(137, 183, 255, 0.30);
   transform: translate(-50%, -50%) scale(1.18);
+}
+
+.section-label-wrap.is-active::before {
+  background: rgba(137, 183, 255, 0.3);
 }
 
 .section-label-wrap.is-active .section-label {
