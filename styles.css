@@ -38,8 +38,7 @@ a { color: inherit; text-decoration: none; }
   z-index: -1;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 1s ease, transform 1s ease;
-  will-change: transform;
+  transition: opacity 1s ease;
 }
 
 body.loaded .page-circuit-bg { opacity: 1; }
@@ -58,7 +57,7 @@ body.loaded .page-circuit-bg { opacity: 1; }
 }
 
 .trace.base {
-  stroke: rgba(137,183,255,0.07);
+  stroke: rgba(137,183,255,0.075);
   stroke-width: 3;
 }
 
@@ -67,17 +66,26 @@ body.loaded .page-circuit-bg { opacity: 1; }
   stroke-width: 3;
   stroke-dasharray: 90 700;
   stroke-dashoffset: 790;
-  animation: travel 8.5s linear infinite;
+  animation: travel 8.8s linear infinite;
 }
 
+.d1 { animation-delay: 0s; }
+.d2 { animation-delay: 1.1s; }
+.d3 { animation-delay: 2.1s; }
+.d4 { animation-delay: 3.2s; }
+.d5 { animation-delay: 4.2s; }
+.d6 { animation-delay: 5s; }
+.d7 { animation-delay: 5.8s; }
+.d8 { animation-delay: 6.6s; }
+
 .cnode {
-  fill: rgba(137,183,255,0.24);
+  fill: rgba(137,183,255,0.26);
   filter: drop-shadow(0 0 7px rgba(137,183,255,0.12));
 }
 
 .signal {
-  fill: rgba(232,242,255,0.84);
-  opacity: 0.9;
+  fill: rgba(232,242,255,0.88);
+  opacity: 0.92;
 }
 
 .site-header {
@@ -260,7 +268,6 @@ body.loaded .hero-actions {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
   gap: 1.85rem;
-  position: relative;
 }
 
 .section-label-wrap {
@@ -268,18 +275,16 @@ body.loaded .hero-actions {
   align-items: center;
   min-height: 28px;
   padding-left: 0.2rem;
-  position: relative;
 }
 
 .section-node {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(137,183,255,0.34);
+  background: rgba(137,183,255,0.36);
   margin-right: 0.65rem;
-  box-shadow: 0 0 8px rgba(137,183,255,0.12);
+  box-shadow: 0 0 8px rgba(137,183,255,0.14);
   transition: all 0.25s ease;
-  position: relative;
 }
 
 .section-label {
@@ -495,7 +500,7 @@ body.loaded .hero-actions {
   }
 
   .page-circuit-bg {
-    opacity: 0.6 !important;
+    opacity: 0.58 !important;
   }
 }
 
@@ -532,25 +537,6 @@ body.loaded .hero-actions {
   }
 
   .page-circuit-bg {
-  position: absolute;
-  inset: 0;
-  width: 100vw;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 1s ease, transform 1s ease;
-  will-change: transform;
-}
-
-body.loaded .page-circuit-bg {
-  opacity: 1;
-}
-
-.page-circuit-svg {
-  width: 100%;
-  height: 100%;
-  display: block;
-  overflow: visible;
+    opacity: 0.4 !important;
+  }
 }
