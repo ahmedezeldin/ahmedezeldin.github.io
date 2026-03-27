@@ -832,3 +832,45 @@ body.rtl .nav-links a::after {
     transform: scale(1.22);
   }
 }
+/* ===== RTL labels pinned near right edge of screen ===== */
+@media (min-width: 901px) {
+  body.rtl .content-section {
+    position: relative;
+  }
+
+  body.rtl .section-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    position: relative;
+  }
+
+  body.rtl .section-side {
+    position: absolute !important;
+    top: 0;
+    right: max(24px, calc((100vw - var(--max)) / 2 + 24px)) !important;
+    width: 180px;
+    text-align: right !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    z-index: 3;
+  }
+
+  body.rtl .section-main {
+    grid-column: 1 !important;
+    text-align: right !important;
+  }
+
+  body.rtl .section-label-wrap {
+    width: 100%;
+    display: inline-flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    flex-direction: row-reverse !important;
+    gap: 12px !important;
+  }
+}
+body.rtl .hero-copy h1 {
+  font-size: clamp(3rem, 7vw, 5.2rem) !important;
+  line-height: 1.18 !important;
+  letter-spacing: 0 !important;
+  word-spacing: 0.12em !important;
+}
