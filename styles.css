@@ -8,7 +8,6 @@
   --muted: #9aa6bb;
   --line: rgba(110, 168, 255, 0.18);
   --line-strong: rgba(135, 190, 255, 0.42);
-  --glow: rgba(140, 195, 255, 0.35);
   --accent: #9fd0ff;
   --accent-strong: #c7e5ff;
   --node: #d9eeff;
@@ -577,7 +576,7 @@ main,
   transform: translateY(0);
 }
 
-/* RTL SUPPORT */
+/* RTL */
 body.rtl .nav-wrap {
   direction: rtl;
 }
@@ -597,9 +596,56 @@ body.rtl .site-footer {
   text-align: right;
 }
 
+body.rtl .hero-copy h1 {
+  font-size: clamp(2.8rem, 7vw, 5.4rem);
+  line-height: 1.12;
+  letter-spacing: 0;
+  word-spacing: 0.08em;
+  font-weight: 800;
+  max-width: 100%;
+}
+
+body.rtl .hero-copy h2 {
+  line-height: 1.45;
+  letter-spacing: 0;
+  word-spacing: 0.03em;
+}
+
+body.rtl .eyebrow {
+  letter-spacing: 0.08em;
+}
+
 body.rtl .hero-actions,
 body.rtl .skill-cluster {
   justify-content: flex-start;
+}
+
+/* KEY FIX: grid stays LTR for placement, content stays RTL */
+body.rtl .section-grid {
+  direction: ltr;
+  grid-template-columns: minmax(0, 1fr) 180px;
+}
+
+body.rtl .section-side {
+  grid-column: 2;
+  justify-self: end;
+  text-align: right;
+  position: sticky;
+  top: 110px;
+}
+
+body.rtl .section-main {
+  grid-column: 1;
+  text-align: right;
+}
+
+body.rtl .section-label-wrap {
+  direction: rtl;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+  gap: 12px;
 }
 
 body.rtl .clean-list {
@@ -656,12 +702,26 @@ body.rtl .nav-links a::after {
   }
 
   body.rtl .section-grid {
+    direction: rtl;
     grid-template-columns: 1fr;
   }
 
-  body.rtl .section-side,
+  body.rtl .section-side {
+    grid-column: auto;
+    justify-self: stretch;
+    text-align: right;
+    position: relative;
+    top: auto;
+  }
+
   body.rtl .section-main {
-    order: initial;
+    grid-column: auto;
+    text-align: right;
+  }
+
+  body.rtl .section-label-wrap {
+    justify-content: flex-end;
+    flex-direction: row-reverse;
   }
 
   .project-grid {
@@ -711,6 +771,10 @@ body.rtl .nav-links a::after {
 
   .hero-copy h1 {
     font-size: clamp(2.4rem, 15vw, 4rem);
+  }
+
+  body.rtl .hero-copy h1 {
+    font-size: clamp(2.35rem, 14vw, 4rem);
   }
 
   .hero-copy h2 {
@@ -766,113 +830,5 @@ body.rtl .nav-links a::after {
 
   .page-circuit-svg {
     transform: scale(1.22);
-  }
-}
-/* Better Arabic headline spacing */
-body.rtl .hero-copy h1 {
-  letter-spacing: 0;
-  line-height: 1.08;
-  font-weight: 800;
-}
-
-body.rtl .hero-copy h2 {
-  letter-spacing: 0;
-  line-height: 1.35;
-}
-
-body.rtl .eyebrow {
-  letter-spacing: 0.08em;
-}
-/* Put section labels on the right side in Arabic */
-body.rtl .section-grid {
-  grid-template-columns: minmax(0, 1fr) 180px;
-}
-
-body.rtl .section-side {
-  order: 2;
-  justify-self: end;
-  text-align: right;
-}
-
-body.rtl .section-main {
-  order: 1;
-}
-
-body.rtl .section-label-wrap {
-  justify-content: flex-end;
-  flex-direction: row-reverse;
-}
-/* ===== FINAL RTL FIXES ===== */
-
-/* Arabic hero spacing */
-body.rtl .hero-copy {
-  text-align: right !important;
-}
-
-body.rtl .hero-copy h1 {
-  font-size: clamp(2.8rem, 7vw, 5.4rem) !important;
-  line-height: 1.12 !important;
-  letter-spacing: 0 !important;
-  word-spacing: 0.08em !important;
-  font-weight: 800 !important;
-  max-width: 100% !important;
-}
-
-body.rtl .hero-copy h2 {
-  letter-spacing: 0 !important;
-  line-height: 1.45 !important;
-  word-spacing: 0.03em !important;
-}
-
-body.rtl .eyebrow {
-  letter-spacing: 0.08em !important;
-}
-
-/* Put section label column on the RIGHT in Arabic */
-body.rtl .section-grid {
-  grid-template-columns: minmax(0, 1fr) 180px !important;
-}
-
-body.rtl .section-side {
-  grid-column: 2 !important;
-  justify-self: end !important;
-  text-align: right !important;
-  order: unset !important;
-}
-
-body.rtl .section-main {
-  grid-column: 1 !important;
-  order: unset !important;
-  text-align: right !important;
-}
-
-body.rtl .section-label-wrap {
-  display: inline-flex !important;
-  flex-direction: row-reverse !important;
-  justify-content: flex-end !important;
-  align-items: center !important;
-  gap: 12px !important;
-}
-
-/* mobile / tablet Arabic */
-@media (max-width: 900px) {
-  body.rtl .section-grid {
-    grid-template-columns: 1fr !important;
-  }
-
-  body.rtl .section-side {
-    grid-column: auto !important;
-    justify-self: stretch !important;
-    text-align: right !important;
-  }
-
-  body.rtl .section-main {
-    grid-column: auto !important;
-    text-align: right !important;
-  }
-
-  body.rtl .section-label-wrap {
-    justify-content: flex-end !important;
-    flex-direction: row-reverse !important;
   }
 }
