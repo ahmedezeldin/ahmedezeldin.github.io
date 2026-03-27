@@ -152,18 +152,34 @@
 
     <!-- NAV -->
     <header class="site-header">
-      <div class="container nav-wrap">
-        <a href="#top" class="brand">AE</a>
-        <nav class="nav-links">
-          <a href="#about">About</a>
-          <a href="#education">Education</a>
-          <a href="#project">Project</a>
-          <a href="#experience">Experience</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </div>
-    </header>
+  <div class="container nav-wrap">
+    <a href="#top" class="brand">AE</a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav class="nav-links desktop-nav">
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#project">Project</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#project">Project</a>
+    <a href="#experience">Experience</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+</header>
 
     <main id="top">
       <!-- HERO -->
@@ -404,37 +420,150 @@
     </footer>
   </div>
 
+  /* mobile hamburger nav */
+.menu-toggle {
+  display: none;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 14px;
+  padding: 0;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  border-radius: 999px;
+  background: #f5f7fa;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+  }
+
+  .nav-wrap {
+    min-height: 64px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.7rem 0;
+    gap: 1rem;
+  }
+
+  .mobile-menu {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(16px);
+  }
+
+  .mobile-menu a {
+    display: block;
+    width: min(var(--max), calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 0.95rem 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .mobile-menu a:last-child {
+    border-bottom: none;
+  }
+
+  .mobile-menu a:hover {
+    color: var(--text);
+  }
+
+  .mobile-menu.open {
+    max-height: 420px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-toggle.open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
   <script>
-    // Reveal on scroll
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.18 });
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.18 });
 
-    revealEls.forEach((el) => observer.observe(el));
+  revealEls.forEach((el) => observer.observe(el));
 
-    // Light up section dots when section is active
-    const sections = document.querySelectorAll('.content-section');
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const labelWrap = entry.target.querySelector('.section-label-wrap');
-        if (!labelWrap) return;
+  const sections = document.querySelectorAll('.content-section');
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const labelWrap = entry.target.querySelector('.section-label-wrap');
+      if (!labelWrap) return;
 
-        if (entry.isIntersecting) {
-          labelWrap.classList.add('is-active');
-        } else {
-          labelWrap.classList.remove('is-active');
-        }
-      });
-    }, {
-      threshold: 0.35
+      if (entry.isIntersecting) {
+        labelWrap.classList.add('is-active');
+      } else {
+        labelWrap.classList.remove('is-active');
+      }
+    });
+  }, {
+    threshold: 0.35
+  });
+
+  sections.forEach((section) => sectionObserver.observe(section));
+
+  const menuToggle = document.getElementById('menuToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileLinks = document.querySelectorAll('#mobileMenu a');
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      menuToggle.classList.toggle('open', isOpen);
+      menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
 
-    sections.forEach((section) => sectionObserver.observe(section));
-  </script>
+    mobileLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuToggle.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
 </body>
 </html>
