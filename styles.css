@@ -799,3 +799,22 @@ body.rtl .hero-copy h2 {
 body.rtl .eyebrow {
   letter-spacing: 0.08em;
 }
+/* Put section labels on the right side in Arabic */
+body.rtl .section-grid {
+  grid-template-columns: minmax(0, 1fr) 180px;
+}
+
+body.rtl .section-side {
+  order: 2;
+  justify-self: end;
+  text-align: right;
+}
+
+body.rtl .section-main {
+  order: 1;
+}
+
+body.rtl .section-label-wrap {
+  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
