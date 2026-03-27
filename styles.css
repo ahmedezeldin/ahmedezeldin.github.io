@@ -602,22 +602,6 @@ body.rtl .skill-cluster {
   justify-content: flex-start;
 }
 
-body.rtl .section-grid {
-  grid-template-columns: minmax(0, 1fr) 180px;
-}
-
-body.rtl .section-side {
-  order: 2;
-}
-
-body.rtl .section-main {
-  order: 1;
-}
-
-body.rtl .section-label-wrap {
-  justify-content: flex-end;
-}
-
 body.rtl .clean-list {
   padding-left: 0;
   padding-right: 20px;
