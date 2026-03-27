@@ -79,7 +79,7 @@ a {
 }
 
 .bg-trace.base {
-  stroke: rgba(137, 183, 255, 0.06);
+  stroke: rgba(137, 183, 255, 0.07);
   stroke-width: 3;
 }
 
@@ -304,16 +304,16 @@ a {
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(137, 183, 255, 0.30);
+  background: rgba(137, 183, 255, 0.34);
   flex: 0 0 8px;
   margin-right: 0.65rem;
-  box-shadow: 0 0 8px rgba(137, 183, 255, 0.10);
+  box-shadow: 0 0 8px rgba(137, 183, 255, 0.12);
   transition:
     background 0.25s ease,
     box-shadow 0.25s ease,
     transform 0.25s ease,
     opacity 0.25s ease;
-  opacity: 0.92;
+  opacity: 0.94;
 }
 
 .section-label {
@@ -322,7 +322,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.16em;
   transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
-  opacity: 0.9;
+  opacity: 0.92;
 }
 
 .section-label-wrap.is-active .section-node {
