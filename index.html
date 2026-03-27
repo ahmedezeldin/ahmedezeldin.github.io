@@ -289,122 +289,123 @@
   </footer>
 
   <script>
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
-    const connectorLayer = document.getElementById("connectorLayer");
-    const main = document.querySelector("main");
-    const rail = document.querySelector(".page-rail");
+  const menuToggle = document.getElementById("menuToggle");
+  const navLinks = document.getElementById("navLinks");
+  const connectorLayer = document.getElementById("connectorLayer");
+  const main = document.querySelector("main");
+  const rail = document.querySelector(".page-rail");
 
-    if (menuToggle && navLinks) {
-      menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("open");
-        menuToggle.setAttribute(
-          "aria-expanded",
-          navLinks.classList.contains("open") ? "true" : "false"
-        );
-      });
-
-      document.querySelectorAll(".nav-links a").forEach((link) => {
-        link.addEventListener("click", () => {
-          navLinks.classList.remove("open");
-          menuToggle.setAttribute("aria-expanded", "false");
-        });
-      });
-    }
-
-    function drawConnectors() {
-      if (!connectorLayer || !main || !rail || window.innerWidth <= 900) {
-        if (connectorLayer) connectorLayer.innerHTML = "";
-        return;
-      }
-
-      const mainRect = main.getBoundingClientRect();
-      const railRect = rail.getBoundingClientRect();
-      const railX = railRect.left - mainRect.left + railRect.width / 2;
-
-      const width = main.scrollWidth || mainRect.width;
-      const height = main.scrollHeight;
-
-      connectorLayer.setAttribute("viewBox", `0 0 ${width} ${height}`);
-      connectorLayer.setAttribute("width", width);
-      connectorLayer.setAttribute("height", height);
-      connectorLayer.innerHTML = "";
-
-      const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-      const filter = document.createElementNS("http://www.w3.org/2000/svg", "filter");
-      filter.setAttribute("id", "connectorGlow");
-      filter.innerHTML = `
-        <feGaussianBlur stdDeviation="2.2" result="blur"></feGaussianBlur>
-        <feMerge>
-          <feMergeNode in="blur"></feMergeNode>
-          <feMergeNode in="SourceGraphic"></feMergeNode>
-        </feMerge>
-      `;
-      defs.appendChild(filter);
-      connectorLayer.appendChild(defs);
-
-      document.querySelectorAll(".section-label-wrap .section-node").forEach((node, index) => {
-        const nodeRect = node.getBoundingClientRect();
-        const x = nodeRect.left - mainRect.left + nodeRect.width / 2;
-        const y = nodeRect.top - mainRect.top + nodeRect.height / 2;
-
-        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("d", `M ${railX} ${y} H ${x}`);
-        path.setAttribute("class", "connector-path");
-        path.style.setProperty("--delay", `${index * 0.12}s`);
-        connectorLayer.appendChild(path);
-      });
-    }
-
-    window.addEventListener("load", () => {
-      document.body.classList.add("loaded");
-      drawConnectors();
-      setTimeout(drawConnectors, 120);
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+      menuToggle.setAttribute(
+        "aria-expanded",
+        navLinks.classList.contains("open") ? "true" : "false"
+      );
     });
 
-    window.addEventListener("resize", drawConnectors);
-
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          entry.target.classList.toggle("visible", entry.isIntersecting);
-        });
-      },
-      { threshold: 0.12 }
-    );
-
-    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
-
-    const sectionAnchors = document.querySelectorAll(".section-anchor");
-
-    function setActiveSection(name) {
-      document.querySelectorAll(".section-label-wrap").forEach((wrap) => {
-        wrap.classList.remove("is-active");
+    document.querySelectorAll(".nav-links a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
       });
-      const activeWrap = document.querySelector(`.section-anchor[data-section="${name}"] .section-label-wrap`);
-      if (activeWrap) activeWrap.classList.add("is-active");
+    });
+  }
+
+  function drawConnectors() {
+    if (!connectorLayer || !main || !rail || window.innerWidth <= 900) {
+      if (connectorLayer) connectorLayer.innerHTML = "";
+      return;
     }
 
-    function detectActiveSection() {
-      let best = null;
-      let bestDistance = Infinity;
-      const center = window.innerHeight * 0.42;
+    const mainRect = main.getBoundingClientRect();
+    const railRect = rail.getBoundingClientRect();
+    const railX = railRect.left - mainRect.left + railRect.width / 2;
 
-      sectionAnchors.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        const distance = Math.abs(rect.top - center);
-        if (distance < bestDistance) {
-          bestDistance = distance;
-          best = section.dataset.section;
-        }
+    const width = Math.max(main.scrollWidth, Math.ceil(mainRect.width));
+    const height = Math.max(main.scrollHeight, Math.ceil(mainRect.height));
+
+    connectorLayer.setAttribute("viewBox", `0 0 ${width} ${height}`);
+    connectorLayer.setAttribute("width", width);
+    connectorLayer.setAttribute("height", height);
+    connectorLayer.innerHTML = "";
+
+    const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+    const filter = document.createElementNS("http://www.w3.org/2000/svg", "filter");
+    filter.setAttribute("id", "connectorGlow");
+    filter.innerHTML = `
+      <feGaussianBlur stdDeviation="2.2" result="blur"></feGaussianBlur>
+      <feMerge>
+        <feMergeNode in="blur"></feMergeNode>
+        <feMergeNode in="SourceGraphic"></feMergeNode>
+      </feMerge>
+    `;
+    defs.appendChild(filter);
+    connectorLayer.appendChild(defs);
+
+    document.querySelectorAll(".section-label-wrap .section-node").forEach((node, index) => {
+      const rect = node.getBoundingClientRect();
+      const x = rect.left - mainRect.left + rect.width / 2;
+      const y = rect.top - mainRect.top + rect.height / 2;
+
+      const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+      path.setAttribute("d", `M ${railX} ${y} H ${x}`);
+      path.setAttribute("class", "connector-path");
+      path.style.setProperty("--delay", `${index * 0.1}s`);
+      path.setAttribute("filter", "url(#connectorGlow)");
+      connectorLayer.appendChild(path);
+    });
+  }
+
+  window.addEventListener("load", () => {
+    document.body.classList.add("loaded");
+    drawConnectors();
+    setTimeout(drawConnectors, 120);
+  });
+
+  window.addEventListener("resize", drawConnectors);
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        entry.target.classList.toggle("visible", entry.isIntersecting);
       });
+    },
+    { threshold: 0.12 }
+  );
 
-      if (best) setActiveSection(best);
-    }
+  document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-    window.addEventListener("scroll", detectActiveSection, { passive: true });
-    window.addEventListener("resize", detectActiveSection);
-    detectActiveSection();
-  </script>
+  const sectionAnchors = document.querySelectorAll(".section-anchor");
+
+  function setActiveSection(name) {
+    document.querySelectorAll(".section-label-wrap").forEach((wrap) => {
+      wrap.classList.remove("is-active");
+    });
+    const activeWrap = document.querySelector(`.section-anchor[data-section="${name}"] .section-label-wrap`);
+    if (activeWrap) activeWrap.classList.add("is-active");
+  }
+
+  function detectActiveSection() {
+    let best = null;
+    let bestDistance = Infinity;
+    const center = window.innerHeight * 0.42;
+
+    sectionAnchors.forEach((section) => {
+      const rect = section.getBoundingClientRect();
+      const distance = Math.abs(rect.top - center);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        best = section.dataset.section;
+      }
+    });
+
+    if (best) setActiveSection(best);
+  }
+
+  window.addEventListener("scroll", detectActiveSection, { passive: true });
+  window.addEventListener("resize", detectActiveSection);
+  detectActiveSection();
+</script>
 </body>
 </html>
