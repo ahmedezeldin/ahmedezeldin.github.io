@@ -866,3 +866,88 @@ body.rtl .section-node {
     transform: scale(1.22);
   }
 }
+/* ===== FINAL ARABIC COMPONENT ALIGNMENT FIX ===== */
+
+/* section content */
+body.rtl .section-main,
+body.rtl .glass-card,
+body.rtl .mini-card,
+body.rtl .card-meta,
+body.rtl .card-kicker,
+body.rtl .section-main p,
+body.rtl .section-main h2,
+body.rtl .section-main h3,
+body.rtl .section-main h4 {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* lists / bullets */
+body.rtl .clean-list {
+  direction: rtl !important;
+  text-align: right !important;
+  padding-right: 20px !important;
+  padding-left: 0 !important;
+  list-style-position: outside !important;
+}
+
+body.rtl .clean-list li {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* skill pills / chips */
+body.rtl .skill-cluster,
+body.rtl .skill-cluster.large {
+  direction: rtl !important;
+  justify-content: flex-end !important;
+}
+
+body.rtl .skill-cluster span {
+  direction: rtl !important;
+  text-align: center !important;
+}
+
+/* project cards grid text */
+body.rtl .project-grid {
+  direction: rtl !important;
+}
+
+body.rtl .mini-card p,
+body.rtl .mini-card h4 {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* hero/contact action buttons */
+body.rtl .hero-actions {
+  direction: rtl !important;
+  justify-content: flex-start !important;
+}
+
+/* section label rail stays right */
+body.rtl .section-side {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+body.rtl .section-label-wrap {
+  display: inline-flex !important;
+  flex-direction: row-reverse !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  gap: 10px !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+body.rtl .section-label {
+  text-align: right !important;
+  direction: rtl !important;
+  white-space: nowrap !important;
+}
+
+body.rtl .section-node {
+  flex: 0 0 12px !important;
+  margin: 0 !important;
+}
