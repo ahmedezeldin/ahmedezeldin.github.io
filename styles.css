@@ -1041,3 +1041,135 @@ body.rtl .section-node {
   flex: 0 0 12px !important;
   margin: 0 !important;
 }
+/* ===== NUCLEAR ARABIC FIX ===== */
+
+/* Main Arabic text blocks */
+body.rtl .section-main,
+body.rtl .glass-card,
+body.rtl .mini-card,
+body.rtl .section-main p,
+body.rtl .section-main h2,
+body.rtl .section-main h3,
+body.rtl .section-main h4,
+body.rtl .card-kicker,
+body.rtl .card-meta {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Keep Arabic content visually anchored right */
+body.rtl .section-main {
+  max-width: 860px !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+/* Right rail */
+body.rtl .section-side {
+  direction: rtl !important;
+  text-align: right !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  width: 100% !important;
+}
+
+/* IMPORTANT:
+   In Arabic, keep normal row order with RTL direction.
+   Since HTML order is [dot, label], RTL puts dot on the RIGHT. */
+body.rtl .section-label-wrap {
+  direction: rtl !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  width: max-content !important;
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+body.rtl .section-label {
+  direction: rtl !important;
+  text-align: right !important;
+  white-space: nowrap !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+}
+
+body.rtl .section-node {
+  margin: 0 !important;
+  flex: 0 0 12px !important;
+}
+
+/* Lists / bullets */
+body.rtl .clean-list {
+  direction: rtl !important;
+  text-align: right !important;
+  padding-right: 20px !important;
+  padding-left: 0 !important;
+}
+
+body.rtl .clean-list li {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Skill pills */
+body.rtl .skill-cluster,
+body.rtl .skill-cluster.large {
+  direction: rtl !important;
+  justify-content: flex-start !important; /* flex-start in RTL = right side */
+}
+
+body.rtl .skill-cluster span {
+  direction: rtl !important;
+  text-align: center !important;
+}
+
+/* Buttons row */
+body.rtl .hero-actions {
+  direction: rtl !important;
+  justify-content: flex-start !important;
+}
+
+/* Project grid/cards */
+body.rtl .project-grid {
+  direction: rtl !important;
+}
+
+body.rtl .mini-card h4,
+body.rtl .mini-card p {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* Arabic heading spacing */
+body.rtl .hero-copy h1 {
+  letter-spacing: 0 !important;
+  word-spacing: 0.12em !important;
+  line-height: 1.18 !important;
+}
+
+body.rtl .hero-copy h2 {
+  letter-spacing: 0 !important;
+  line-height: 1.45 !important;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  body.rtl .section-side {
+    justify-content: flex-end !important;
+  }
+
+  body.rtl .section-label-wrap {
+    width: max-content !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+  }
+
+  body.rtl .section-main {
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
