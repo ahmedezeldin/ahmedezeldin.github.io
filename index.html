@@ -32,60 +32,98 @@
   </header>
 
   <main id="top">
+    <div class="page-circuit-bg" aria-hidden="true">
+      <svg viewBox="0 0 1400 2600" class="page-circuit-svg" preserveAspectRatio="none">
+        <defs>
+          <filter id="circuitGlow">
+            <feGaussianBlur stdDeviation="4" result="blur" />
+            <feMerge>
+              <feMergeNode in="blur" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+
+        <!-- hero network -->
+        <path class="bg-trace base" d="M520 220 H710 V120 H900 V300 H1160" />
+        <path class="bg-trace base" d="M470 500 H630 V640 H860 V550 H1080 V740 H1270" />
+        <path class="bg-trace base" d="M760 120 H640 V300 H470 V630" />
+        <path class="bg-trace base" d="M900 300 H1010 V160 H1210 V160 H1310" />
+
+        <!-- main vertical trunk -->
+        <path class="bg-trace base" d="M470 630 V2380" />
+
+        <!-- section branches -->
+        <path class="bg-trace base" d="M470 840 H520" />
+        <path class="bg-trace base" d="M470 1160 H520" />
+        <path class="bg-trace base" d="M470 1490 H520" />
+        <path class="bg-trace base" d="M470 1810 H520" />
+        <path class="bg-trace base" d="M470 2135 H520" />
+        <path class="bg-trace base" d="M470 2380 H520" />
+
+        <!-- extra organic right-side branches -->
+        <path class="bg-trace base" d="M470 980 H690 V860 H980" />
+        <path class="bg-trace base" d="M470 1330 H630 V1470 H930" />
+        <path class="bg-trace base" d="M470 1670 H760 V1540 H1060" />
+        <path class="bg-trace base" d="M470 2010 H650 V2170 H990" />
+
+        <!-- active traces -->
+        <path class="bg-trace active delay-1" d="M520 220 H710 V120 H900 V300 H1160" />
+        <path class="bg-trace active delay-2" d="M470 500 H630 V640 H860 V550 H1080 V740 H1270" />
+        <path class="bg-trace active delay-3" d="M760 120 H640 V300 H470 V630" />
+        <path class="bg-trace active delay-4" d="M470 630 V2380" />
+
+        <path class="bg-trace active delay-5" d="M470 840 H520" />
+        <path class="bg-trace active delay-6" d="M470 1160 H520" />
+        <path class="bg-trace active delay-7" d="M470 1490 H520" />
+        <path class="bg-trace active delay-8" d="M470 1810 H520" />
+        <path class="bg-trace active delay-5" d="M470 2135 H520" />
+        <path class="bg-trace active delay-6" d="M470 2380 H520" />
+
+        <path class="bg-trace active delay-2" d="M470 980 H690 V860 H980" />
+        <path class="bg-trace active delay-3" d="M470 1330 H630 V1470 H930" />
+        <path class="bg-trace active delay-4" d="M470 1670 H760 V1540 H1060" />
+        <path class="bg-trace active delay-5" d="M470 2010 H650 V2170 H990" />
+
+        <!-- junction nodes -->
+        <circle class="bg-node pulse-1" cx="710" cy="120" r="8" />
+        <circle class="bg-node pulse-2" cx="900" cy="300" r="8" />
+        <circle class="bg-node pulse-3" cx="630" cy="640" r="8" />
+        <circle class="bg-node pulse-4" cx="860" cy="550" r="8" />
+        <circle class="bg-node pulse-5" cx="470" cy="630" r="8" />
+
+        <circle class="bg-node pulse-6" cx="470" cy="840" r="8" />
+        <circle class="bg-node pulse-7" cx="470" cy="1160" r="8" />
+        <circle class="bg-node pulse-8" cx="470" cy="1490" r="8" />
+        <circle class="bg-node pulse-9" cx="470" cy="1810" r="8" />
+        <circle class="bg-node pulse-10" cx="470" cy="2135" r="8" />
+        <circle class="bg-node pulse-11" cx="470" cy="2380" r="8" />
+
+        <circle class="bg-node pulse-12" cx="690" cy="860" r="8" />
+        <circle class="bg-node pulse-13" cx="630" cy="1470" r="8" />
+        <circle class="bg-node pulse-14" cx="760" cy="1540" r="8" />
+        <circle class="bg-node pulse-15" cx="650" cy="2170" r="8" />
+
+        <!-- signal dots -->
+        <circle class="signal-dot dot-1" r="6" filter="url(#circuitGlow)">
+          <animateMotion dur="7.5s" repeatCount="indefinite" path="M760 120 H640 V300 H470 V630" />
+        </circle>
+
+        <circle class="signal-dot dot-2" r="6" filter="url(#circuitGlow)">
+          <animateMotion dur="10s" begin="1.2s" repeatCount="indefinite" path="M470 630 V2380" />
+        </circle>
+
+        <circle class="signal-dot dot-3" r="6" filter="url(#circuitGlow)">
+          <animateMotion dur="8.6s" begin="2.1s" repeatCount="indefinite" path="M470 980 H690 V860 H980" />
+        </circle>
+
+        <circle class="signal-dot dot-4" r="6" filter="url(#circuitGlow)">
+          <animateMotion dur="8.8s" begin="3.2s" repeatCount="indefinite" path="M470 1670 H760 V1540 H1060" />
+        </circle>
+      </svg>
+    </div>
+
     <section class="hero">
-      <div class="hero-circuit-bg" aria-hidden="true">
-        <svg viewBox="0 0 1400 820" class="circuit-bg-svg">
-          <defs>
-            <filter id="heroCircuitGlow">
-              <feGaussianBlur stdDeviation="3.5" result="blur" />
-              <feMerge>
-                <feMergeNode in="blur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-
-          <!-- base traces -->
-          <path class="bg-trace base" d="M120 170 H340 V90 H540 V230 H860 V110 H1270" />
-          <path class="bg-trace base" d="M160 390 H420 V500 H710 V330 H1010 V460 H1320" />
-          <path class="bg-trace base" d="M90 640 H310 V530 H610 V710 H940 V580 H1250" />
-          <path class="bg-trace base" d="M760 70 V220 H980 V60 H1210 V210" />
-          <path class="bg-trace base" d="M930 300 V420 H1150 V360 H1320" />
-
-          <!-- active traces -->
-          <path class="bg-trace active delay-1" d="M120 170 H340 V90 H540 V230 H860 V110 H1270" />
-          <path class="bg-trace active delay-2" d="M160 390 H420 V500 H710 V330 H1010 V460 H1320" />
-          <path class="bg-trace active delay-3" d="M90 640 H310 V530 H610 V710 H940 V580 H1250" />
-          <path class="bg-trace active delay-4" d="M760 70 V220 H980 V60 H1210 V210" />
-          <path class="bg-trace active delay-5" d="M930 300 V420 H1150 V360 H1320" />
-
-          <!-- nodes -->
-          <circle class="bg-node pulse-1" cx="340" cy="90" r="7" />
-          <circle class="bg-node pulse-2" cx="540" cy="230" r="7" />
-          <circle class="bg-node pulse-3" cx="860" cy="110" r="7" />
-          <circle class="bg-node pulse-4" cx="420" cy="500" r="7" />
-          <circle class="bg-node pulse-5" cx="710" cy="330" r="7" />
-          <circle class="bg-node pulse-6" cx="1010" cy="460" r="7" />
-          <circle class="bg-node pulse-7" cx="310" cy="530" r="7" />
-          <circle class="bg-node pulse-8" cx="610" cy="710" r="7" />
-          <circle class="bg-node pulse-9" cx="940" cy="580" r="7" />
-          <circle class="bg-node pulse-10" cx="980" cy="60" r="7" />
-          <circle class="bg-node pulse-11" cx="1210" cy="210" r="7" />
-          <circle class="bg-node pulse-12" cx="1150" cy="360" r="7" />
-
-          <!-- signal dots -->
-          <circle class="signal-dot dot-1" r="5.5" filter="url(#heroCircuitGlow)">
-            <animateMotion dur="7.2s" repeatCount="indefinite" path="M120 170 H340 V90 H540 V230 H860 V110 H1270" />
-          </circle>
-          <circle class="signal-dot dot-2" r="5.5" filter="url(#heroCircuitGlow)">
-            <animateMotion dur="8.6s" begin="1.2s" repeatCount="indefinite" path="M160 390 H420 V500 H710 V330 H1010 V460 H1320" />
-          </circle>
-          <circle class="signal-dot dot-3" r="5.5" filter="url(#heroCircuitGlow)">
-            <animateMotion dur="9.1s" begin="2.1s" repeatCount="indefinite" path="M90 640 H310 V530 H610 V710 H940 V580 H1250" />
-          </circle>
-        </svg>
-      </div>
-
       <div class="hero-inner">
         <p class="hero-kicker">Engineering • Systems • Disciplined Technical Growth</p>
 
@@ -113,7 +151,6 @@
     <section id="about" class="section reveal reveal-group section-anchor" data-section="about">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector"></div>
           <div class="section-node"></div>
           <div class="section-label">About</div>
         </div>
@@ -138,7 +175,6 @@
     <section id="education" class="section reveal reveal-group section-anchor" data-section="education">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector"></div>
           <div class="section-node"></div>
           <div class="section-label">Education</div>
         </div>
@@ -181,7 +217,6 @@
     <section id="project" class="section reveal reveal-group section-anchor" data-section="project">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector"></div>
           <div class="section-node"></div>
           <div class="section-label">Featured Project</div>
         </div>
@@ -251,7 +286,6 @@
     <section id="experience" class="section reveal reveal-group section-anchor" data-section="experience">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector"></div>
           <div class="section-node"></div>
           <div class="section-label">Experience</div>
         </div>
@@ -278,7 +312,6 @@
     <section id="skills" class="section reveal reveal-group section-anchor" data-section="skills">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector"></div>
           <div class="section-node"></div>
           <div class="section-label">Skills</div>
         </div>
@@ -305,7 +338,6 @@
     <section id="contact" class="section reveal reveal-group section-anchor" data-section="contact">
       <div class="section-shell">
         <div class="section-label-wrap">
-          <div class="section-connector"></div>
           <div class="section-node"></div>
           <div class="section-label">Contact</div>
         </div>
@@ -337,130 +369,130 @@
   </footer>
 
   <script>
-  const menuToggle = document.getElementById("menuToggle");
-  const navLinks = document.getElementById("navLinks");
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
 
-  if (menuToggle && navLinks) {
-    menuToggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", String(!expanded));
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+        menuToggle.setAttribute("aria-expanded", String(!expanded));
+      });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
     });
 
-    document.querySelectorAll(".nav-links a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
+          }
+        });
+      },
+      {
+        threshold: 0.14,
+        rootMargin: "0px 0px -40px 0px"
+      }
+    );
+
+    document.querySelectorAll(".reveal, .reveal-group").forEach((el) => {
+      revealObserver.observe(el);
+    });
+
+    document.querySelectorAll(".reveal-group").forEach((group) => {
+      const children = group.querySelectorAll(".stagger");
+      children.forEach((child, index) => {
+        child.style.setProperty("--delay", `${index * 110}ms`);
       });
     });
-  }
 
-  window.addEventListener("load", () => {
-    document.body.classList.add("loaded");
-  });
+    const hero = document.querySelector(".hero");
+    const heroGlow = document.querySelector(".hero-glow");
+    const heroGrid = document.querySelector(".hero-grid");
+    const pageCircuitBg = document.querySelector(".page-circuit-bg");
 
-  const revealObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        } else {
-          entry.target.classList.remove("visible");
+    if (hero && heroGlow && heroGrid && pageCircuitBg) {
+      hero.addEventListener("mousemove", (e) => {
+        const rect = hero.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        heroGlow.style.transform = `translate(${x * 20}px, ${y * 16}px) scale(1.02)`;
+        heroGrid.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
+        pageCircuitBg.style.transform = `translateX(-50%) translate(${x * 4}px, ${y * 3}px)`;
+      });
+
+      hero.addEventListener("mouseleave", () => {
+        heroGlow.style.transform = "translate(0, 0) scale(1)";
+        heroGrid.style.transform = "translate(0, 0)";
+        pageCircuitBg.style.transform = "translateX(-50%) translate(0, 0)";
+      });
+    }
+
+    const tiltCards = document.querySelectorAll(".info-card, .project-card, .mini-card, .project-detail-block");
+
+    tiltCards.forEach((card) => {
+      card.addEventListener("mousemove", (e) => {
+        if (window.innerWidth < 900) return;
+
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width;
+        const y = (e.clientY - rect.top) / rect.height;
+
+        const rotateY = (x - 0.5) * 4;
+        const rotateX = (0.5 - y) * 4;
+
+        card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "";
+      });
+    });
+
+    const sectionAnchors = document.querySelectorAll(".section-anchor");
+
+    function setActiveSection(name) {
+      document.querySelectorAll(".section-label-wrap").forEach((wrap) => {
+        wrap.classList.remove("is-active");
+      });
+
+      const activeWrap = document.querySelector(`.section-anchor[data-section="${name}"] .section-label-wrap`);
+      if (activeWrap) activeWrap.classList.add("is-active");
+    }
+
+    function detectActiveSection() {
+      let bestSection = "about";
+      let bestDistance = Infinity;
+      const viewportCenter = window.innerHeight * 0.42;
+
+      sectionAnchors.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top - viewportCenter);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestSection = section.dataset.section;
         }
       });
-    },
-    {
-      threshold: 0.14,
-      rootMargin: "0px 0px -40px 0px"
+
+      setActiveSection(bestSection);
     }
-  );
 
-  document.querySelectorAll(".reveal, .reveal-group").forEach((el) => {
-    revealObserver.observe(el);
-  });
-
-  document.querySelectorAll(".reveal-group").forEach((group) => {
-    const children = group.querySelectorAll(".stagger");
-    children.forEach((child, index) => {
-      child.style.setProperty("--delay", `${index * 110}ms`);
-    });
-  });
-
-  const hero = document.querySelector(".hero");
-  const heroGlow = document.querySelector(".hero-glow");
-  const heroGrid = document.querySelector(".hero-grid");
-  const pageCircuitBg = document.querySelector(".page-circuit-bg");
-
-  if (hero && heroGlow && heroGrid && pageCircuitBg) {
-    hero.addEventListener("mousemove", (e) => {
-      const rect = hero.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-      heroGlow.style.transform = `translate(${x * 20}px, ${y * 16}px) scale(1.02)`;
-      heroGrid.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
-      pageCircuitBg.style.transform = `translate(${x * 4}px, ${y * 3}px)`;
-    });
-
-    hero.addEventListener("mouseleave", () => {
-      heroGlow.style.transform = "translate(0, 0) scale(1)";
-      heroGrid.style.transform = "translate(0, 0)";
-      pageCircuitBg.style.transform = "translate(0, 0)";
-    });
-  }
-
-  const tiltCards = document.querySelectorAll(".info-card, .project-card, .mini-card, .project-detail-block");
-
-  tiltCards.forEach((card) => {
-    card.addEventListener("mousemove", (e) => {
-      if (window.innerWidth < 900) return;
-
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-
-      const rotateY = (x - 0.5) * 4;
-      const rotateX = (0.5 - y) * 4;
-
-      card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-    });
-
-    card.addEventListener("mouseleave", () => {
-      card.style.transform = "";
-    });
-  });
-
-  const sectionAnchors = document.querySelectorAll(".section-anchor");
-
-  function setActiveSection(name) {
-    document.querySelectorAll(".section-label-wrap").forEach((wrap) => {
-      wrap.classList.remove("is-active");
-    });
-
-    const activeWrap = document.querySelector(`.section-anchor[data-section="${name}"] .section-label-wrap`);
-    if (activeWrap) activeWrap.classList.add("is-active");
-  }
-
-  function detectActiveSection() {
-    let bestSection = "about";
-    let bestDistance = Infinity;
-    const viewportCenter = window.innerHeight * 0.42;
-
-    sectionAnchors.forEach((section) => {
-      const rect = section.getBoundingClientRect();
-      const distance = Math.abs(rect.top - viewportCenter);
-      if (distance < bestDistance) {
-        bestDistance = distance;
-        bestSection = section.dataset.section;
-      }
-    });
-
-    setActiveSection(bestSection);
-  }
-
-  window.addEventListener("scroll", detectActiveSection, { passive: true });
-  window.addEventListener("resize", detectActiveSection);
-  detectActiveSection();
-</script>
+    window.addEventListener("scroll", detectActiveSection, { passive: true });
+    window.addEventListener("resize", detectActiveSection);
+    detectActiveSection();
+  </script>
 </body>
 </html>
