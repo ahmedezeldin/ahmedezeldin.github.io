@@ -874,3 +874,42 @@ body.rtl .hero-copy h1 {
   letter-spacing: 0 !important;
   word-spacing: 0.12em !important;
 }
+
+/* ===== FORCE RTL SECTION LABELS TO RIGHT EDGE ===== */
+@media (min-width: 901px) {
+  body.rtl .content-section {
+    position: relative;
+  }
+
+  body.rtl .section-grid {
+    display: block !important;
+    position: relative !important;
+  }
+
+  body.rtl .section-side {
+    position: absolute !important;
+    top: 0 !important;
+    right: 40px !important;
+    width: 180px !important;
+    text-align: right !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+    z-index: 5 !important;
+  }
+
+  body.rtl .section-main {
+    width: min(100%, 860px) !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    text-align: right !important;
+  }
+
+  body.rtl .section-label-wrap {
+    width: 100% !important;
+    display: inline-flex !important;
+    justify-content: flex-end !important;
+    align-items: center !important;
+    flex-direction: row-reverse !important;
+    gap: 12px !important;
+  }
+}
