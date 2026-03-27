@@ -44,81 +44,103 @@
           </filter>
         </defs>
 
-        <!-- hero network -->
-        <path class="bg-trace base" d="M520 220 H710 V120 H900 V300 H1160" />
-        <path class="bg-trace base" d="M470 500 H630 V640 H860 V550 H1080 V740 H1270" />
-        <path class="bg-trace base" d="M760 120 H640 V300 H470 V630" />
-        <path class="bg-trace base" d="M900 300 H1010 V160 H1210 V160 H1310" />
+        <!-- hero system -->
+        <path class="bg-trace base" d="M560 190 H740 V120 H930 V290 H1180" />
+        <path class="bg-trace base" d="M510 450 H640 V610 H395 V760" />
+        <path class="bg-trace base" d="M930 290 H1080 V150 H1290" />
+        <path class="bg-trace base" d="M1180 290 H1260 V430 H1330" />
 
-        <!-- main vertical trunk -->
-        <path class="bg-trace base" d="M470 630 V2380" />
+        <!-- main left trunk that feeds the section nodes -->
+        <path class="bg-trace base" d="M395 760 V2445" />
 
-        <!-- section branches -->
-        <path class="bg-trace base" d="M470 840 H520" />
-        <path class="bg-trace base" d="M470 1160 H520" />
-        <path class="bg-trace base" d="M470 1490 H520" />
-        <path class="bg-trace base" d="M470 1810 H520" />
-        <path class="bg-trace base" d="M470 2135 H520" />
-        <path class="bg-trace base" d="M470 2380 H520" />
+        <!-- connection from trunk directly into each section node -->
+        <path class="bg-trace base" d="M395 840 H432" />
+        <path class="bg-trace base" d="M395 1160 H432" />
+        <path class="bg-trace base" d="M395 1490 H432" />
+        <path class="bg-trace base" d="M395 1810 H432" />
+        <path class="bg-trace base" d="M395 2140 H432" />
+        <path class="bg-trace base" d="M395 2390 H432" />
 
-        <!-- extra organic right-side branches -->
-        <path class="bg-trace base" d="M470 980 H690 V860 H980" />
-        <path class="bg-trace base" d="M470 1330 H630 V1470 H930" />
-        <path class="bg-trace base" d="M470 1670 H760 V1540 H1060" />
-        <path class="bg-trace base" d="M470 2010 H650 V2170 H990" />
+        <!-- left fill branches -->
+        <path class="bg-trace base" d="M395 840 H220 V745 H70" />
+        <path class="bg-trace base" d="M395 1160 H250 V1285 H90" />
+        <path class="bg-trace base" d="M395 1490 H180 V1395 H45" />
+        <path class="bg-trace base" d="M395 1810 H235 V1940 H110" />
+        <path class="bg-trace base" d="M395 2140 H175 V2045 H55" />
+        <path class="bg-trace base" d="M395 2390 H245 V2485 H95" />
+
+        <!-- right fill branches -->
+        <path class="bg-trace base" d="M395 840 H640 V690 H980 V840 H1260" />
+        <path class="bg-trace base" d="M395 1160 H590 V1020 H930 V1185 H1240" />
+        <path class="bg-trace base" d="M395 1490 H660 V1610 H1030 V1460 H1290" />
+        <path class="bg-trace base" d="M395 1810 H610 V1670 H970 V1845 H1260" />
+        <path class="bg-trace base" d="M395 2140 H690 V2260 H1080 V2090 H1310" />
+        <path class="bg-trace base" d="M395 2390 H560 V2480 H860 V2365 H1160" />
+
+        <!-- extra right-side circuitry for dead space -->
+        <path class="bg-trace base" d="M930 1020 H1150 V930 H1310" />
+        <path class="bg-trace base" d="M1030 1460 H1190 V1570 H1320" />
+        <path class="bg-trace base" d="M970 1845 H1140 V1745 H1300" />
+        <path class="bg-trace base" d="M1080 2090 H1230 V2195 H1340" />
 
         <!-- active traces -->
-        <path class="bg-trace active delay-1" d="M520 220 H710 V120 H900 V300 H1160" />
-        <path class="bg-trace active delay-2" d="M470 500 H630 V640 H860 V550 H1080 V740 H1270" />
-        <path class="bg-trace active delay-3" d="M760 120 H640 V300 H470 V630" />
-        <path class="bg-trace active delay-4" d="M470 630 V2380" />
+        <path class="bg-trace active delay-1" d="M560 190 H740 V120 H930 V290 H1180" />
+        <path class="bg-trace active delay-2" d="M510 450 H640 V610 H395 V760" />
+        <path class="bg-trace active delay-3" d="M395 760 V2445" />
 
-        <path class="bg-trace active delay-5" d="M470 840 H520" />
-        <path class="bg-trace active delay-6" d="M470 1160 H520" />
-        <path class="bg-trace active delay-7" d="M470 1490 H520" />
-        <path class="bg-trace active delay-8" d="M470 1810 H520" />
-        <path class="bg-trace active delay-5" d="M470 2135 H520" />
-        <path class="bg-trace active delay-6" d="M470 2380 H520" />
+        <path class="bg-trace active delay-4" d="M395 840 H432" />
+        <path class="bg-trace active delay-5" d="M395 1160 H432" />
+        <path class="bg-trace active delay-6" d="M395 1490 H432" />
+        <path class="bg-trace active delay-7" d="M395 1810 H432" />
+        <path class="bg-trace active delay-8" d="M395 2140 H432" />
+        <path class="bg-trace active delay-4" d="M395 2390 H432" />
 
-        <path class="bg-trace active delay-2" d="M470 980 H690 V860 H980" />
-        <path class="bg-trace active delay-3" d="M470 1330 H630 V1470 H930" />
-        <path class="bg-trace active delay-4" d="M470 1670 H760 V1540 H1060" />
-        <path class="bg-trace active delay-5" d="M470 2010 H650 V2170 H990" />
+        <path class="bg-trace active delay-5" d="M395 840 H640 V690 H980 V840 H1260" />
+        <path class="bg-trace active delay-6" d="M395 1160 H590 V1020 H930 V1185 H1240" />
+        <path class="bg-trace active delay-7" d="M395 1490 H660 V1610 H1030 V1460 H1290" />
+        <path class="bg-trace active delay-8" d="M395 1810 H610 V1670 H970 V1845 H1260" />
+        <path class="bg-trace active delay-5" d="M395 2140 H690 V2260 H1080 V2090 H1310" />
+        <path class="bg-trace active delay-6" d="M395 2390 H560 V2480 H860 V2365 H1160" />
 
-        <!-- junction nodes -->
-        <circle class="bg-node pulse-1" cx="710" cy="120" r="8" />
-        <circle class="bg-node pulse-2" cx="900" cy="300" r="8" />
-        <circle class="bg-node pulse-3" cx="630" cy="640" r="8" />
-        <circle class="bg-node pulse-4" cx="860" cy="550" r="8" />
-        <circle class="bg-node pulse-5" cx="470" cy="630" r="8" />
+        <!-- nodes -->
+        <circle class="bg-node pulse-1" cx="740" cy="120" r="8" />
+        <circle class="bg-node pulse-2" cx="930" cy="290" r="8" />
+        <circle class="bg-node pulse-3" cx="640" cy="610" r="8" />
+        <circle class="bg-node pulse-4" cx="395" cy="760" r="8" />
 
-        <circle class="bg-node pulse-6" cx="470" cy="840" r="8" />
-        <circle class="bg-node pulse-7" cx="470" cy="1160" r="8" />
-        <circle class="bg-node pulse-8" cx="470" cy="1490" r="8" />
-        <circle class="bg-node pulse-9" cx="470" cy="1810" r="8" />
-        <circle class="bg-node pulse-10" cx="470" cy="2135" r="8" />
-        <circle class="bg-node pulse-11" cx="470" cy="2380" r="8" />
+        <circle class="bg-node pulse-5" cx="395" cy="840" r="8" />
+        <circle class="bg-node pulse-6" cx="395" cy="1160" r="8" />
+        <circle class="bg-node pulse-7" cx="395" cy="1490" r="8" />
+        <circle class="bg-node pulse-8" cx="395" cy="1810" r="8" />
+        <circle class="bg-node pulse-9" cx="395" cy="2140" r="8" />
+        <circle class="bg-node pulse-10" cx="395" cy="2390" r="8" />
 
-        <circle class="bg-node pulse-12" cx="690" cy="860" r="8" />
-        <circle class="bg-node pulse-13" cx="630" cy="1470" r="8" />
-        <circle class="bg-node pulse-14" cx="760" cy="1540" r="8" />
-        <circle class="bg-node pulse-15" cx="650" cy="2170" r="8" />
+        <circle class="bg-node pulse-11" cx="640" cy="690" r="8" />
+        <circle class="bg-node pulse-12" cx="980" cy="840" r="8" />
+        <circle class="bg-node pulse-13" cx="590" cy="1020" r="8" />
+        <circle class="bg-node pulse-14" cx="930" cy="1185" r="8" />
+        <circle class="bg-node pulse-15" cx="660" cy="1610" r="8" />
+        <circle class="bg-node pulse-16" cx="1030" cy="1460" r="8" />
+        <circle class="bg-node pulse-17" cx="610" cy="1670" r="8" />
+        <circle class="bg-node pulse-18" cx="970" cy="1845" r="8" />
+        <circle class="bg-node pulse-19" cx="690" cy="2260" r="8" />
+        <circle class="bg-node pulse-20" cx="1080" cy="2090" r="8" />
 
         <!-- signal dots -->
         <circle class="signal-dot dot-1" r="6" filter="url(#circuitGlow)">
-          <animateMotion dur="7.5s" repeatCount="indefinite" path="M760 120 H640 V300 H470 V630" />
+          <animateMotion dur="7.5s" repeatCount="indefinite" path="M510 450 H640 V610 H395 V760" />
         </circle>
 
         <circle class="signal-dot dot-2" r="6" filter="url(#circuitGlow)">
-          <animateMotion dur="10s" begin="1.2s" repeatCount="indefinite" path="M470 630 V2380" />
+          <animateMotion dur="11s" begin="1.1s" repeatCount="indefinite" path="M395 760 V2445" />
         </circle>
 
         <circle class="signal-dot dot-3" r="6" filter="url(#circuitGlow)">
-          <animateMotion dur="8.6s" begin="2.1s" repeatCount="indefinite" path="M470 980 H690 V860 H980" />
+          <animateMotion dur="8.8s" begin="2.2s" repeatCount="indefinite" path="M395 1160 H590 V1020 H930 V1185 H1240" />
         </circle>
 
         <circle class="signal-dot dot-4" r="6" filter="url(#circuitGlow)">
-          <animateMotion dur="8.8s" begin="3.2s" repeatCount="indefinite" path="M470 1670 H760 V1540 H1060" />
+          <animateMotion dur="9.1s" begin="3.4s" repeatCount="indefinite" path="M395 1810 H610 V1670 H970 V1845 H1260" />
         </circle>
       </svg>
     </div>
