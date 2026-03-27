@@ -1,111 +1,382 @@
-<div class="page-circuit-bg" aria-hidden="true">
-  <svg viewBox="0 0 1400 2600" class="page-circuit-svg" preserveAspectRatio="none">
-    <defs>
-      <filter id="circuitGlow">
-        <feGaussianBlur stdDeviation="4" result="blur" />
-        <feMerge>
-          <feMergeNode in="blur" />
-          <feMergeNode in="SourceGraphic" />
-        </feMerge>
-      </filter>
-    </defs>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmed Ezeldin | Engineering Transfer Student</title>
+  <meta
+    name="description"
+    content="Ahmed Ezeldin is an Engineering Transfer Student at the University of Lethbridge focused on engineering design, technical growth, and building a strong foundation through coursework, projects, and hands-on experience."
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#top" class="brand">AE</a>
 
-    <!-- HERO NETWORK -->
-    <path class="bg-trace base" d="M500 220 H660 V120 H900 V300 H1160" />
-    <path class="bg-trace base" d="M580 500 H760 V640 H990 V520 H1240" />
-    <path class="bg-trace base" d="M900 300 H900 V620 H430" />
-    <path class="bg-trace base" d="M760 640 H430" />
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
 
-    <!-- MAIN TRUNK aligned to section-node column -->
-    <path class="bg-trace base" d="M430 620 V2390" />
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#project">Project</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-    <!-- ABOUT JUNCTION -->
-    <path class="bg-trace base" d="M70 840 H430" />
-    <path class="bg-trace base" d="M430 840 H620 V760 H980" />
+  <main id="top">
+    <div class="circuit-bg" aria-hidden="true">
+      <svg viewBox="0 0 1600 2600" preserveAspectRatio="none">
+        <defs>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3.5" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
 
-    <!-- EDUCATION JUNCTION -->
-    <path class="bg-trace base" d="M90 1160 H430" />
-    <path class="bg-trace base" d="M430 1160 H620 V1030 H1120" />
+        <!-- hero -->
+        <path class="trace base" d="M560 180 H760 V100 H980 V280 H1260" />
+        <path class="trace base" d="M640 430 H860 V590 H1120 V470 H1410" />
+        <path class="trace base" d="M980 280 V620 H450" />
 
-    <!-- PROJECT JUNCTION -->
-    <path class="bg-trace base" d="M60 1490 H430" />
-    <path class="bg-trace base" d="M430 1490 H600 V1600 H1070" />
+        <!-- main trunk -->
+        <path class="trace base" d="M450 620 V2420" />
 
-    <!-- EXPERIENCE JUNCTION -->
-    <path class="bg-trace base" d="M100 1810 H430" />
-    <path class="bg-trace base" d="M430 1810 H690 V1670 H1180" />
+        <!-- section branches -->
+        <path class="trace base" d="M80 860 H450" />
+        <path class="trace base" d="M110 1180 H450" />
+        <path class="trace base" d="M70 1500 H450" />
+        <path class="trace base" d="M105 1820 H450" />
+        <path class="trace base" d="M90 2145 H450" />
+        <path class="trace base" d="M110 2400 H450" />
 
-    <!-- SKILLS JUNCTION -->
-    <path class="bg-trace base" d="M75 2140 H430" />
-    <path class="bg-trace base" d="M430 2140 H610 V2260 H1030" />
+        <!-- right fill -->
+        <path class="trace base" d="M450 860 H700 V740 H1080 H1440" />
+        <path class="trace base" d="M450 1180 H680 V1030 H1160 H1470" />
+        <path class="trace base" d="M450 1500 H760 V1640 H1240 H1490" />
+        <path class="trace base" d="M450 1820 H760 V1680 H1310 H1490" />
+        <path class="trace base" d="M450 2145 H690 V2280 H1210 H1460" />
+        <path class="trace base" d="M450 2400 H760 V2490 H1160 H1450" />
 
-    <!-- CONTACT JUNCTION -->
-    <path class="bg-trace base" d="M90 2390 H430" />
-    <path class="bg-trace base" d="M430 2390 H670 V2470 H1110" />
+        <!-- left fill -->
+        <path class="trace base" d="M260 860 V760 H70" />
+        <path class="trace base" d="M280 1180 V1300 H90" />
+        <path class="trace base" d="M240 1500 V1390 H60" />
+        <path class="trace base" d="M300 1820 V1940 H120" />
+        <path class="trace base" d="M250 2145 V2035 H80" />
+        <path class="trace base" d="M290 2400 V2520 H120" />
 
-    <!-- EXTRA RIGHT SIDE FILL -->
-    <path class="bg-trace base" d="M980 760 H1260" />
-    <path class="bg-trace base" d="M1120 1030 H1300" />
-    <path class="bg-trace base" d="M1070 1600 H1290" />
-    <path class="bg-trace base" d="M1180 1670 H1320" />
-    <path class="bg-trace base" d="M1030 2260 H1270" />
-    <path class="bg-trace base" d="M1110 2470 H1320" />
+        <!-- animated overlay -->
+        <path class="trace active a1" d="M560 180 H760 V100 H980 V280 H1260" />
+        <path class="trace active a2" d="M640 430 H860 V590 H1120 V470 H1410" />
+        <path class="trace active a3" d="M980 280 V620 H450" />
+        <path class="trace active a4" d="M450 620 V2420" />
+        <path class="trace active a5" d="M80 860 H450" />
+        <path class="trace active a6" d="M110 1180 H450" />
+        <path class="trace active a7" d="M70 1500 H450" />
+        <path class="trace active a8" d="M105 1820 H450" />
+        <path class="trace active a5" d="M90 2145 H450" />
+        <path class="trace active a6" d="M110 2400 H450" />
+        <path class="trace active a2" d="M450 1180 H680 V1030 H1160 H1470" />
+        <path class="trace active a4" d="M450 1820 H760 V1680 H1310 H1490" />
 
-    <!-- ACTIVE TRACES -->
-    <path class="bg-trace active delay-1" d="M500 220 H660 V120 H900 V300 H1160" />
-    <path class="bg-trace active delay-2" d="M580 500 H760 V640 H990 V520 H1240" />
-    <path class="bg-trace active delay-3" d="M900 300 H900 V620 H430" />
-    <path class="bg-trace active delay-4" d="M430 620 V2390" />
+        <!-- nodes -->
+        <circle class="node p1" cx="760" cy="100" r="7"/>
+        <circle class="node p2" cx="980" cy="280" r="7"/>
+        <circle class="node p3" cx="860" cy="590" r="7"/>
+        <circle class="node p4" cx="450" cy="620" r="7"/>
 
-    <path class="bg-trace active delay-5" d="M70 840 H430" />
-    <path class="bg-trace active delay-6" d="M90 1160 H430" />
-    <path class="bg-trace active delay-7" d="M60 1490 H430" />
-    <path class="bg-trace active delay-8" d="M100 1810 H430" />
-    <path class="bg-trace active delay-5" d="M75 2140 H430" />
-    <path class="bg-trace active delay-6" d="M90 2390 H430" />
+        <circle class="node p5" cx="450" cy="860" r="7"/>
+        <circle class="node p6" cx="450" cy="1180" r="7"/>
+        <circle class="node p7" cx="450" cy="1500" r="7"/>
+        <circle class="node p8" cx="450" cy="1820" r="7"/>
+        <circle class="node p9" cx="450" cy="2145" r="7"/>
+        <circle class="node p10" cx="450" cy="2400" r="7"/>
 
-    <path class="bg-trace active delay-2" d="M430 840 H620 V760 H980" />
-    <path class="bg-trace active delay-3" d="M430 1160 H620 V1030 H1120" />
-    <path class="bg-trace active delay-4" d="M430 1490 H600 V1600 H1070" />
-    <path class="bg-trace active delay-5" d="M430 1810 H690 V1670 H1180" />
-    <path class="bg-trace active delay-6" d="M430 2140 H610 V2260 H1030" />
-    <path class="bg-trace active delay-7" d="M430 2390 H670 V2470 H1110" />
+        <!-- moving signals -->
+        <circle class="signal" r="5" filter="url(#glow)">
+          <animateMotion dur="7.5s" repeatCount="indefinite" path="M980 280 V620 H450"/>
+        </circle>
+        <circle class="signal" r="5" filter="url(#glow)">
+          <animateMotion dur="11s" begin="1.2s" repeatCount="indefinite" path="M450 620 V2420"/>
+        </circle>
+        <circle class="signal" r="5" filter="url(#glow)">
+          <animateMotion dur="8.8s" begin="2.4s" repeatCount="indefinite" path="M450 1820 H760 V1680 H1310 H1490"/>
+        </circle>
+      </svg>
+    </div>
 
-    <!-- JUNCTION NODES -->
-    <circle class="bg-node pulse-1" cx="660" cy="120" r="8" />
-    <circle class="bg-node pulse-2" cx="900" cy="300" r="8" />
-    <circle class="bg-node pulse-3" cx="760" cy="640" r="8" />
-    <circle class="bg-node pulse-4" cx="430" cy="620" r="8" />
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="hero-kicker">Engineering • Systems • Disciplined Technical Growth</p>
+        <h1>Ahmed Ezeldin</h1>
+        <p class="hero-title">Engineering Transfer Student at the University of Lethbridge</p>
+        <p class="hero-subtext">
+          Built with discipline and focused on engineering systems, design, and technical growth
+          — developing the foundation for larger opportunities ahead.
+        </p>
 
-    <circle class="bg-node pulse-5" cx="430" cy="840" r="8" />
-    <circle class="bg-node pulse-6" cx="430" cy="1160" r="8" />
-    <circle class="bg-node pulse-7" cx="430" cy="1490" r="8" />
-    <circle class="bg-node pulse-8" cx="430" cy="1810" r="8" />
-    <circle class="bg-node pulse-9" cx="430" cy="2140" r="8" />
-    <circle class="bg-node pulse-10" cx="430" cy="2390" r="8" />
+        <div class="hero-actions">
+          <a href="#experience" class="btn btn-primary">Explore Experience</a>
+          <a href="Ahmed_Ezeldin_Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">View Resume</a>
+        </div>
+      </div>
 
-    <circle class="bg-node pulse-11" cx="620" cy="760" r="8" />
-    <circle class="bg-node pulse-12" cx="620" cy="1030" r="8" />
-    <circle class="bg-node pulse-13" cx="600" cy="1600" r="8" />
-    <circle class="bg-node pulse-14" cx="690" cy="1670" r="8" />
-    <circle class="bg-node pulse-15" cx="610" cy="2260" r="8" />
-    <circle class="bg-node pulse-16" cx="670" cy="2470" r="8" />
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-grid" aria-hidden="true"></div>
+    </section>
 
-    <!-- SIGNAL DOTS -->
-    <circle class="signal-dot dot-1" r="6" filter="url(#circuitGlow)">
-      <animateMotion dur="7.5s" repeatCount="indefinite" path="M900 300 H900 V620 H430" />
-    </circle>
+    <section id="about" class="section reveal section-anchor" data-section="about">
+      <div class="section-shell">
+        <div class="section-label-wrap">
+          <div class="section-node"></div>
+          <div class="section-label">About</div>
+        </div>
+        <div class="section-content narrow">
+          <h2>Focused on building the right foundation.</h2>
+          <p>
+            I’m an engineering transfer student currently studying at the University of Lethbridge.
+            My focus is on developing the technical foundation, discipline, and practical mindset
+            needed to grow into larger engineering opportunities over time.
+          </p>
+          <p>
+            I’m especially interested in engineering design, infrastructure, and technology, with
+            a strong emphasis on learning by doing. Through coursework, team projects, and
+            structured work experience, I’m continuing to build skills in communication,
+            collaboration, analysis, and problem solving.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <circle class="signal-dot dot-2" r="6" filter="url(#circuitGlow)">
-      <animateMotion dur="10s" begin="1.2s" repeatCount="indefinite" path="M430 620 V2390" />
-    </circle>
+    <section id="education" class="section reveal section-anchor" data-section="education">
+      <div class="section-shell">
+        <div class="section-label-wrap">
+          <div class="section-node"></div>
+          <div class="section-label">Education</div>
+        </div>
+        <div class="section-content">
+          <h2>Current academic path.</h2>
+          <div class="info-card">
+            <div class="card-topline">University of Lethbridge</div>
+            <div class="card-title">Pre-Professional Engineering Transfer Program</div>
+            <div class="card-meta">Lethbridge, Alberta • September 2025 – Present</div>
+            <p>
+              Currently completing engineering transfer studies while building a foundation in
+              mathematics, physics, chemistry, programming, engineering mechanics, design,
+              and technical communication.
+            </p>
+            <p class="muted-line">Expected transfer to the University of Alberta Faculty of Engineering: Fall 2026</p>
+            <div class="coursework-block">
+              <h3>Relevant Coursework</h3>
+              <div class="course-tags">
+                <span>Engineering Design</span>
+                <span>Engineering Mechanics (Statics)</span>
+                <span>Accelerated Calculus I &amp; II</span>
+                <span>General Chemistry I &amp; II</span>
+                <span>Fundamentals of Programming I</span>
+                <span>Waves, Optics and Sound</span>
+                <span>Writing for Engineering Students</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <circle class="signal-dot dot-3" r="6" filter="url(#circuitGlow)">
-      <animateMotion dur="8.6s" begin="2.1s" repeatCount="indefinite" path="M430 1160 H620 V1030 H1120" />
-    </circle>
+    <section id="project" class="section reveal section-anchor" data-section="project">
+      <div class="section-shell">
+        <div class="section-label-wrap">
+          <div class="section-node"></div>
+          <div class="section-label">Featured Project</div>
+        </div>
+        <div class="section-content">
+          <h2>Medicine Cooler</h2>
+          <div class="project-card">
+            <p class="project-intro">
+              A portable temperature-controlled medication storage concept designed to support
+              safer transport and storage of temperature-sensitive medication such as insulin.
+            </p>
 
-    <circle class="signal-dot dot-4" r="6" filter="url(#circuitGlow)">
-      <animateMotion dur="8.8s" begin="3.2s" repeatCount="indefinite" path="M430 1810 H690 V1670 H1180" />
-    </circle>
-  </svg>
-</div>
+            <div class="project-grid">
+              <div class="mini-card">
+                <h3>Problem</h3>
+                <p>Temperature-sensitive medication needs safer storage during travel, transport, and everyday use.</p>
+              </div>
+              <div class="mini-card">
+                <h3>Design Goal</h3>
+                <p>Create a lightweight, practical, and more budget-friendly alternative while maintaining 2°C to 8°C storage.</p>
+              </div>
+              <div class="mini-card">
+                <h3>System Thinking</h3>
+                <p>The concept combines cooling, control, sensing, insulation, display feedback, and rechargeable power.</p>
+              </div>
+            </div>
+
+            <div class="project-detail">
+              <div class="project-detail-block">
+                <h3>My Contribution</h3>
+                <p>I contributed to system design, enclosure and insulation planning, layout decisions, and overall concept structure.</p>
+              </div>
+              <div class="project-detail-block">
+                <h3>What It Demonstrates</h3>
+                <p>Engineering design process, systems thinking, practical problem solving, and structured technical planning.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section reveal section-anchor" data-section="experience">
+      <div class="section-shell">
+        <div class="section-label-wrap">
+          <div class="section-node"></div>
+          <div class="section-label">Experience</div>
+        </div>
+        <div class="section-content">
+          <h2>Work experience that built discipline.</h2>
+          <div class="info-card">
+            <div class="card-topline">The Home Depot Canada</div>
+            <div class="card-title">Sales Associate</div>
+            <div class="card-meta">Calgary, Alberta • April 2025 – July 2025</div>
+            <ul class="clean-list">
+              <li>Worked in a fast-paced retail environment supporting daily floor operations.</li>
+              <li>Assisted customers with product navigation and general inquiries.</li>
+              <li>Contributed to stocking, organization, and maintaining a strong customer experience.</li>
+              <li>Strengthened communication, teamwork, adaptability, and problem solving under pressure.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section reveal section-anchor" data-section="skills">
+      <div class="section-shell">
+        <div class="section-label-wrap">
+          <div class="section-node"></div>
+          <div class="section-label">Skills</div>
+        </div>
+        <div class="section-content">
+          <h2>Core strengths.</h2>
+          <div class="skills-wrap">
+            <span>Engineering Design</span>
+            <span>Technical Communication</span>
+            <span>Problem Solving</span>
+            <span>Team Collaboration</span>
+            <span>Systems Thinking</span>
+            <span>Technical Reporting</span>
+            <span>Research &amp; Analysis</span>
+            <span>Presentation Skills</span>
+            <span>Microsoft Office</span>
+            <span>Adaptability</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section reveal section-anchor" data-section="contact">
+      <div class="section-shell">
+        <div class="section-label-wrap">
+          <div class="section-node"></div>
+          <div class="section-label">Contact</div>
+        </div>
+        <div class="section-content narrow">
+          <h2>Connect.</h2>
+          <p>
+            I’m continuing to build my engineering foundation through coursework, projects,
+            and meaningful opportunities. You can reach me through the links below.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:ahmed.asaad703@gmail.com" class="btn btn-primary">Email</a>
+            <a href="Ahmed_Ezeldin_Resume.pdf" class="btn btn-secondary" target="_blank" rel="noopener">Resume</a>
+            <a href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2026 Ahmed Ezeldin</p>
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    if (menuToggle && navLinks) {
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("open");
+        menuToggle.setAttribute(
+          "aria-expanded",
+          navLinks.classList.contains("open") ? "true" : "false"
+        );
+      });
+
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("open");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+    }
+
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          entry.target.classList.toggle("visible", entry.isIntersecting);
+        });
+      },
+      { threshold: 0.12 }
+    );
+
+    document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+    const sectionAnchors = document.querySelectorAll(".section-anchor");
+
+    function setActiveSection(name) {
+      document.querySelectorAll(".section-label-wrap").forEach((wrap) => {
+        wrap.classList.remove("is-active");
+      });
+      const activeWrap = document.querySelector(`.section-anchor[data-section="${name}"] .section-label-wrap`);
+      if (activeWrap) activeWrap.classList.add("is-active");
+    }
+
+    function detectActiveSection() {
+      let best = null;
+      let bestDistance = Infinity;
+      const center = window.innerHeight * 0.42;
+
+      sectionAnchors.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const distance = Math.abs(rect.top - center);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          best = section.dataset.section;
+        }
+      });
+
+      if (best) setActiveSection(best);
+    }
+
+    window.addEventListener("scroll", detectActiveSection, { passive: true });
+    window.addEventListener("resize", detectActiveSection);
+    detectActiveSection();
+  </script>
+</body>
+</html>
