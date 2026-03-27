@@ -544,3 +544,261 @@ a {
     display: none;
   }
 }
+/* ========= TABLET ========= */
+@media (max-width: 980px) {
+  .container {
+    width: min(var(--max), calc(100% - 2rem));
+  }
+
+  .section-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .section-side {
+    margin-bottom: 0.15rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-circuit-svg {
+    transform: scale(1.02);
+  }
+}
+
+/* ========= PHONE ========= */
+@media (max-width: 640px) {
+  .container {
+    width: calc(100% - 1.4rem);
+  }
+
+  .site-header {
+    backdrop-filter: blur(14px);
+  }
+
+  .nav-wrap {
+    min-height: 60px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0.7rem 0;
+    gap: 0.45rem;
+  }
+
+  .brand {
+    font-size: 0.95rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem 0.9rem;
+  }
+
+  .nav-links a {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  .hero-section {
+    min-height: auto;
+    padding: 5.5rem 0 3.25rem;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.7rem, 16vw, 4.3rem);
+    line-height: 0.95;
+    letter-spacing: -0.06em;
+  }
+
+  .hero-copy h2 {
+    font-size: 1.05rem;
+    line-height: 1.35;
+    margin-top: 0.9rem;
+  }
+
+  .hero-text {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    margin-top: 1rem;
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.9rem;
+  }
+
+  .hero-actions {
+    margin-top: 1.4rem;
+    gap: 0.7rem;
+  }
+
+  .btn {
+    min-height: 44px;
+    padding: 0.78rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .content-section {
+    padding: 1.2rem 0 4rem;
+  }
+
+  .section-main h2 {
+    font-size: clamp(1.9rem, 10vw, 2.8rem);
+    line-height: 1.02;
+    margin-bottom: 0.85rem;
+  }
+
+  .section-main p {
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .section-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+  }
+
+  .section-node {
+    width: 9px;
+    height: 9px;
+    flex-basis: 9px;
+  }
+
+  .glass-card {
+    padding: 1.15rem;
+    border-radius: 22px;
+  }
+
+  .glass-card h3 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .card-kicker {
+    font-size: 0.76rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .card-meta {
+    font-size: 0.88rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .project-grid {
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .mini-card {
+    padding: 1rem;
+    border-radius: 18px;
+  }
+
+  .mini-card h4 {
+    font-size: 0.95rem;
+    margin-bottom: 0.45rem;
+  }
+
+  .mini-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .skill-cluster {
+    gap: 0.55rem;
+  }
+
+  .skill-cluster span {
+    padding: 0.62rem 0.82rem;
+    font-size: 0.84rem;
+  }
+
+  .clean-list {
+    padding-left: 1rem;
+  }
+
+  .clean-list li {
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .site-footer {
+    padding: 0.6rem 0 1.6rem;
+  }
+
+  .site-footer p {
+    font-size: 0.84rem;
+  }
+
+  /* Make the background circuit calmer on phones */
+  .page-circuit-bg {
+    opacity: 0.62;
+  }
+
+  .page-circuit-svg {
+    transform: scale(1.18);
+  }
+
+  .trace.base {
+    stroke-width: 2.4;
+  }
+
+  .trace.active {
+    stroke-width: 2.4;
+  }
+
+  .trace.branch {
+    stroke-width: 2;
+  }
+
+  .trace.branch.faint {
+    display: none;
+  }
+
+  .trace-node {
+    opacity: 0.75;
+  }
+}
+
+/* ========= SMALL PHONE ========= */
+@media (max-width: 420px) {
+  .hero-copy h1 {
+    font-size: clamp(2.35rem, 15vw, 3.6rem);
+  }
+
+  .hero-copy h2 {
+    font-size: 0.98rem;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .hero-actions,
+  .contact-section .hero-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nav-links {
+    gap: 0.5rem 0.75rem;
+  }
+
+  .nav-links a {
+    font-size: 0.8rem;
+  }
+
+  .page-circuit-bg {
+    opacity: 0.52;
+  }
+
+  .page-circuit-svg {
+    transform: scale(1.24);
+  }
+}
