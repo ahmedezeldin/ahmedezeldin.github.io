@@ -1,519 +1,380 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmed Ezeldin | Engineering Portfolio</title>
-  <meta
-    name="description"
-    content="Ahmed Ezeldin — Engineering transfer student focused on systems, design, and disciplined technical growth."
-  />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Tajawal:wght@400;500;700;800&display=swap"
-    rel="stylesheet"
-  />
-<link rel="stylesheet" href="styles.css?v=107" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ahmed Ezeldin — Electrical Engineering Student, University of Alberta</title>
+<meta name="description" content="Ahmed Ezeldin — Electrical Engineering student at the University of Alberta. Available for a Summer 2027 internship/student position in Calgary, AB." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Ahmed Ezeldin",
+  "jobTitle": "Electrical Engineering Student",
+  "affiliation": "University of Alberta",
+  "email": "mailto:ahmedasaad19730@gmail.com",
+  "telephone": "+1-825-449-4924",
+  "address": { "@type": "PostalAddress", "addressLocality": "Calgary", "addressRegion": "AB", "addressCountry": "CA" },
+  "url": "https://ahmedezeldin.com",
+  "sameAs": ["https://www.linkedin.com/in/ahmed-ezeldin-1aa757217/"]
+}
+</script>
+<style>
+  :root{
+    --navy:#132A46;
+    --navy-2:#1D3A5F;
+    --steel:#2E5C8A;
+    --ink:#181C22;
+    --text:#2A2F36;
+    --text-dim:#5B6472;
+    --line:#E1E4E9;
+    --bg:#FFFFFF;
+    --bg-alt:#F6F8FA;
+    --available:#1C7C4E;
+    --available-bg:#E9F7EF;
+    --maxw:840px;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  [dir="rtl"] body{ font-family:'Inter', 'Segoe UI', Tahoma, sans-serif; }
+  h1,h2,h3{ font-family:'Inter', sans-serif; color:var(--ink); margin:0; letter-spacing:-0.01em; }
+  a{ color:inherit; }
+  p{ margin:0 0 12px; color:var(--text-dim); max-width:68ch; }
+  ul{ margin:8px 0 0; padding-left:20px; color:var(--text-dim); }
+  li{ margin-bottom:6px; }
+  :focus-visible{ outline:2px solid var(--steel); outline-offset:2px; }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+  }
+
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+
+  /* ---------- Sticky header ---------- */
+  header.top{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.96);
+    border-bottom:1px solid var(--line);
+    backdrop-filter:blur(6px);
+  }
+  .top-inner{
+    max-width:var(--maxw); margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .name-mark{ font-weight:700; font-size:16px; text-decoration:none; color:var(--ink); }
+  .top-actions{ display:flex; align-items:center; gap:10px; }
+  .btn{
+    font-size:14px; font-weight:600; padding:9px 16px; border-radius:5px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:6px;
+    border:1px solid transparent; white-space:nowrap;
+  }
+  .btn-primary{ background:var(--navy); color:#fff; }
+  .btn-primary:hover{ background:var(--navy-2); }
+  .btn-outline{ border-color:var(--line); color:var(--ink); }
+  .btn-outline:hover{ border-color:var(--steel); color:var(--steel); }
+  #lang-toggle{
+    font-size:13px; font-weight:600; background:none; border:1px solid var(--line);
+    color:var(--text-dim); padding:8px 12px; border-radius:5px; cursor:pointer;
+  }
+  #lang-toggle:hover{ border-color:var(--steel); color:var(--steel); }
+
+  @media (max-width:640px){
+    .top-actions .btn-outline{ display:none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:52px 0 40px; border-bottom:1px solid var(--line); }
+  .avail{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--available-bg); color:var(--available);
+    font-size:13px; font-weight:600; padding:7px 14px; border-radius:20px;
+    margin-bottom:22px;
+  }
+  .avail::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--available); }
+
+  .hero h1{ font-size:clamp(30px,4.5vw,40px); line-height:1.15; margin-bottom:8px; }
+  .hero .title{ font-size:18px; color:var(--steel); font-weight:600; margin-bottom:18px; }
+
+  .contact-strip{
+    display:flex; flex-wrap:wrap; gap:14px 20px; font-size:14.5px; color:var(--text-dim); margin-bottom:26px;
+  }
+  .contact-strip a{ color:var(--text-dim); text-decoration:none; border-bottom:1px solid transparent; }
+  .contact-strip a:hover{ color:var(--steel); border-color:var(--steel); }
+
+  .hero .summary{ font-size:16px; max-width:66ch; color:var(--text); }
+  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+
+  /* ---------- Section shell ---------- */
+  section{ padding:44px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+  h2.h{
+    font-size:13px; text-transform:uppercase; letter-spacing:0.06em;
+    color:var(--steel); font-weight:700; margin-bottom:20px;
+  }
+
+  /* ---------- Looking for ---------- */
+  .looking-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .looking-item{ border:1px solid var(--line); border-radius:6px; padding:16px 18px; }
+  .looking-item .label{ font-size:12.5px; color:var(--text-dim); margin-bottom:4px; }
+  .looking-item .value{ font-size:15px; font-weight:600; color:var(--ink); }
+  @media (max-width:640px){ .looking-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- Education ---------- */
+  .entry{ margin-bottom:26px; }
+  .entry:last-child{ margin-bottom:0; }
+  .entry-head{
+    display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 16px;
+    align-items:baseline; margin-bottom:2px;
+  }
+  .entry-org{ font-size:16px; font-weight:700; color:var(--ink); }
+  .entry-date{ font-size:13.5px; color:var(--text-dim); white-space:nowrap; }
+  .entry-role{ font-size:14.5px; color:var(--text-dim); margin-bottom:8px; display:block; }
+  .coursework{ font-size:13.5px; color:var(--text-dim); margin-top:8px; }
+  .coursework b{ color:var(--text); font-weight:600; }
+
+  /* ---------- Skills ---------- */
+  .skill-cols{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+  .skill-cols h3{ font-size:13.5px; color:var(--ink); margin-bottom:10px; font-weight:700; }
+  .skill-cols p{ font-size:14.5px; margin:0; }
+  @media (max-width:640px){ .skill-cols{ grid-template-columns:1fr; } }
+
+  /* ---------- Project ---------- */
+  .project-box{ border:1px solid var(--line); border-radius:8px; padding:24px 26px; background:var(--bg-alt); }
+  .project-box h3{ font-size:18px; margin-bottom:4px; }
+  .project-sub{ font-size:14px; color:var(--text-dim); margin-bottom:16px; }
+  .todo{
+    display:inline-block; font-size:12px; font-weight:700; color:#8A4B00;
+    background:#FFF1DE; border:1px solid #F4D9AE; padding:2px 8px; border-radius:4px;
+    margin-left:6px; vertical-align:middle;
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-links{ display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
+
+  footer{ padding:28px 24px; text-align:center; color:var(--text-dim); font-size:13px; }
+
+  [dir="rtl"] ul{ padding-left:0; padding-right:20px; }
+  [dir="rtl"] .entry-head, [dir="rtl"] .contact-strip, [dir="rtl"] .hero-ctas, [dir="rtl"] .contact-links{ direction:rtl; }
+
+  @media print{
+    header.top{ position:static; }
+    .avail, #lang-toggle, .hero-ctas, .contact-links{ display:none; }
+  }
+</style>
 </head>
 <body>
-  <div class="site-shell">
 
-    <div class="page-circuit-bg" aria-hidden="true">
-      <svg viewBox="0 0 1600 3000" class="page-circuit-svg" preserveAspectRatio="xMidYMid slice">
-        <defs>
-          <filter id="circuitGlow">
-            <feGaussianBlur stdDeviation="4" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-        </defs>
-
-        <path class="trace base" d="M0 220 H220 V120 H520 V340 H860 V180 H1600" />
-        <path class="trace active d1" d="M0 220 H220 V120 H520 V340 H860 V180 H1600" />
-        <circle class="trace-node" cx="220" cy="120" r="8" />
-        <circle class="trace-node" cx="520" cy="340" r="8" />
-        <circle class="trace-node" cx="860" cy="180" r="8" />
-        <path class="trace branch" d="M220 120 V300 H40" />
-        <path class="trace branch" d="M520 340 V560 H720" />
-        <path class="trace branch" d="M860 180 V360 H1060" />
-        <path class="trace branch" d="M1260 180 V60 H1460" />
-
-        <path class="trace base" d="M0 620 H300 V820 H650 V610 H1040 V860 H1600" />
-        <path class="trace active d2" d="M0 620 H300 V820 H650 V610 H1040 V860 H1600" />
-        <circle class="trace-node" cx="300" cy="820" r="8" />
-        <circle class="trace-node" cx="650" cy="610" r="8" />
-        <circle class="trace-node" cx="1040" cy="860" r="8" />
-        <path class="trace branch" d="M300 820 V980 H120" />
-        <path class="trace branch" d="M650 610 V900 H840" />
-        <path class="trace branch" d="M1040 860 V600 H1260" />
-        <path class="trace branch" d="M1380 860 V1060 H1600" />
-
-        <path class="trace base" d="M0 1080 H250 V930 H560 V1260 H920 V1040 H1600" />
-        <path class="trace active d3" d="M0 1080 H250 V930 H560 V1260 H920 V1040 H1600" />
-        <circle class="trace-node" cx="250" cy="930" r="8" />
-        <circle class="trace-node" cx="560" cy="1260" r="8" />
-        <circle class="trace-node" cx="920" cy="1040" r="8" />
-        <path class="trace branch" d="M250 930 V760 H80" />
-        <path class="trace branch" d="M560 1260 V1450 H760" />
-        <path class="trace branch" d="M920 1040 V1360 H1180" />
-        <path class="trace branch" d="M1320 1040 V860 H1500" />
-
-        <path class="trace base" d="M0 1510 H340 V1710 H700 V1490 H1100 V1780 H1600" />
-        <path class="trace active d4" d="M0 1510 H340 V1710 H700 V1490 H1100 V1780 H1600" />
-        <circle class="trace-node" cx="340" cy="1710" r="8" />
-        <circle class="trace-node" cx="700" cy="1490" r="8" />
-        <circle class="trace-node" cx="1100" cy="1780" r="8" />
-        <path class="trace branch" d="M340 1710 V1900 H150" />
-        <path class="trace branch" d="M700 1490 V1290 H900" />
-        <path class="trace branch" d="M1100 1780 V1540 H1320" />
-        <path class="trace branch" d="M1450 1780 V1980 H1600" />
-
-        <path class="trace base" d="M0 2010 H280 V2210 H620 V1980 H980 V2270 H1600" />
-        <path class="trace active d5" d="M0 2010 H280 V2210 H620 V1980 H980 V2270 H1600" />
-        <circle class="trace-node" cx="280" cy="2210" r="8" />
-        <circle class="trace-node" cx="620" cy="1980" r="8" />
-        <circle class="trace-node" cx="980" cy="2270" r="8" />
-        <path class="trace branch" d="M280 2210 V2430 H100" />
-        <path class="trace branch" d="M620 1980 V1760 H820" />
-        <path class="trace branch" d="M980 2270 V2470 H1220" />
-        <path class="trace branch" d="M1360 2270 V2060 H1540" />
-
-        <path class="trace base" d="M0 2480 H360 V2660 H760 V2420 H1160 V2740 H1600" />
-        <path class="trace active d6" d="M0 2480 H360 V2660 H760 V2420 H1160 V2740 H1600" />
-        <circle class="trace-node" cx="360" cy="2660" r="8" />
-        <circle class="trace-node" cx="760" cy="2420" r="8" />
-        <circle class="trace-node" cx="1160" cy="2740" r="8" />
-        <path class="trace branch" d="M360 2660 V2860 H180" />
-        <path class="trace branch" d="M760 2420 V2220 H960" />
-        <path class="trace branch" d="M1160 2740 V2520 H1380" />
-
-        <path class="trace branch faint" d="M1460 380 H1600" />
-        <path class="trace branch faint" d="M120 960 H260" />
-        <path class="trace branch faint" d="M1480 1360 H1600" />
-        <path class="trace branch faint" d="M80 1880 H240" />
-        <path class="trace branch faint" d="M1420 2420 H1600" />
-        <path class="trace branch faint" d="M200 2860 H340" />
-
-        <circle class="signal s1" r="5" filter="url(#circuitGlow)">
-          <animateMotion dur="8s" repeatCount="indefinite" rotate="auto"
-            path="M0 220 H220 V120 H520 V340 H860 V180 H1600" />
-        </circle>
-        <circle class="signal s2" r="4.5" filter="url(#circuitGlow)">
-          <animateMotion dur="9.5s" repeatCount="indefinite" rotate="auto"
-            path="M0 620 H300 V820 H650 V610 H1040 V860 H1600" />
-        </circle>
-        <circle class="signal s3" r="5" filter="url(#circuitGlow)">
-          <animateMotion dur="10.5s" repeatCount="indefinite" rotate="auto"
-            path="M0 1080 H250 V930 H560 V1260 H920 V1040 H1600" />
-        </circle>
-        <circle class="signal s4" r="4.5" filter="url(#circuitGlow)">
-          <animateMotion dur="11s" repeatCount="indefinite" rotate="auto"
-            path="M0 1510 H340 V1710 H700 V1490 H1100 V1780 H1600" />
-        </circle>
-        <circle class="signal s5" r="5" filter="url(#circuitGlow)">
-          <animateMotion dur="9s" repeatCount="indefinite" rotate="auto"
-            path="M0 2010 H280 V2210 H620 V1980 H980 V2270 H1600" />
-        </circle>
-        <circle class="signal s6" r="4.5" filter="url(#circuitGlow)">
-          <animateMotion dur="12s" repeatCount="indefinite" rotate="auto"
-            path="M0 2480 H360 V2660 H760 V2420 H1160 V2740 H1600" />
-        </circle>
-      </svg>
+<header class="top">
+  <div class="top-inner">
+    <a href="#top" class="name-mark">Ahmed Ezeldin</a>
+    <div class="top-actions">
+      <button id="lang-toggle" aria-label="Switch language">EN / AR</button>
+      <a class="btn btn-outline" href="mailto:ahmedasaad19730@gmail.com" data-en="Email" data-ar="راسلني">Email</a>
+      <a class="btn btn-primary" href="/Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</a>
     </div>
-
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a href="#top" class="brand">AE</a>
-
-        <div class="header-actions">
-          <div class="lang-toggle" aria-label="Language toggle">
-            <button type="button" class="lang-btn active" id="langEn">EN</button>
-            <span class="lang-divider">|</span>
-            <button type="button" class="lang-btn" id="langAr">AR</button>
-          </div>
-
-          <button
-            class="menu-toggle"
-            id="menuToggle"
-            aria-label="Open menu"
-            aria-expanded="false"
-            aria-controls="mobileMenu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
-
-          <nav class="nav-links desktop-nav">
-            <a href="#about" data-en="About" data-ar="نبذة">About</a>
-            <a href="#education" data-en="Education" data-ar="التعليم">Education</a>
-            <a href="#project" data-en="Project" data-ar="المشروع">Project</a>
-            <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
-            <a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a>
-            <a href="#contact" data-en="Contact" data-ar="التواصل">Contact</a>
-          </nav>
-        </div>
-      </div>
-
-      <div class="mobile-menu" id="mobileMenu">
-        <a href="#about" data-en="About" data-ar="نبذة">About</a>
-        <a href="#education" data-en="Education" data-ar="التعليم">Education</a>
-        <a href="#project" data-en="Project" data-ar="المشروع">Project</a>
-        <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
-        <a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a>
-        <a href="#contact" data-en="Contact" data-ar="التواصل">Contact</a>
-      </div>
-    </header>
-
-    <main id="top">
-      <section class="hero-section">
-        <div class="container hero-grid">
-          <div class="hero-copy reveal">
-            <p class="eyebrow" data-en="Engineering • Systems • Disciplined Technical Growth" data-ar="الهندسة • الأنظمة • نمو تقني منضبط">
-              Engineering • Systems • Disciplined Technical Growth
-            </p>
-
-            <h1 data-en="Ahmed Ezeldin" data-ar="أحمد عزالدين">Ahmed Ezeldin</h1>
-
-            <h2 data-en="Engineering Transfer Student at the University of Lethbridge" data-ar="طالب تحويل في الهندسة بجامعة ليثبريدج">
-              Engineering Transfer Student at the University of Lethbridge
-            </h2>
-
-            <p class="hero-text" data-en="Built with discipline and focused on engineering systems, design, and technical growth — developing the foundation for larger opportunities ahead." data-ar="أبني مساري بانضباط، مع تركيز على الأنظمة الهندسية، والتصميم، والنمو التقني — لتأسيس قاعدة قوية لفرص أكبر في المستقبل.">
-              Built with discipline and focused on engineering systems, design, and technical growth —
-              developing the foundation for larger opportunities ahead.
-            </p>
-
-            <div class="hero-actions">
-              <a href="#experience" class="btn btn-primary" data-en="Explore Experience" data-ar="استعرض الخبرة">Explore Experience</a>
-              <a href="Ahmed_Ezeldin_Resume.pdf" class="btn btn-secondary" target="_blank" data-en="View Resume" data-ar="عرض السيرة الذاتية">View Resume</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="about" class="content-section">
-        <div class="container section-grid">
-          <div class="section-side reveal">
-            <div class="section-label-wrap">
-              <span class="section-node"></span>
-              <span class="section-label" data-en="About" data-ar="نبذة">About</span>
-            </div>
-          </div>
-
-          <div class="section-main reveal">
-            <h2 data-en="Focused on building the right foundation." data-ar="أركز على بناء الأساس الصحيح.">
-              Focused on building the right foundation.
-            </h2>
-
-            <p data-en="I’m an engineering transfer student currently studying at the University of Lethbridge. My focus is on developing the technical foundation, discipline, and practical mindset needed to grow into larger engineering opportunities over time." data-ar="أنا طالب تحويل في الهندسة أدرس حاليًا في جامعة ليثبريدج. أركز على تطوير الأساس التقني، والانضباط، والعقلية العملية اللازمة للنمو نحو فرص هندسية أكبر مع الوقت.">
-              I’m an engineering transfer student currently studying at the University of Lethbridge.
-              My focus is on developing the technical foundation, discipline, and practical mindset
-              needed to grow into larger engineering opportunities over time.
-            </p>
-
-            <p data-en="I’m especially interested in engineering design, infrastructure, and technology, with a strong emphasis on learning by doing. Through coursework, team projects, and structured work experience, I’m continuing to build skills in communication, collaboration, analysis, and problem solving." data-ar="أهتم بشكل خاص بالتصميم الهندسي، والبنية التحتية، والتقنية، مع تركيز كبير على التعلم بالممارسة. ومن خلال المقررات الدراسية، والمشاريع الجماعية، والخبرة العملية المنظمة، أواصل تطوير مهاراتي في التواصل، والتعاون، والتحليل، وحل المشكلات.">
-              I’m especially interested in engineering design, infrastructure, and technology, with a
-              strong emphasis on learning by doing. Through coursework, team projects, and structured
-              work experience, I’m continuing to build skills in communication, collaboration, analysis,
-              and problem solving.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section id="education" class="content-section">
-        <div class="container section-grid">
-          <div class="section-side reveal">
-            <div class="section-label-wrap">
-              <span class="section-node"></span>
-              <span class="section-label" data-en="Education" data-ar="التعليم">Education</span>
-            </div>
-          </div>
-
-          <div class="section-main reveal">
-            <h2 data-en="Current academic path." data-ar="المسار الأكاديمي الحالي.">Current academic path.</h2>
-
-            <div class="glass-card">
-              <p class="card-kicker" data-en="University of Lethbridge" data-ar="جامعة ليثبريدج">University of Lethbridge</p>
-
-              <h3 data-en="Pre-Professional Engineering Transfer Program" data-ar="برنامج التحويل التمهيدي للهندسة">
-                Pre-Professional Engineering Transfer Program
-              </h3>
-
-              <p class="card-meta" data-en="Lethbridge, Alberta • September 2025 – Present" data-ar="ليثبريدج، ألبرتا • سبتمبر 2025 – حتى الآن">
-                Lethbridge, Alberta • September 2025 – Present
-              </p>
-
-              <p data-en="Currently completing engineering transfer studies while building a foundation in mathematics, physics, chemistry, programming, engineering mechanics, design, and technical communication." data-ar="أكمل حاليًا دراسات التحويل الهندسي مع بناء أساس قوي في الرياضيات، والفيزياء، والكيمياء، والبرمجة، وميكانيكا الهندسة، والتصميم، والتواصل التقني.">
-                Currently completing engineering transfer studies while building a foundation in mathematics,
-                physics, chemistry, programming, engineering mechanics, design, and technical communication.
-              </p>
-
-              <p>
-                <strong data-en="Expected transfer to the University of Alberta Faculty of Engineering: Fall 2026" data-ar="التحويل المتوقع إلى كلية الهندسة بجامعة ألبرتا: خريف 2026">
-                  Expected transfer to the University of Alberta Faculty of Engineering: Fall 2026
-                </strong>
-              </p>
-
-              <div class="skill-cluster">
-                <span data-en="Engineering Design" data-ar="التصميم الهندسي">Engineering Design</span>
-                <span data-en="Engineering Mechanics (Statics)" data-ar="ميكانيكا الهندسة (الاستاتيكا)">Engineering Mechanics (Statics)</span>
-                <span data-en="Accelerated Calculus I & II" data-ar="التفاضل والتكامل المكثف 1 و2">Accelerated Calculus I & II</span>
-                <span data-en="General Chemistry I & II" data-ar="الكيمياء العامة 1 و2">General Chemistry I & II</span>
-                <span data-en="Fundamentals of Programming I" data-ar="أساسيات البرمجة 1">Fundamentals of Programming I</span>
-                <span data-en="Waves, Optics and Sound" data-ar="الموجات والبصريات والصوت">Waves, Optics and Sound</span>
-                <span data-en="Writing for Engineering Students" data-ar="الكتابة لطلاب الهندسة">Writing for Engineering Students</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="project" class="content-section">
-        <div class="container section-grid">
-          <div class="section-side reveal">
-            <div class="section-label-wrap">
-              <span class="section-node"></span>
-              <span class="section-label" data-en="Featured Project" data-ar="المشروع المميز">Featured Project</span>
-            </div>
-          </div>
-
-          <div class="section-main reveal">
-            <h2 data-en="Medicine Cooler" data-ar="مبرد الأدوية">Medicine Cooler</h2>
-
-            <div class="glass-card">
-              <p data-en="A portable temperature-controlled medication storage concept designed to support safer transport and storage of temperature-sensitive medication such as insulin." data-ar="فكرة لحافظة أدوية محمولة ومتحكم بدرجتها الحرارية، صُممت لدعم نقل وتخزين أكثر أمانًا للأدوية الحساسة للحرارة مثل الإنسولين.">
-                A portable temperature-controlled medication storage concept designed to support safer transport
-                and storage of temperature-sensitive medication such as insulin.
-              </p>
-
-              <div class="project-grid">
-                <div class="mini-card">
-                  <h4 data-en="Problem" data-ar="المشكلة">Problem</h4>
-                  <p data-en="Temperature-sensitive medication needs safer storage during travel, transport, and everyday use." data-ar="الأدوية الحساسة للحرارة تحتاج إلى تخزين أكثر أمانًا أثناء السفر، والنقل، والاستخدام اليومي.">
-                    Temperature-sensitive medication needs safer storage during travel, transport, and everyday use.
-                  </p>
-                </div>
-
-                <div class="mini-card">
-                  <h4 data-en="Design Goal" data-ar="هدف التصميم">Design Goal</h4>
-                  <p data-en="Create a lightweight, practical, and more budget-friendly alternative while maintaining 2°C to 8°C storage." data-ar="إنشاء بديل خفيف وعملي وأوفر تكلفة مع الحفاظ على تخزين بدرجة حرارة بين 2 و8 درجات مئوية.">
-                    Create a lightweight, practical, and more budget-friendly alternative while maintaining 2°C to 8°C storage.
-                  </p>
-                </div>
-
-                <div class="mini-card">
-                  <h4 data-en="System Thinking" data-ar="التفكير المنظومي">System Thinking</h4>
-                  <p data-en="The concept combines cooling, control, sensing, insulation, display feedback, and rechargeable power." data-ar="يجمع المفهوم بين التبريد، والتحكم، والاستشعار، والعزل، وعرض البيانات، والطاقة القابلة لإعادة الشحن.">
-                    The concept combines cooling, control, sensing, insulation, display feedback, and rechargeable power.
-                  </p>
-                </div>
-
-                <div class="mini-card">
-                  <h4 data-en="My Contribution" data-ar="مساهمتي">My Contribution</h4>
-                  <p data-en="I contributed to system design, enclosure and insulation planning, layout decisions, and overall concept structure." data-ar="ساهمت في تصميم النظام، وتخطيط الغلاف والعزل، وقرارات الترتيب الداخلي، والبنية العامة للمفهوم.">
-                    I contributed to system design, enclosure and insulation planning, layout decisions, and overall concept structure.
-                  </p>
-                </div>
-
-                <div class="mini-card">
-                  <h4 data-en="What It Demonstrates" data-ar="ما الذي يبرزه">What It Demonstrates</h4>
-                  <p data-en="Engineering design process, systems thinking, practical problem solving, and structured technical planning." data-ar="يوضح عملية التصميم الهندسي، والتفكير المنظومي، وحل المشكلات عمليًا، والتخطيط التقني المنظم.">
-                    Engineering design process, systems thinking, practical problem solving, and structured technical planning.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="experience" class="content-section">
-        <div class="container section-grid">
-          <div class="section-side reveal">
-            <div class="section-label-wrap">
-              <span class="section-node"></span>
-              <span class="section-label" data-en="Experience" data-ar="الخبرة">Experience</span>
-            </div>
-          </div>
-
-          <div class="section-main reveal">
-            <h2 data-en="Work experience that built discipline." data-ar="خبرة عملية بنت الانضباط.">
-              Work experience that built discipline.
-            </h2>
-
-            <div class="glass-card">
-              <p class="card-kicker" data-en="The Home Depot Canada" data-ar="هوم ديبوت كندا">The Home Depot Canada</p>
-
-              <h3 data-en="Sales Associate" data-ar="موظف مبيعات">Sales Associate</h3>
-
-              <p class="card-meta" data-en="Calgary, Alberta • April 2025 – July 2025" data-ar="كالغاري، ألبرتا • أبريل 2025 – يوليو 2025">
-                Calgary, Alberta • April 2025 – July 2025
-              </p>
-
-              <ul class="clean-list">
-                <li data-en="Worked in a fast-paced retail environment supporting daily floor operations." data-ar="عملت في بيئة بيع بالتجزئة سريعة الإيقاع مع دعم العمليات اليومية داخل المتجر.">
-                  Worked in a fast-paced retail environment supporting daily floor operations.
-                </li>
-                <li data-en="Assisted customers with product navigation and general inquiries." data-ar="ساعدت العملاء في الوصول إلى المنتجات والرد على الاستفسارات العامة.">
-                  Assisted customers with product navigation and general inquiries.
-                </li>
-                <li data-en="Contributed to stocking, organization, and maintaining a strong customer experience." data-ar="ساهمت في ترتيب وتخزين المنتجات والمحافظة على تجربة عميل قوية.">
-                  Contributed to stocking, organization, and maintaining a strong customer experience.
-                </li>
-                <li data-en="Strengthened communication, teamwork, adaptability, and problem solving under pressure." data-ar="طورت مهارات التواصل، والعمل الجماعي، والتكيف، وحل المشكلات تحت الضغط.">
-                  Strengthened communication, teamwork, adaptability, and problem solving under pressure.
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="skills" class="content-section">
-        <div class="container section-grid">
-          <div class="section-side reveal">
-            <div class="section-label-wrap">
-              <span class="section-node"></span>
-              <span class="section-label" data-en="Skills" data-ar="المهارات">Skills</span>
-            </div>
-          </div>
-
-          <div class="section-main reveal">
-            <h2 data-en="Core strengths." data-ar="نقاط القوة الأساسية.">Core strengths.</h2>
-
-            <div class="skill-cluster large">
-              <span data-en="Engineering Design" data-ar="التصميم الهندسي">Engineering Design</span>
-              <span data-en="Technical Communication" data-ar="التواصل التقني">Technical Communication</span>
-              <span data-en="Problem Solving" data-ar="حل المشكلات">Problem Solving</span>
-              <span data-en="Team Collaboration" data-ar="العمل الجماعي">Team Collaboration</span>
-              <span data-en="Systems Thinking" data-ar="التفكير المنظومي">Systems Thinking</span>
-              <span data-en="Technical Reporting" data-ar="التقارير التقنية">Technical Reporting</span>
-              <span data-en="Research & Analysis" data-ar="البحث والتحليل">Research & Analysis</span>
-              <span data-en="Presentation Skills" data-ar="مهارات العرض">Presentation Skills</span>
-              <span data-en="Microsoft Office" data-ar="مايكروسوفت أوفيس">Microsoft Office</span>
-              <span data-en="Adaptability" data-ar="القدرة على التكيف">Adaptability</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" class="content-section contact-section">
-        <div class="container section-grid">
-          <div class="section-side reveal">
-            <div class="section-label-wrap">
-              <span class="section-node"></span>
-              <span class="section-label" data-en="Contact" data-ar="التواصل">Contact</span>
-            </div>
-          </div>
-
-          <div class="section-main reveal">
-            <h2 data-en="Connect." data-ar="تواصل معي.">Connect.</h2>
-
-            <p data-en="I’m continuing to build my engineering foundation through coursework, projects, and meaningful opportunities. You can reach me through the links below." data-ar="أواصل بناء أساس هندسي قوي من خلال الدراسة، والمشاريع، والفرص الهادفة. يمكنك التواصل معي من خلال الروابط أدناه.">
-              I’m continuing to build my engineering foundation through coursework, projects, and meaningful
-              opportunities. You can reach me through the links below.
-            </p>
-
-            <div class="hero-actions">
-              <a href="mailto:ahmedasaad19730@gmail.com" class="btn btn-primary" data-en="Email" data-ar="البريد الإلكتروني">Email</a>
-              <a href="Ahmed_Ezeldin_Resume.pdf" class="btn btn-secondary" target="_blank" data-en="Resume" data-ar="السيرة الذاتية">Resume</a>
-              <a href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217/" class="btn btn-secondary" target="_blank" rel="noopener noreferrer" data-en="LinkedIn" data-ar="لينكدإن">LinkedIn</a>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p data-en="© 2026 Ahmed Ezeldin" data-ar="© 2026 أحمد عزالدين">© 2026 Ahmed Ezeldin</p>
-      </div>
-    </footer>
   </div>
+</header>
 
-  <script>
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.18 });
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div class="avail" data-en="Available for a Summer 2027 Internship (4 months)" data-ar="متاح لتدريب صيفي 2027 (4 أشهر)">Available for a Summer 2027 Internship (4 months)</div>
 
-    revealEls.forEach((el) => observer.observe(el));
+      <h1 data-en="Ahmed Ezeldin" data-ar="أحمد عزالدين">Ahmed Ezeldin</h1>
+      <div class="title" data-en="Electrical Engineering Student — University of Alberta" data-ar="طالب هندسة كهربائية — جامعة ألبرتا">Electrical Engineering Student — University of Alberta</div>
 
-    const sections = document.querySelectorAll('.content-section');
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        const labelWrap = entry.target.querySelector('.section-label-wrap');
-        if (!labelWrap) return;
+      <div class="contact-strip">
+        <span data-en="Calgary, AB" data-ar="كالغاري، ألبرتا">Calgary, AB</span>
+        <a href="mailto:ahmedasaad19730@gmail.com">ahmedasaad19730@gmail.com</a>
+        <a href="tel:+18254494924">(825) 449-4924</a>
+        <a href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
 
-        if (entry.isIntersecting) {
-          labelWrap.classList.add('is-active');
-        } else {
-          labelWrap.classList.remove('is-active');
-        }
-      });
-    }, {
-      threshold: 0.35
+      <p class="summary" data-en="Electrical Engineering student (Traditional Program) building a foundation in power systems, sustainable technology, and infrastructure through coursework, a self-built embedded systems project, and steady work experience in fast-paced, public-facing roles. Looking for a 4-month summer internship in Calgary for Summer 2027."
+         data-ar="طالب هندسة كهربائية (البرنامج التقليدي) يبني أساساً في أنظمة الطاقة والتقنيات المستدامة والبنية التحتية من خلال المقررات الدراسية ومشروع أنظمة مدمجة بناه بنفسه وخبرة عملية ثابتة في أدوار سريعة الوتيرة ومواجهة للجمهور. يبحث عن تدريب صيفي لمدة 4 أشهر في كالغاري لصيف 2027.">
+        Electrical Engineering student (Traditional Program) building a foundation in power systems, sustainable technology, and infrastructure through coursework, a self-built embedded systems project, and steady work experience in fast-paced, public-facing roles. Looking for a 4-month summer internship in Calgary for Summer 2027.
+      </p>
+
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="/Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume (PDF)" data-ar="تحميل السيرة الذاتية (PDF)">Download Resume (PDF)</a>
+        <a class="btn btn-outline" href="mailto:ahmedasaad19730@gmail.com" data-en="Contact Me" data-ar="تواصل معي">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="looking">
+    <div class="wrap">
+      <h2 class="h" data-en="What I'm Looking For" data-ar="ما الذي أبحث عنه">What I'm Looking For</h2>
+      <div class="looking-grid">
+        <div class="looking-item">
+          <div class="label" data-en="Role" data-ar="الدور">Role</div>
+          <div class="value" data-en="Electrical Engineering Summer Intern / Student" data-ar="متدرب/طالب صيفي هندسة كهربائية">Electrical Engineering Summer Intern / Student</div>
+        </div>
+        <div class="looking-item">
+          <div class="label" data-en="Location" data-ar="الموقع">Location</div>
+          <div class="value" data-en="Calgary, AB (open to Alberta-wide)" data-ar="كالغاري، ألبرتا (مستعد للعمل في أي مكان بألبرتا)">Calgary, AB (open to Alberta-wide)</div>
+        </div>
+        <div class="looking-item">
+          <div class="label" data-en="Availability" data-ar="التوفر">Availability</div>
+          <div class="value" data-en="Summer 2027 &middot; 4 months" data-ar="صيف 2027 · 4 أشهر">Summer 2027 · 4 months</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2 class="h" data-en="Education" data-ar="التعليم">Education</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org" data-en="University of Alberta" data-ar="جامعة ألبرتا">University of Alberta</span>
+          <span class="entry-date" data-en="Sept 2026 &ndash; Present" data-ar="سبتمبر 2026 – حتى الآن">Sept 2026 – Present</span>
+        </div>
+        <span class="entry-role" data-en="B.Sc. Electrical Engineering (Traditional Program) &middot; Edmonton, AB" data-ar="بكالوريوس الهندسة الكهربائية (البرنامج التقليدي) · إدمنتون، ألبرتا">B.Sc. Electrical Engineering (Traditional Program) · Edmonton, AB</span>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org" data-en="University of Lethbridge" data-ar="جامعة ليثبريدج">University of Lethbridge</span>
+          <span class="entry-date" data-en="Sept 2025 &ndash; Aug 2026" data-ar="سبتمبر 2025 – أغسطس 2026">Sept 2025 – Aug 2026</span>
+        </div>
+        <span class="entry-role" data-en="Pre-Professional Engineering Transfer Program &middot; Lethbridge, AB" data-ar="برنامج التحويل الهندسي التمهيدي · ليثبريدج، ألبرتا">Pre-Professional Engineering Transfer Program · Lethbridge, AB</span>
+        <div class="coursework">
+          <b data-en="Relevant coursework: " data-ar="مقررات ذات صلة: ">Relevant coursework: </b>
+          <span data-en="Engineering Design, Engineering Mechanics (Statics), Accelerated Calculus I &amp; II, General Chemistry I &amp; II, Fundamentals of Programming I, Waves Optics and Sound, Writing for Engineering Students"
+                data-ar="التصميم الهندسي، الميكانيكا الهندسية (السكون)، التفاضل والتكامل المكثف I وII، الكيمياء العامة I وII، أساسيات البرمجة I، الموجات والبصريات والصوت، الكتابة لطلاب الهندسة">
+            Engineering Design, Engineering Mechanics (Statics), Accelerated Calculus I &amp; II, General Chemistry I &amp; II, Fundamentals of Programming I, Waves Optics and Sound, Writing for Engineering Students
+          </span>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org" data-en="Sir Winston Churchill High School" data-ar="مدرسة السير ونستون تشرشل الثانوية">Sir Winston Churchill High School</span>
+          <span class="entry-date" data-en="Sept 2022 &ndash; June 2024" data-ar="سبتمبر 2022 – يونيو 2024">Sept 2022 – June 2024</span>
+        </div>
+        <span class="entry-role" data-en="High School Diploma &middot; Calgary, AB" data-ar="الدبلوم الثانوي · كالغاري، ألبرتا">High School Diploma · Calgary, AB</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2 class="h" data-en="Skills" data-ar="المهارات">Skills</h2>
+      <div class="skill-cols">
+        <div>
+          <h3 data-en="Technical" data-ar="تقنية">Technical</h3>
+          <p data-en="Engineering design process &middot; Embedded systems (ESP32) &middot; Python programming &middot; Circuit simulation &amp; breadboard prototyping &middot; Systems thinking &middot; Technical reporting"
+             data-ar="عملية التصميم الهندسي · الأنظمة المدمجة (ESP32) · البرمجة بلغة بايثون · محاكاة الدوائر والتجريب على لوحة التجارب · التفكير المنظومي · إعداد التقارير التقنية">
+            Engineering design process · Embedded systems (ESP32) · Python programming · Circuit simulation &amp; breadboard prototyping · Systems thinking · Technical reporting
+          </p>
+        </div>
+        <div>
+          <h3 data-en="Professional" data-ar="مهنية">Professional</h3>
+          <p data-en="Teamwork &amp; collaboration &middot; Communication &amp; presentation &middot; Adaptability &middot; Leadership &middot; Attention to detail &middot; Reliability under pressure"
+             data-ar="العمل الجماعي والتعاون · التواصل والعرض · التكيّف · القيادة · الانتباه للتفاصيل · الموثوقية تحت الضغط">
+            Teamwork &amp; collaboration · Communication &amp; presentation · Adaptability · Leadership · Attention to detail · Reliability under pressure
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <div class="wrap">
+      <h2 class="h" data-en="Project" data-ar="المشروع">Project</h2>
+      <div class="project-box">
+        <h3 data-en="Medicine Cooler" data-ar="مبرّد الأدوية">Medicine Cooler</h3>
+        <div class="project-sub" data-en="Working prototype &middot; Portable temperature-controlled medication storage" data-ar="نموذج أولي عامل · تخزين محمول للأدوية بتحكم بدرجة الحرارة">Working prototype · Portable temperature-controlled medication storage</div>
+        <p data-en="Built a working prototype using an ESP32 microcontroller, programmed in Python, to actively regulate internal temperature between 2°C and 8°C for temperature-sensitive medication such as insulin."
+           data-ar="بنيت نموذجاً أولياً عاملاً باستخدام متحكم دقيق من نوع ESP32، مبرمج بلغة بايثون، للتحكم الفعّال بدرجة الحرارة الداخلية بين 2 و8 درجات مئوية للأدوية الحساسة للحرارة مثل الإنسولين.">
+          Built a working prototype using an ESP32 microcontroller, programmed in Python, to actively regulate internal temperature between 2°C and 8°C for temperature-sensitive medication such as insulin.
+        </p>
+        <ul>
+          <li><span data-en="Integrated a DS18B20 waterproof temperature sensor, a Peltier thermoelectric cooling module, and an optocoupler-isolated relay into a closed-loop temperature control system." data-ar="دمجت مستشعر حرارة مقاوم للماء من نوع DS18B20، ووحدة تبريد كهروحرارية من نوع بلتيير، ومرحّلاً معزولاً بواسطة موصل بصري ضمن نظام تحكم حراري ذي حلقة مغلقة.">Integrated a DS18B20 waterproof temperature sensor, a Peltier thermoelectric cooling module, and an optocoupler-isolated relay into a closed-loop temperature control system.</span></li>
+          <li><span data-en="Added a 128x64 OLED display for real-time temperature readout and a buzzer alert for out-of-range conditions." data-ar="أضفت شاشة OLED بدقة 128×64 لعرض درجة الحرارة لحظياً، وجرس إنذار عند خروج درجة الحرارة عن النطاق المطلوب.">Added a 128x64 OLED display for real-time temperature readout and a buzzer alert for out-of-range conditions.</span></li>
+          <li><span data-en="Validated the circuit through simulation and breadboard prototyping before final assembly, then designed and 3D printed a custom enclosure for the finished unit." data-ar="تحققت من صحة الدائرة عبر المحاكاة والتجريب على لوحة تجارب قبل التجميع النهائي، ثم صممت وطبعت ثلاثي الأبعاد هيكلاً مخصصاً للوحدة النهائية.">Validated the circuit through simulation and breadboard prototyping before final assembly, then designed and 3D printed a custom enclosure for the finished unit.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2 class="h" data-en="Experience" data-ar="الخبرة">Experience</h2>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org" data-en="The Calgary Stampede" data-ar="ستامبيد كالغاري">The Calgary Stampede</span>
+          <span class="entry-date" data-en="July 2026 &middot; 1 month" data-ar="يوليو 2026 · شهر واحد">July 2026 · 1 month</span>
+        </div>
+        <span class="entry-role" data-en="Guest Ambassador &ndash; Event Security &middot; Calgary, AB" data-ar="سفير ضيوف – أمن الفعاليات · كالغاري، ألبرتا">Guest Ambassador – Event Security · Calgary, AB</span>
+        <ul>
+          <li data-en="Ensured guest safety and security at a large-scale public event while maintaining a positive, welcoming environment." data-ar="ضمنت سلامة وأمن الضيوف في فعالية عامة واسعة النطاق مع الحفاظ على بيئة إيجابية وترحيبية.">Ensured guest safety and security at a large-scale public event while maintaining a positive, welcoming environment.</li>
+          <li data-en="Completed mandatory safety training and followed strict corporate policies on conduct and confidentiality." data-ar="أكملت التدريب الإلزامي على السلامة والتزمت بسياسات صارمة تتعلق بالسلوك والسرية.">Completed mandatory safety training and followed strict corporate policies on conduct and confidentiality.</li>
+        </ul>
+      </div>
+
+      <div class="entry">
+        <div class="entry-head">
+          <span class="entry-org" data-en="The Home Depot Canada" data-ar="ذا هوم ديبوت كندا">The Home Depot Canada</span>
+          <span class="entry-date" data-en="Apr 2025 &ndash; Jul 2025" data-ar="أبريل 2025 – يوليو 2025">Apr 2025 – Jul 2025</span>
+        </div>
+        <span class="entry-role" data-en="Sales Associate (Seasonal) &middot; Calgary, AB" data-ar="مندوب مبيعات (موسمي) · كالغاري، ألبرتا">Sales Associate (Seasonal) · Calgary, AB</span>
+        <ul>
+          <li data-en="Supported daily floor operations in a fast-paced retail environment, assisting customers across multiple departments." data-ar="دعمت العمليات اليومية في صالة العرض ضمن بيئة تجزئة سريعة الوتيرة، وساعدت العملاء في أقسام متعددة.">Supported daily floor operations in a fast-paced retail environment, assisting customers across multiple departments.</li>
+          <li data-en="Maintained consistent reliability and followed workplace safety procedures during all scheduled shifts." data-ar="حافظت على موثوقية ثابتة والتزمت بإجراءات السلامة في جميع الورديات.">Maintained consistent reliability and followed workplace safety procedures during all scheduled shifts.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <h2 class="h" data-en="Contact" data-ar="تواصل">Contact</h2>
+      <p data-en="Open to a Summer 2027 internship or student position (4 months) in Calgary and across Alberta. The fastest way to reach me is by email."
+         data-ar="متاح لتدريب أو وظيفة طالب صيفية (4 أشهر) في كالغاري وعبر ألبرتا لصيف 2027. أسرع طريقة للتواصل معي هي عبر البريد الإلكتروني.">
+        Open to a Summer 2027 internship or student position (4 months) in Calgary and across Alberta. The fastest way to reach me is by email.
+      </p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:ahmedasaad19730@gmail.com" data-en="Email Me" data-ar="راسلني">Email Me</a>
+        <a class="btn btn-outline" href="tel:+18254494924" data-en="Call" data-ar="اتصل">Call</a>
+        <a class="btn btn-outline" href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-outline" href="/Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>&copy; 2026 Ahmed Ezeldin</footer>
+
+<script>
+  const langToggle = document.getElementById('lang-toggle');
+  let currentLang = 'en';
+  function applyLang(lang){
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-en][data-ar]').forEach(el => {
+      el.innerHTML = el.dataset[lang];
     });
+  }
+  langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'en' ? 'ar' : 'en';
+    applyLang(currentLang);
+  });
+</script>
 
-    sections.forEach((section) => sectionObserver.observe(section));
-
-    const menuToggle = document.getElementById('menuToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    const mobileLinks = document.querySelectorAll('#mobileMenu a');
-
-    if (menuToggle && mobileMenu) {
-      menuToggle.addEventListener('click', () => {
-        const isOpen = mobileMenu.classList.toggle('open');
-        menuToggle.classList.toggle('open', isOpen);
-        menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-
-      mobileLinks.forEach((link) => {
-        link.addEventListener('click', () => {
-          mobileMenu.classList.remove('open');
-          menuToggle.classList.remove('open');
-          menuToggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
-
-    const langEn = document.getElementById('langEn');
-    const langAr = document.getElementById('langAr');
-
-    function setLanguage(lang) {
-      const isArabic = lang === 'ar';
-      document.documentElement.lang = lang;
-      document.documentElement.dir = isArabic ? 'rtl' : 'ltr';
-      document.body.classList.toggle('rtl', isArabic);
-
-      document.querySelectorAll('[data-en][data-ar]').forEach((el) => {
-        el.textContent = isArabic ? el.getAttribute('data-ar') : el.getAttribute('data-en');
-      });
-
-      if (langEn && langAr) {
-        langEn.classList.toggle('active', !isArabic);
-        langAr.classList.toggle('active', isArabic);
-      }
-
-      localStorage.setItem('site-language', lang);
-    }
-
-    if (langEn && langAr) {
-      langEn.addEventListener('click', () => setLanguage('en'));
-      langAr.addEventListener('click', () => setLanguage('ar'));
-    }
-
-    const savedLang = localStorage.getItem('site-language') || 'en';
-    setLanguage(savedLang);
-  </script>
 </body>
 </html>
