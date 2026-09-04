@@ -153,6 +153,13 @@
   .project-box{ border:1px solid var(--line); border-radius:8px; padding:24px 26px; background:var(--bg-alt); }
   .project-box h3{ font-size:18px; margin-bottom:4px; }
   .project-sub{ font-size:14px; color:var(--text-dim); margin-bottom:16px; }
+  .project-media{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:18px 0 4px; padding:0; }
+  .project-media img{
+    width:100%; height:100%; max-height:420px; object-fit:cover;
+    border:1px solid var(--line); border-radius:6px; display:block; background:#fff;
+  }
+  .project-media figcaption{ grid-column:1 / -1; font-size:12.5px; color:var(--text-dim); margin-top:2px; }
+  @media (max-width:640px){ .project-media{ grid-template-columns:1fr; } }
   .todo{
     display:inline-block; font-size:12px; font-weight:700; color:#8A4B00;
     background:#FFF1DE; border:1px solid #F4D9AE; padding:2px 8px; border-radius:4px;
@@ -306,8 +313,16 @@
         <ul>
           <li><span data-en="Wrote the ESP32 firmware (Arduino/C++): DS18B20 temperature sensing, live readout on a 128×64 OLED, threshold-based relay switching for the cooling stage, and an escalating buzzer alert." data-ar="كتبتُ البرنامج الثابت للـ ESP32 (لغة Arduino/C++): قراءة الحرارة عبر مستشعر DS18B20، وعرضها لحظياً على شاشة OLED بدقة 128×64، وتشغيل مرحّل مرحلة التبريد عند تجاوز عتبة محددة، وتنبيه صوتي متصاعد.">Wrote the ESP32 firmware (Arduino/C++): DS18B20 temperature sensing, live readout on a 128×64 OLED, threshold-based relay switching for the cooling stage, and an escalating buzzer alert.</span></li>
           <li><span data-en="Designed the full enclosure — seven 3D-printed parts (insulated outer shell, inner liner, electronics bay, and lids) plus the insulation layout." data-ar="صمّمتُ الهيكل بالكامل — سبع قطع مطبوعة ثلاثية الأبعاد (غلاف خارجي معزول، وبطانة داخلية، وحجيرة إلكترونيات، وأغطية) إضافةً إلى تخطيط العزل.">Designed the full enclosure — seven 3D-printed parts (insulated outer shell, inner liner, electronics bay, and lids) plus the insulation layout.</span></li>
-          <li><span data-en="Bench-tested the sensing and control logic with an ice-water setup; active Peltier cooling integration was scoped as the next build phase." data-ar="اختبرتُ منطق الاستشعار والتحكم على الطاولة باستخدام ماء مثلج؛ ودمج التبريد الفعّال بوحدة بلتييه خُطّط له كمرحلة بناء تالية.">Bench-tested the sensing and control logic with an ice-water setup; active Peltier cooling integration was scoped as the next build phase.</span></li>
+          <li><span data-en="Assembled the Peltier thermoelectric cooling stage and integrated it with the relay control, then bench-tested the full system with an ice-water setup." data-ar="جمّعتُ مرحلة التبريد الكهروحرارية بوحدة بلتييه ودمجتُها مع التحكم بالمرحّل، ثم اختبرتُ النظام كاملاً على الطاولة باستخدام ماء مثلج.">Assembled the Peltier thermoelectric cooling stage and integrated it with the relay control, then bench-tested the full system with an ice-water setup.</span></li>
         </ul>
+        <figure class="project-media">
+          <img src="/media/medicine-cooler-unit.jpg" width="675" height="1200" loading="lazy" style="object-position:center 42%;"
+               alt="The 3D-printed control unit powered on, its OLED reading “Medicine Cooler — 21.9 C — STATUS: COOLING ON”, with the ESP32 and wiring in the open printed enclosure." />
+          <img src="/media/medicine-cooler-build.jpg" width="675" height="1200" loading="lazy" style="object-position:center 46%;"
+               alt="The assembled insulated enclosure with a Peltier heat-sink and fan mounted on the back panel, wired through a relay module in a separate electronics box." />
+          <figcaption data-en="The control unit running, and the assembled cooler with its Peltier cooling stage and relay-switched electronics."
+                      data-ar="وحدة التحكم أثناء التشغيل، والمبرّد المُجمَّع مع مرحلة تبريد بلتييه وإلكترونيات مُبدَّلة بالمرحّل.">The control unit running, and the assembled cooler with its Peltier cooling stage and relay-switched electronics.</figcaption>
+        </figure>
         <p><a href="https://github.com/ahmedezeldin/medicine-cooler" target="_blank" rel="noopener" data-en="View the firmware on GitHub →" data-ar="عرض البرنامج الثابت على GitHub ←">View the firmware on GitHub →</a></p>
       </div>
     </div>
