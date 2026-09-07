@@ -51,177 +51,190 @@
 }
 </script>
 <style>
-  :root{
-    --navy:#132A46;
-    --navy-2:#1D3A5F;
-    --steel:#2E5C8A;
-    --ink:#181C22;
-    --text:#2A2F36;
-    --text-dim:#5B6472;
-    --line:#E1E4E9;
-    --bg:#FFFFFF;
-    --bg-alt:#F6F8FA;
-    --available:#1C7C4E;
-    --available-bg:#E9F7EF;
-    --maxw:840px;
+  :root {
+    --navy:#132A46; --navy-2:#1D3A5F; --steel:#2E5C8A;
+    --ink:#181C22; --text:#2A2F36; --text-dim:#5B6472;
+    --line:#E1E4E9; --bg:#FFFFFF; --bg-alt:#F6F8FA;
+    --available:#1C7C4E; --available-bg:#E9F7EF; --maxw:1080px;
   }
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0;
-    font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    color:var(--text);
-    background:var(--bg);
-    line-height:1.55;
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:100px; }
+  body {
+    margin:0; font-family:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    color:var(--text); background:var(--bg); line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  [dir="rtl"] body{ font-family:'Inter', 'Segoe UI', Tahoma, sans-serif; }
-  h1,h2,h3{ font-family:'Inter', sans-serif; color:var(--ink); margin:0; letter-spacing:-0.01em; }
-  a{ color:inherit; }
-  p{ margin:0 0 12px; color:var(--text-dim); max-width:68ch; }
-  ul{ margin:8px 0 0; padding-left:20px; color:var(--text-dim); }
-  li{ margin-bottom:6px; }
-  :focus-visible{ outline:2px solid var(--steel); outline-offset:2px; }
-
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
+  [dir="rtl"] body { font-family:'Inter', 'Segoe UI', Tahoma, sans-serif; }
+  h1,h2,h3 { color:var(--ink); margin:0; letter-spacing:-0.025em; line-height:1.25; }
+  a { color:inherit; text-underline-offset:4px; }
+  p { margin:0 0 16px; color:var(--text-dim); max-width:68ch; }
+  ul { margin:12px 0 0; padding-inline-start:20px; color:var(--text-dim); }
+  li { margin-bottom:10px; }
+  :focus-visible { outline:3px solid var(--steel); outline-offset:4px; }
+  .wrap { max-width:var(--maxw); margin:0 auto; padding:0 32px; }
+  .skip-link {
+    position:fixed; top:8px; inset-inline-start:8px; z-index:100;
+    padding:10px 16px; background:var(--navy); color:#fff;
+    transform:translateY(-150%); border-radius:6px;
   }
+  .skip-link:focus { transform:translateY(0); }
 
-  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
-
-  /* ---------- Sticky header ---------- */
-  header.top{
-    position:sticky; top:0; z-index:50;
-    background:rgba(255,255,255,0.96);
-    border-bottom:1px solid var(--line);
-    backdrop-filter:blur(6px);
+  /* Navigation stays usable without squeezing the name or actions on phones. */
+  header.top {
+    position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.97);
+    border-bottom:1px solid var(--line); backdrop-filter:blur(8px);
   }
-  .top-inner{
-    max-width:var(--maxw); margin:0 auto; padding:14px 24px;
-    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  .top-inner {
+    max-width:var(--maxw); margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
   }
-  .name-mark{ font-weight:700; font-size:16px; text-decoration:none; color:var(--ink); }
-  .top-actions{ display:flex; align-items:center; gap:10px; }
-  .btn{
-    font-size:14px; font-weight:600; padding:9px 16px; border-radius:5px;
-    text-decoration:none; display:inline-flex; align-items:center; gap:6px;
-    border:1px solid transparent; white-space:nowrap;
+  .name-mark { font-weight:700; font-size:17px; text-decoration:none; color:var(--navy); }
+  .top-actions { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .btn {
+    font-size:14px; font-weight:600; padding:11px 18px; border-radius:7px;
+    text-decoration:none; display:inline-flex; justify-content:center; align-items:center;
+    gap:6px; border:1px solid transparent; min-height:44px; text-align:center;
   }
-  .btn-primary{ background:var(--navy); color:#fff; }
-  .btn-primary:hover{ background:var(--navy-2); }
-  .btn-outline{ border-color:var(--line); color:var(--ink); }
-  .btn-outline:hover{ border-color:var(--steel); color:var(--steel); }
-  #lang-toggle{
-    font-size:13px; font-weight:600; background:none; border:1px solid var(--line);
-    color:var(--text-dim); padding:8px 12px; border-radius:5px; cursor:pointer;
+  .btn-primary { background:var(--navy); color:#fff; }
+  .btn-primary:hover { background:var(--navy-2); }
+  .btn-outline { border-color:var(--line); color:var(--ink); background:#fff; }
+  .btn-outline:hover { border-color:var(--steel); color:var(--steel); }
+  #lang-toggle {
+    font-family:inherit; font-size:14px; font-weight:600;
+    background:#fff; border:1px solid var(--line); color:var(--text-dim);
+    padding:10px 12px; min-height:44px; border-radius:7px; cursor:pointer; direction:ltr;
   }
-  #lang-toggle:hover{ border-color:var(--steel); color:var(--steel); }
+  #lang-toggle:hover { border-color:var(--steel); color:var(--steel); }
 
-  @media (max-width:640px){
-    .top-actions .btn-outline{ display:none; }
+  /* A concise visual hierarchy, with all of the original introduction retained. */
+  .hero { padding:64px 0 48px; }
+  .avail {
+    display:inline-flex; align-items:center; gap:9px; background:var(--available-bg);
+    color:var(--available); font-size:14px; font-weight:600; padding:7px 14px;
+    border-radius:6px; margin-bottom:24px;
   }
+  .avail::before { content:""; width:7px; height:7px; flex:0 0 7px; border-radius:50%; background:var(--available); }
+  .hero h1 { font-size:clamp(2.25rem,5.5vw,3.75rem); line-height:1.1; margin-bottom:14px; }
+  .hero .title { font-size:clamp(1.05rem,2vw,1.25rem); color:var(--steel); font-weight:600; margin-bottom:20px; }
+  .contact-strip { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:14px; color:var(--text-dim); margin-bottom:24px; }
+  .contact-strip a { color:var(--text-dim); text-decoration:none; overflow-wrap:anywhere; }
+  .contact-strip a:hover { color:var(--steel); text-decoration:underline; }
+  a[href^="mailto:"], a[href^="tel:"] { unicode-bidi:isolate; }
+  .hero .summary { font-size:16px; max-width:85ch; color:var(--text); }
+  .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
 
-  /* ---------- Hero ---------- */
-  .hero{ padding:52px 0 40px; border-bottom:1px solid var(--line); }
-  .avail{
-    display:inline-flex; align-items:center; gap:8px;
-    background:var(--available-bg); color:var(--available);
-    font-size:13px; font-weight:600; padding:7px 14px; border-radius:20px;
-    margin-bottom:22px;
+  section { padding:48px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type { border-bottom:none; }
+  h2.h { font-size:26px; font-weight:700; color:var(--navy); margin-bottom:24px; }
+
+  /* Lead with the engineering work; keep the actual prototype photos uncropped. */
+  #project { background:var(--bg-alt); }
+  .project-box {
+    display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); column-gap:36px;
+    padding:28px; border:1px solid var(--line); border-radius:12px; background:#fff;
+    box-shadow:0 8px 28px rgba(19,42,70,0.04);
   }
-  .avail::before{ content:""; width:7px; height:7px; border-radius:50%; background:var(--available); }
-
-  .hero h1{ font-size:clamp(30px,4.5vw,40px); line-height:1.15; margin-bottom:8px; }
-  .hero .title{ font-size:18px; color:var(--steel); font-weight:600; margin-bottom:18px; }
-
-  .contact-strip{
-    display:flex; flex-wrap:wrap; gap:14px 20px; font-size:14.5px; color:var(--text-dim); margin-bottom:26px;
+  .project-box > * { grid-column:1; min-width:0; }
+  .project-box h3 { font-size:24px; margin-bottom:8px; }
+  .project-sub { font-size:14px; color:var(--text-dim); margin-bottom:20px; }
+  .project-box p, .project-box li { font-size:16px; }
+  .project-box > p:last-child { margin:16px 0 0; font-weight:600; color:var(--steel); }
+  .project-media {
+    grid-column:2; grid-row:1 / span 5; align-self:start; display:grid;
+    grid-template-columns:1fr 1fr; gap:12px; margin:0; padding:0;
   }
-  .contact-strip a{ color:var(--text-dim); text-decoration:none; border-bottom:1px solid transparent; }
-  .contact-strip a:hover{ color:var(--steel); border-color:var(--steel); }
-
-  .hero .summary{ font-size:16px; max-width:66ch; color:var(--text); }
-  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
-
-  /* ---------- Section shell ---------- */
-  section{ padding:44px 0; border-bottom:1px solid var(--line); }
-  section:last-of-type{ border-bottom:none; }
-  h2.h{
-    font-size:13px; text-transform:uppercase; letter-spacing:0.06em;
-    color:var(--steel); font-weight:700; margin-bottom:20px;
+  .project-media img {
+    width:100%; height:auto; border:1px solid var(--line); border-radius:8px;
+    display:block; background:var(--bg-alt);
   }
+  .project-media figcaption { grid-column:1 / -1; font-size:13px; color:var(--text-dim); margin-top:4px; }
 
-  /* ---------- Looking for ---------- */
-  .looking-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
-  .looking-item{ border:1px solid var(--line); border-radius:6px; padding:16px 18px; }
-  .looking-item .label{ font-size:12.5px; color:var(--text-dim); margin-bottom:4px; }
-  .looking-item .value{ font-size:15px; font-weight:600; color:var(--ink); }
-  @media (max-width:640px){ .looking-grid{ grid-template-columns:1fr; } }
-
-  /* ---------- Education ---------- */
-  .entry{ margin-bottom:26px; }
-  .entry:last-child{ margin-bottom:0; }
-  .entry-head{
-    display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 16px;
-    align-items:baseline; margin-bottom:2px;
+  /* A consistent side heading makes the supporting information easy to scan. */
+  #skills .wrap, #education .wrap, #experience .wrap {
+    display:grid; grid-template-columns:180px minmax(0,1fr); column-gap:36px;
   }
-  .entry-org{ font-size:16px; font-weight:700; color:var(--ink); }
-  .entry-date{ font-size:13.5px; color:var(--text-dim); white-space:nowrap; }
-  .entry-role{ font-size:14.5px; color:var(--text-dim); margin-bottom:8px; display:block; }
-  .coursework{ font-size:13.5px; color:var(--text-dim); margin-top:8px; }
-  .coursework b{ color:var(--text); font-weight:600; }
+  #skills h2, #education h2, #experience h2 { grid-column:1; grid-row:1; }
+  #skills .skill-cols, #education .entry, #experience .entry { grid-column:2; }
+  .skill-cols { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
+  .skill-cols h3 { font-size:16px; margin-bottom:12px; font-weight:700; }
+  .skill-cols p { font-size:16px; margin:0; }
+  .entry { padding-bottom:24px; margin-bottom:24px; border-bottom:1px solid var(--line); min-width:0; }
+  .entry:last-child { padding-bottom:0; margin-bottom:0; border-bottom:none; }
+  .entry-head { display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 16px; align-items:baseline; margin-bottom:6px; }
+  .entry-org { font-size:17px; font-weight:700; color:var(--ink); }
+  .entry-date { font-size:14px; color:var(--text-dim); }
+  .entry-role { font-size:16px; color:var(--text-dim); margin-bottom:10px; display:block; }
+  .coursework { font-size:14px; color:var(--text-dim); margin-top:12px; }
+  .coursework b { color:var(--text); font-weight:600; }
 
-  /* ---------- Skills ---------- */
-  .skill-cols{ display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-  .skill-cols h3{ font-size:13.5px; color:var(--ink); margin-bottom:10px; font-weight:700; }
-  .skill-cols p{ font-size:14.5px; margin:0; }
-  @media (max-width:640px){ .skill-cols{ grid-template-columns:1fr; } }
+  /* Keep every availability detail, grouped with the contact section. */
+  #looking { background:var(--bg-alt); padding:32px 0; }
+  #looking h2 { font-size:20px; margin-bottom:18px; }
+  .looking-grid { display:grid; grid-template-columns:1.5fr 1fr 1fr; gap:24px; }
+  .looking-item { border-inline-start:2px solid var(--line); padding-inline-start:16px; }
+  .looking-item .label { font-size:14px; color:var(--text-dim); margin-bottom:4px; }
+  .looking-item .value { font-size:16px; font-weight:600; color:var(--ink); }
+  #contact { padding:40px 0; }
+  .contact-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
+  footer { padding:24px; border-top:1px solid var(--line); text-align:center; color:var(--text-dim); font-size:13px; }
+  [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { letter-spacing:normal; }
 
-  /* ---------- Project ---------- */
-  .project-box{ border:1px solid var(--line); border-radius:8px; padding:24px 26px; background:var(--bg-alt); }
-  .project-box h3{ font-size:18px; margin-bottom:4px; }
-  .project-sub{ font-size:14px; color:var(--text-dim); margin-bottom:16px; }
-  .project-media{ display:grid; grid-template-columns:1fr 1fr; gap:12px; margin:18px 0 4px; padding:0; }
-  .project-media img{
-    width:100%; height:100%; max-height:420px; object-fit:cover;
-    border:1px solid var(--line); border-radius:6px; display:block; background:#fff;
+  @media (max-width:850px) {
+    .project-box { grid-template-columns:minmax(0,1fr); }
+    .project-media { grid-column:1; grid-row:auto; margin-top:20px; max-width:480px; width:100%; }
+    #skills .wrap, #education .wrap, #experience .wrap { grid-template-columns:140px minmax(0,1fr); gap:0 24px; }
+    .skill-cols { grid-template-columns:1fr; gap:24px; }
   }
-  .project-media figcaption{ grid-column:1 / -1; font-size:12.5px; color:var(--text-dim); margin-top:2px; }
-  @media (max-width:640px){ .project-media{ grid-template-columns:1fr; } }
-  .todo{
-    display:inline-block; font-size:12px; font-weight:700; color:#8A4B00;
-    background:#FFF1DE; border:1px solid #F4D9AE; padding:2px 8px; border-radius:4px;
-    margin-left:6px; vertical-align:middle;
+  @media (max-width:600px) {
+    html { scroll-padding-top:20px; }
+    header.top { position:static; }
+    .wrap { padding:0 20px; }
+    .top-inner { padding:16px 20px; gap:12px; }
+    .name-mark { flex-basis:100%; }
+    .top-actions { width:100%; gap:8px; }
+    .top-actions .btn-outline { display:none; }
+    .top-actions .btn-primary { flex:1; }
+    .hero { padding:36px 0; }
+    .avail { font-size:13px; }
+    .contact-strip { gap:8px 16px; }
+    .hero-ctas .btn { flex:1 1 auto; }
+    section { padding:36px 0; }
+    h2.h { font-size:24px; margin-bottom:20px; }
+    .project-box { padding:20px; }
+    .project-media { gap:8px; }
+    #skills .wrap, #education .wrap, #experience .wrap { display:block; }
+    .looking-grid { grid-template-columns:1fr; gap:16px; }
+    .contact-links .btn { flex:1 1 auto; }
   }
-
-  /* ---------- Contact ---------- */
-  .contact-links{ display:flex; flex-wrap:wrap; gap:12px; margin-top:8px; }
-
-  footer{ padding:28px 24px; text-align:center; color:var(--text-dim); font-size:13px; }
-
-  [dir="rtl"] ul{ padding-left:0; padding-right:20px; }
-  [dir="rtl"] .entry-head, [dir="rtl"] .contact-strip, [dir="rtl"] .hero-ctas, [dir="rtl"] .contact-links{ direction:rtl; }
-
-  @media print{
-    header.top{ position:static; }
-    .avail, #lang-toggle, .hero-ctas, .contact-links{ display:none; }
+  @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  @media print {
+    html { scroll-behavior:auto; }
+    header.top, .skip-link, .avail, .hero-ctas, .contact-links { display:none; }
+    .wrap { max-width:none; padding:0; }
+    section, .hero, #contact, #looking { padding:18px 0; }
+    .hero h1 { font-size:30px; }
+    .project-box { display:block; box-shadow:none; padding:16px; }
+    .project-media { max-width:260px; margin-top:12px; }
+    h2,h3 { break-after:avoid; }
+    .entry, .project-media { break-inside:avoid; }
   }
 </style>
 </head>
 <body>
+<a class="skip-link" href="#top" data-en="Skip to content" data-ar="انتقل إلى المحتوى">Skip to content</a>
 
 <header class="top">
   <div class="top-inner">
-    <a href="#top" class="name-mark">Ahmed Ezeldin</a>
+    <a href="#top" class="name-mark" data-en="Ahmed Ezeldin" data-ar="أحمد عزالدين">Ahmed Ezeldin</a>
     <div class="top-actions">
-      <button id="lang-toggle" aria-label="Switch language">EN / AR</button>
-      <a class="btn btn-outline" href="mailto:ahmedasaad19730@gmail.com" data-en="Email" data-ar="راسلني">Email</a>
+      <button id="lang-toggle" type="button" aria-label="Switch to Arabic" aria-pressed="false">EN / AR</button>
+      <a class="btn btn-outline" dir="ltr" href="mailto:ahmedasaad19730@gmail.com" data-en="Email" data-ar="راسلني">Email</a>
       <a class="btn btn-primary" href="/Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</a>
     </div>
   </div>
 </header>
 
-<main id="top">
+<main id="top" tabindex="-1">
   <section class="hero">
     <div class="wrap">
       <div class="avail" data-en="Available for a Summer 2027 Internship (4 months)" data-ar="متاح لتدريب صيفي 2027 (4 أشهر)">Available for a Summer 2027 Internship (4 months)</div>
@@ -231,8 +244,8 @@
 
       <div class="contact-strip">
         <span data-en="Calgary, AB" data-ar="كالغاري، ألبرتا">Calgary, AB</span>
-        <a href="mailto:ahmedasaad19730@gmail.com">ahmedasaad19730@gmail.com</a>
-        <a href="tel:+18254494924">(825) 449-4924</a>
+        <a dir="ltr" href="mailto:ahmedasaad19730@gmail.com">ahmedasaad19730@gmail.com</a>
+        <a dir="ltr" href="tel:+18254494924">(825) 449-4924</a>
         <a href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://github.com/ahmedezeldin" target="_blank" rel="noopener">GitHub</a>
       </div>
@@ -244,26 +257,56 @@
 
       <div class="hero-ctas">
         <a class="btn btn-primary" href="/Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume (PDF)" data-ar="تحميل السيرة الذاتية (PDF)">Download Resume (PDF)</a>
-        <a class="btn btn-outline" href="mailto:ahmedasaad19730@gmail.com" data-en="Contact Me" data-ar="تواصل معي">Contact Me</a>
+        <a class="btn btn-outline" dir="ltr" href="mailto:ahmedasaad19730@gmail.com" data-en="Contact Me" data-ar="تواصل معي">Contact Me</a>
       </div>
     </div>
   </section>
 
-  <section id="looking">
+  <section id="project">
     <div class="wrap">
-      <h2 class="h" data-en="What I'm Looking For" data-ar="ما الذي أبحث عنه">What I'm Looking For</h2>
-      <div class="looking-grid">
-        <div class="looking-item">
-          <div class="label" data-en="Role" data-ar="الدور">Role</div>
-          <div class="value" data-en="Electrical Engineering Summer Intern / Student" data-ar="متدرب/طالب صيفي هندسة كهربائية">Electrical Engineering Summer Intern / Student</div>
+      <h2 class="h" data-en="Project" data-ar="المشروع">Project</h2>
+      <div class="project-box">
+        <h3 data-en="Medicine Cooler" data-ar="مبرّد الأدوية">Medicine Cooler</h3>
+        <div class="project-sub" data-en="Team engineering design project &middot; University of Lethbridge (ENGG 1600)" data-ar="مشروع تصميم هندسي جماعي · جامعة ليثبريدج (ENGG 1600)">Team engineering design project · University of Lethbridge (ENGG 1600)</div>
+        <p data-en="A four-person first-year design project: a smart cooler to keep temperature-sensitive medication such as insulin within a 2–8°C target range. I wrote the ESP32 firmware and designed the enclosure."
+           data-ar="مشروع تصميم من إعداد أربعة طلاب في السنة الأولى: حافظة ذكية لإبقاء الأدوية الحساسة للحرارة مثل الإنسولين ضمن نطاق مستهدف بين 2 و8 درجات مئوية. كتبتُ البرنامج الثابت للـ ESP32 وصمّمتُ الهيكل.">
+          A four-person first-year design project: a smart cooler to keep temperature-sensitive medication such as insulin within a 2–8°C target range. I wrote the ESP32 firmware and designed the enclosure.
+        </p>
+        <ul>
+          <li><span data-en="Wrote the ESP32 firmware (Arduino/C++): DS18B20 temperature sensing, live readout on a 128×64 OLED, threshold-based relay switching for the cooling stage, and an escalating buzzer alert." data-ar="كتبتُ البرنامج الثابت للـ ESP32 (لغة Arduino/C++): قراءة الحرارة عبر مستشعر DS18B20، وعرضها لحظياً على شاشة OLED بدقة 128×64، وتشغيل مرحّل مرحلة التبريد عند تجاوز عتبة محددة، وتنبيه صوتي متصاعد.">Wrote the ESP32 firmware (Arduino/C++): DS18B20 temperature sensing, live readout on a 128×64 OLED, threshold-based relay switching for the cooling stage, and an escalating buzzer alert.</span></li>
+          <li><span data-en="Designed the full enclosure — seven 3D-printed parts (insulated outer shell, inner liner, electronics bay, and lids) plus the insulation layout." data-ar="صمّمتُ الهيكل بالكامل — سبع قطع مطبوعة ثلاثية الأبعاد (غلاف خارجي معزول، وبطانة داخلية، وحجيرة إلكترونيات، وأغطية) إضافةً إلى تخطيط العزل.">Designed the full enclosure — seven 3D-printed parts (insulated outer shell, inner liner, electronics bay, and lids) plus the insulation layout.</span></li>
+          <li><span data-en="Assembled the Peltier thermoelectric cooling stage and integrated it with the relay control, then bench-tested the full system with an ice-water setup." data-ar="جمّعتُ مرحلة التبريد الكهروحرارية بوحدة بلتييه ودمجتُها مع التحكم بالمرحّل، ثم اختبرتُ النظام كاملاً على الطاولة باستخدام ماء مثلج.">Assembled the Peltier thermoelectric cooling stage and integrated it with the relay control, then bench-tested the full system with an ice-water setup.</span></li>
+        </ul>
+        <figure class="project-media">
+          <img src="/media/medicine-cooler-unit.jpg" width="675" height="1200" loading="lazy"
+               alt="The 3D-printed control unit powered on, its OLED reading “Medicine Cooler — 21.9 C — STATUS: COOLING ON”, with the ESP32 and wiring in the open printed enclosure." data-alt-en="The 3D-printed control unit powered on, its OLED reading “Medicine Cooler — 21.9 C — STATUS: COOLING ON”, with the ESP32 and wiring in the open printed enclosure." data-alt-ar="وحدة التحكم المطبوعة ثلاثية الأبعاد أثناء التشغيل، وتعرض شاشة OLED «Medicine Cooler — 21.9 C — STATUS: COOLING ON»، مع ESP32 والأسلاك داخل الهيكل المطبوع المفتوح." />
+          <img src="/media/medicine-cooler-build.jpg" width="675" height="1200" loading="lazy"
+               alt="The assembled insulated enclosure with a Peltier heat-sink and fan mounted on the back panel, wired through a relay module in a separate electronics box." data-alt-en="The assembled insulated enclosure with a Peltier heat-sink and fan mounted on the back panel, wired through a relay module in a separate electronics box." data-alt-ar="الهيكل المعزول بعد تجميعه، مع مشتت حرارة ومروحة بلتييه مثبتين على اللوحة الخلفية، وموصلين عبر وحدة مرحّل داخل صندوق إلكترونيات منفصل." />
+          <figcaption data-en="The control unit running, and the assembled cooler with its Peltier cooling stage and relay-switched electronics."
+                      data-ar="وحدة التحكم أثناء التشغيل، والمبرّد المُجمَّع مع مرحلة تبريد بلتييه وإلكترونيات مُبدَّلة بالمرحّل.">The control unit running, and the assembled cooler with its Peltier cooling stage and relay-switched electronics.</figcaption>
+        </figure>
+        <p><a href="https://github.com/ahmedezeldin/medicine-cooler" target="_blank" rel="noopener" data-en="View the firmware on GitHub →" data-ar="عرض البرنامج الثابت على GitHub ←">View the firmware on GitHub →</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2 class="h" data-en="Skills" data-ar="المهارات">Skills</h2>
+      <div class="skill-cols">
+        <div>
+          <h3 data-en="Technical" data-ar="تقنية">Technical</h3>
+          <p data-en="Engineering design process &middot; Embedded systems (ESP32, Arduino/C++) &middot; CAD for 3D printing &middot; Breadboard prototyping &amp; bench testing &middot; Systems thinking &middot; Technical reporting"
+             data-ar="عملية التصميم الهندسي · الأنظمة المدمجة (ESP32، لغة Arduino/C++) · التصميم للطباعة ثلاثية الأبعاد · التجريب على لوحة التجارب والاختبار المخبري · التفكير المنظومي · إعداد التقارير التقنية">
+            Engineering design process · Embedded systems (ESP32, Arduino/C++) · CAD for 3D printing · Breadboard prototyping &amp; bench testing · Systems thinking · Technical reporting
+          </p>
         </div>
-        <div class="looking-item">
-          <div class="label" data-en="Location" data-ar="الموقع">Location</div>
-          <div class="value" data-en="Calgary, AB" data-ar="كالغاري، ألبرتا">Calgary, AB</div>
-        </div>
-        <div class="looking-item">
-          <div class="label" data-en="Availability" data-ar="التوفر">Availability</div>
-          <div class="value" data-en="Summer 2027 &middot; 4 months" data-ar="صيف 2027 · 4 أشهر">Summer 2027 · 4 months</div>
+        <div>
+          <h3 data-en="Professional" data-ar="مهنية">Professional</h3>
+          <p data-en="Teamwork &amp; collaboration &middot; Communication &amp; presentation &middot; Adaptability &middot; Leadership &middot; Attention to detail &middot; Reliability under pressure"
+             data-ar="العمل الجماعي والتعاون · التواصل والعرض · التكيّف · القيادة · الانتباه للتفاصيل · الموثوقية تحت الضغط">
+            Teamwork &amp; collaboration · Communication &amp; presentation · Adaptability · Leadership · Attention to detail · Reliability under pressure
+          </p>
         </div>
       </div>
     </div>
@@ -306,56 +349,6 @@
     </div>
   </section>
 
-  <section id="skills">
-    <div class="wrap">
-      <h2 class="h" data-en="Skills" data-ar="المهارات">Skills</h2>
-      <div class="skill-cols">
-        <div>
-          <h3 data-en="Technical" data-ar="تقنية">Technical</h3>
-          <p data-en="Engineering design process &middot; Embedded systems (ESP32, Arduino/C++) &middot; CAD for 3D printing &middot; Breadboard prototyping &amp; bench testing &middot; Systems thinking &middot; Technical reporting"
-             data-ar="عملية التصميم الهندسي · الأنظمة المدمجة (ESP32، لغة Arduino/C++) · التصميم للطباعة ثلاثية الأبعاد · التجريب على لوحة التجارب والاختبار المخبري · التفكير المنظومي · إعداد التقارير التقنية">
-            Engineering design process · Embedded systems (ESP32, Arduino/C++) · CAD for 3D printing · Breadboard prototyping &amp; bench testing · Systems thinking · Technical reporting
-          </p>
-        </div>
-        <div>
-          <h3 data-en="Professional" data-ar="مهنية">Professional</h3>
-          <p data-en="Teamwork &amp; collaboration &middot; Communication &amp; presentation &middot; Adaptability &middot; Leadership &middot; Attention to detail &middot; Reliability under pressure"
-             data-ar="العمل الجماعي والتعاون · التواصل والعرض · التكيّف · القيادة · الانتباه للتفاصيل · الموثوقية تحت الضغط">
-            Teamwork &amp; collaboration · Communication &amp; presentation · Adaptability · Leadership · Attention to detail · Reliability under pressure
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="project">
-    <div class="wrap">
-      <h2 class="h" data-en="Project" data-ar="المشروع">Project</h2>
-      <div class="project-box">
-        <h3 data-en="Medicine Cooler" data-ar="مبرّد الأدوية">Medicine Cooler</h3>
-        <div class="project-sub" data-en="Team engineering design project &middot; University of Lethbridge (ENGG 1600)" data-ar="مشروع تصميم هندسي جماعي · جامعة ليثبريدج (ENGG 1600)">Team engineering design project · University of Lethbridge (ENGG 1600)</div>
-        <p data-en="A four-person first-year design project: a smart cooler to keep temperature-sensitive medication such as insulin within a 2–8°C target range. I wrote the ESP32 firmware and designed the enclosure."
-           data-ar="مشروع تصميم من إعداد أربعة طلاب في السنة الأولى: حافظة ذكية لإبقاء الأدوية الحساسة للحرارة مثل الإنسولين ضمن نطاق مستهدف بين 2 و8 درجات مئوية. كتبتُ البرنامج الثابت للـ ESP32 وصمّمتُ الهيكل.">
-          A four-person first-year design project: a smart cooler to keep temperature-sensitive medication such as insulin within a 2–8°C target range. I wrote the ESP32 firmware and designed the enclosure.
-        </p>
-        <ul>
-          <li><span data-en="Wrote the ESP32 firmware (Arduino/C++): DS18B20 temperature sensing, live readout on a 128×64 OLED, threshold-based relay switching for the cooling stage, and an escalating buzzer alert." data-ar="كتبتُ البرنامج الثابت للـ ESP32 (لغة Arduino/C++): قراءة الحرارة عبر مستشعر DS18B20، وعرضها لحظياً على شاشة OLED بدقة 128×64، وتشغيل مرحّل مرحلة التبريد عند تجاوز عتبة محددة، وتنبيه صوتي متصاعد.">Wrote the ESP32 firmware (Arduino/C++): DS18B20 temperature sensing, live readout on a 128×64 OLED, threshold-based relay switching for the cooling stage, and an escalating buzzer alert.</span></li>
-          <li><span data-en="Designed the full enclosure — seven 3D-printed parts (insulated outer shell, inner liner, electronics bay, and lids) plus the insulation layout." data-ar="صمّمتُ الهيكل بالكامل — سبع قطع مطبوعة ثلاثية الأبعاد (غلاف خارجي معزول، وبطانة داخلية، وحجيرة إلكترونيات، وأغطية) إضافةً إلى تخطيط العزل.">Designed the full enclosure — seven 3D-printed parts (insulated outer shell, inner liner, electronics bay, and lids) plus the insulation layout.</span></li>
-          <li><span data-en="Assembled the Peltier thermoelectric cooling stage and integrated it with the relay control, then bench-tested the full system with an ice-water setup." data-ar="جمّعتُ مرحلة التبريد الكهروحرارية بوحدة بلتييه ودمجتُها مع التحكم بالمرحّل، ثم اختبرتُ النظام كاملاً على الطاولة باستخدام ماء مثلج.">Assembled the Peltier thermoelectric cooling stage and integrated it with the relay control, then bench-tested the full system with an ice-water setup.</span></li>
-        </ul>
-        <figure class="project-media">
-          <img src="/media/medicine-cooler-unit.jpg" width="675" height="1200" loading="lazy" style="object-position:center 42%;"
-               alt="The 3D-printed control unit powered on, its OLED reading “Medicine Cooler — 21.9 C — STATUS: COOLING ON”, with the ESP32 and wiring in the open printed enclosure." />
-          <img src="/media/medicine-cooler-build.jpg" width="675" height="1200" loading="lazy" style="object-position:center 46%;"
-               alt="The assembled insulated enclosure with a Peltier heat-sink and fan mounted on the back panel, wired through a relay module in a separate electronics box." />
-          <figcaption data-en="The control unit running, and the assembled cooler with its Peltier cooling stage and relay-switched electronics."
-                      data-ar="وحدة التحكم أثناء التشغيل، والمبرّد المُجمَّع مع مرحلة تبريد بلتييه وإلكترونيات مُبدَّلة بالمرحّل.">The control unit running, and the assembled cooler with its Peltier cooling stage and relay-switched electronics.</figcaption>
-        </figure>
-        <p><a href="https://github.com/ahmedezeldin/medicine-cooler" target="_blank" rel="noopener" data-en="View the firmware on GitHub →" data-ar="عرض البرنامج الثابت على GitHub ←">View the firmware on GitHub →</a></p>
-      </div>
-    </div>
-  </section>
-
   <section id="experience">
     <div class="wrap">
       <h2 class="h" data-en="Experience" data-ar="الخبرة">Experience</h2>
@@ -386,6 +379,26 @@
     </div>
   </section>
 
+  <section id="looking">
+    <div class="wrap">
+      <h2 class="h" data-en="What I'm Looking For" data-ar="ما الذي أبحث عنه">What I'm Looking For</h2>
+      <div class="looking-grid">
+        <div class="looking-item">
+          <div class="label" data-en="Role" data-ar="الدور">Role</div>
+          <div class="value" data-en="Electrical Engineering Summer Intern / Student" data-ar="متدرب/طالب صيفي هندسة كهربائية">Electrical Engineering Summer Intern / Student</div>
+        </div>
+        <div class="looking-item">
+          <div class="label" data-en="Location" data-ar="الموقع">Location</div>
+          <div class="value" data-en="Calgary, AB" data-ar="كالغاري، ألبرتا">Calgary, AB</div>
+        </div>
+        <div class="looking-item">
+          <div class="label" data-en="Availability" data-ar="التوفر">Availability</div>
+          <div class="value" data-en="Summer 2027 &middot; 4 months" data-ar="صيف 2027 · 4 أشهر">Summer 2027 · 4 months</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="contact">
     <div class="wrap">
       <h2 class="h" data-en="Contact" data-ar="تواصل">Contact</h2>
@@ -394,8 +407,8 @@
         Open to a Summer 2027 internship or student position (4 months) in Calgary. The fastest way to reach me is by email.
       </p>
       <div class="contact-links">
-        <a class="btn btn-primary" href="mailto:ahmedasaad19730@gmail.com" data-en="Email Me" data-ar="راسلني">Email Me</a>
-        <a class="btn btn-outline" href="tel:+18254494924" data-en="Call" data-ar="اتصل">Call</a>
+        <a class="btn btn-primary" dir="ltr" href="mailto:ahmedasaad19730@gmail.com" data-en="Email Me" data-ar="راسلني">Email Me</a>
+        <a class="btn btn-outline" dir="ltr" href="tel:+18254494924" data-en="Call" data-ar="اتصل">Call</a>
         <a class="btn btn-outline" href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-outline" href="https://github.com/ahmedezeldin" target="_blank" rel="noopener">GitHub</a>
         <a class="btn btn-outline" href="/Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</a>
@@ -409,16 +422,25 @@
 <script>
   const langToggle = document.getElementById('lang-toggle');
   let currentLang = 'en';
-  function applyLang(lang){
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  function applyLang(lang) {
+    currentLang = lang === 'ar' ? 'ar' : 'en';
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
     document.querySelectorAll('[data-en][data-ar]').forEach(el => {
-      el.innerHTML = el.dataset[lang];
+      el.textContent = el.dataset[currentLang];
     });
+    document.querySelectorAll('[data-alt-en][data-alt-ar]').forEach(el => {
+      el.alt = currentLang === 'ar' ? el.dataset.altAr : el.dataset.altEn;
+    });
+    langToggle.setAttribute('aria-label', currentLang === 'ar' ? 'Switch to English' : 'Switch to Arabic');
+    langToggle.setAttribute('aria-pressed', String(currentLang === 'ar'));
+    langToggle.lang = 'en';
   }
+  // Storage can be unavailable in private or restricted browser contexts.
+  try { applyLang(localStorage.getItem('portfolio-language')); } catch { applyLang('en'); }
   langToggle.addEventListener('click', () => {
-    currentLang = currentLang === 'en' ? 'ar' : 'en';
-    applyLang(currentLang);
+    applyLang(currentLang === 'en' ? 'ar' : 'en');
+    try { localStorage.setItem('portfolio-language', currentLang); } catch { /* Preference is optional. */ }
   });
 </script>
 
