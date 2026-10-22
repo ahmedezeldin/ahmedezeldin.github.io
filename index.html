@@ -6,7 +6,9 @@
 <title>Ahmed Ezeldin — Electrical Engineering Student, University of Alberta</title>
 <meta name="description" content="Ahmed Ezeldin — Electrical Engineering student at the University of Alberta. Available for a Summer 2027 internship/student position in Calgary, AB." />
 <meta name="author" content="Ahmed Ezeldin" />
-<meta name="theme-color" content="#132A46" />
+<meta name="theme-color" content="#132A46" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#0E141B" media="(prefers-color-scheme: dark)" />
+<meta name="color-scheme" content="light dark" />
 <link rel="canonical" href="https://ahmedezeldin.com/" />
 
 <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -27,14 +29,16 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Ahmed Ezeldin",
   "jobTitle": "Electrical Engineering Student",
-  "affiliation": "University of Alberta",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "University of Alberta" },
+  "image": "https://ahmedezeldin.com/og-image.png",
+  "knowsAbout": ["Electrical engineering", "Embedded systems", "ESP32", "Arduino", "C++", "CAD", "3D printing", "PCB design", "Circuit simulation", "Power systems"],
   "alumniOf": [
     { "@type": "CollegeOrUniversity", "name": "University of Alberta" },
     { "@type": "CollegeOrUniversity", "name": "University of Lethbridge" }
@@ -56,6 +60,20 @@
     --ink:#181C22; --text:#2A2F36; --text-dim:#5B6472;
     --line:#E1E4E9; --bg:#FFFFFF; --bg-alt:#F6F8FA;
     --available:#1C7C4E; --available-bg:#E9F7EF; --maxw:1080px;
+    --brand:#132A46; --btn-bg:#132A46; --btn-bg-hover:#1D3A5F;
+    --surface:#FFFFFF; --header-bg:rgba(255,255,255,0.92);
+    --chip-bg:#EEF3F8; --chip-text:#1D3A5F; --shadow:0 8px 28px rgba(19,42,70,0.05);
+  }
+  /* Dark theme follows the visitor's system setting. */
+  @media (prefers-color-scheme:dark) {
+    :root {
+      --steel:#82B4EA; --ink:#EEF2F7; --text:#D3D9E1; --text-dim:#9AA6B5;
+      --line:#283342; --bg:#0E141B; --bg-alt:#121A23;
+      --available:#6BD6A0; --available-bg:#13301F;
+      --brand:#B7D2F2; --btn-bg:#2F5F94; --btn-bg-hover:#3A70AA;
+      --surface:#16202B; --header-bg:rgba(14,20,27,0.88);
+      --chip-bg:#1C2A3A; --chip-text:#C7DBF3; --shadow:none;
+    }
   }
   * { box-sizing:border-box; }
   html { scroll-behavior:smooth; scroll-padding-top:100px; }
@@ -64,7 +82,7 @@
     color:var(--text); background:var(--bg); line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  [dir="rtl"] body { font-family:'Inter', 'Segoe UI', Tahoma, sans-serif; }
+  [dir="rtl"] body { font-family:'IBM Plex Sans Arabic', 'Inter', 'Segoe UI', Tahoma, sans-serif; }
   h1,h2,h3 { color:var(--ink); margin:0; letter-spacing:-0.025em; line-height:1.25; }
   a { color:inherit; text-underline-offset:4px; }
   p { margin:0 0 16px; color:var(--text-dim); max-width:68ch; }
@@ -74,34 +92,42 @@
   .wrap { max-width:var(--maxw); margin:0 auto; padding:0 32px; }
   .skip-link {
     position:fixed; top:8px; inset-inline-start:8px; z-index:100;
-    padding:10px 16px; background:var(--navy); color:#fff;
+    padding:10px 16px; background:var(--btn-bg); color:#fff;
     transform:translateY(-150%); border-radius:6px;
   }
   .skip-link:focus { transform:translateY(0); }
 
   /* Navigation stays usable without squeezing the name or actions on phones. */
   header.top {
-    position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.97);
-    border-bottom:1px solid var(--line); backdrop-filter:blur(8px);
+    position:sticky; top:0; z-index:50; background:var(--header-bg);
+    border-bottom:1px solid var(--line); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
   }
   .top-inner {
     max-width:var(--maxw); margin:0 auto; padding:16px 32px;
     display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap;
   }
-  .name-mark { font-weight:700; font-size:17px; text-decoration:none; color:var(--navy); }
+  .name-mark { font-weight:700; font-size:17px; text-decoration:none; color:var(--brand); }
+  .sec-nav { display:flex; gap:4px; margin-inline-end:auto; }
+  .sec-nav a {
+    font-size:14px; font-weight:500; color:var(--text-dim); text-decoration:none;
+    padding:8px 10px; border-radius:6px; transition:color .15s, background-color .15s;
+  }
+  .sec-nav a:hover { color:var(--ink); background:var(--bg-alt); }
+  .sec-nav a[aria-current="true"] { color:var(--steel); background:var(--chip-bg); }
   .top-actions { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
   .btn {
     font-size:14px; font-weight:600; padding:11px 18px; border-radius:7px;
     text-decoration:none; display:inline-flex; justify-content:center; align-items:center;
     gap:6px; border:1px solid transparent; min-height:44px; text-align:center;
+    transition:background-color .15s, border-color .15s, color .15s;
   }
-  .btn-primary { background:var(--navy); color:#fff; }
-  .btn-primary:hover { background:var(--navy-2); }
-  .btn-outline { border-color:var(--line); color:var(--ink); background:#fff; }
+  .btn-primary { background:var(--btn-bg); color:#fff; }
+  .btn-primary:hover { background:var(--btn-bg-hover); }
+  .btn-outline { border-color:var(--line); color:var(--ink); background:var(--surface); }
   .btn-outline:hover { border-color:var(--steel); color:var(--steel); }
   #lang-toggle {
     font-family:inherit; font-size:14px; font-weight:600;
-    background:#fff; border:1px solid var(--line); color:var(--text-dim);
+    background:var(--surface); border:1px solid var(--line); color:var(--text-dim);
     padding:10px 12px; min-height:44px; border-radius:7px; cursor:pointer; direction:ltr;
   }
   #lang-toggle:hover { border-color:var(--steel); color:var(--steel); }
@@ -125,14 +151,23 @@
 
   section { padding:48px 0; border-bottom:1px solid var(--line); }
   section:last-of-type { border-bottom:none; }
-  h2.h { font-size:26px; font-weight:700; color:var(--navy); margin-bottom:24px; }
+  h2.h { font-size:26px; font-weight:700; color:var(--brand); margin-bottom:24px; }
+
+  /* Skills and technologies as scannable tags. */
+  .chips { list-style:none; display:flex; flex-wrap:wrap; gap:8px; margin:0; padding:0; }
+  .chips li {
+    margin:0; font-size:14px; font-weight:500; line-height:1.4; color:var(--chip-text);
+    background:var(--chip-bg); padding:6px 12px; border-radius:999px;
+  }
+  .chips-sm { margin:0 0 18px; }
+  .chips-sm li { font-size:13px; padding:4px 10px; }
 
   /* Lead with the engineering work; keep the actual prototype photos uncropped. */
   #project { background:var(--bg-alt); }
   .project-box {
     display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); column-gap:36px;
-    padding:28px; border:1px solid var(--line); border-radius:12px; background:#fff;
-    box-shadow:0 8px 28px rgba(19,42,70,0.04);
+    padding:28px; border:1px solid var(--line); border-radius:12px; background:var(--surface);
+    box-shadow:var(--shadow);
   }
   .project-box > * { grid-column:1; min-width:0; }
   .project-box h3 { font-size:24px; margin-bottom:8px; }
@@ -140,12 +175,25 @@
   .project-box p, .project-box li { font-size:16px; }
   .project-box > p:last-child { margin:16px 0 0; font-weight:600; color:var(--steel); }
   .project-media {
-    grid-column:2; grid-row:1 / span 5; align-self:start; display:grid;
+    grid-column:2; grid-row:1 / span 6; align-self:start; display:grid;
     grid-template-columns:1fr 1fr; gap:12px; margin:0; padding:0;
   }
+  .project-media a { display:block; border-radius:8px; cursor:zoom-in; }
   .project-media img {
     width:100%; height:auto; border:1px solid var(--line); border-radius:8px;
-    display:block; background:var(--bg-alt);
+    display:block; background:var(--bg-alt); transition:transform .2s, box-shadow .2s;
+  }
+  .project-media a:hover img { transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,0.12); }
+  /* Full-size photo viewer; the links still open the images if scripts are off. */
+  #lightbox {
+    border:none; padding:0; background:transparent; max-width:min(92vw,720px); max-height:92vh;
+  }
+  #lightbox::backdrop { background:rgba(8,12,18,0.85); }
+  #lightbox img { display:block; max-width:100%; max-height:86vh; width:auto; height:auto; border-radius:8px; margin:0 auto; }
+  #lightbox button {
+    display:block; margin:10px auto 0; font:inherit; font-size:14px; font-weight:600; color:#fff;
+    background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.3);
+    border-radius:7px; padding:8px 16px; min-height:40px; cursor:pointer;
   }
   .project-media figcaption { grid-column:1 / -1; font-size:13px; color:var(--text-dim); margin-top:4px; }
 
@@ -157,7 +205,6 @@
   #skills .skill-cols, #education .entry, #experience .entry { grid-column:2; }
   .skill-cols { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
   .skill-cols h3 { font-size:16px; margin-bottom:12px; font-weight:700; }
-  .skill-cols p { font-size:16px; margin:0; }
   .entry { padding-bottom:24px; margin-bottom:24px; border-bottom:1px solid var(--line); min-width:0; }
   .entry:last-child { padding-bottom:0; margin-bottom:0; border-bottom:none; }
   .entry-head { display:flex; flex-wrap:wrap; justify-content:space-between; gap:6px 16px; align-items:baseline; margin-bottom:6px; }
@@ -177,8 +224,13 @@
   #contact { padding:40px 0; }
   .contact-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
   footer { padding:24px; border-top:1px solid var(--line); text-align:center; color:var(--text-dim); font-size:13px; }
+  footer a { color:var(--text-dim); }
+  footer a:hover { color:var(--steel); }
   [dir="rtl"] h1, [dir="rtl"] h2, [dir="rtl"] h3 { letter-spacing:normal; }
 
+  @media (max-width:960px) {
+    .sec-nav { display:none; }
+  }
   @media (max-width:850px) {
     .project-box { grid-template-columns:minmax(0,1fr); }
     .project-media { grid-column:1; grid-row:auto; margin-top:20px; max-width:480px; width:100%; }
@@ -206,10 +258,14 @@
     .looking-grid { grid-template-columns:1fr; gap:16px; }
     .contact-links .btn { flex:1 1 auto; }
   }
-  @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  @media (prefers-reduced-motion:reduce) {
+    html { scroll-behavior:auto; }
+    *, *::before, *::after { transition:none !important; }
+  }
   @media print {
     html { scroll-behavior:auto; }
-    header.top, .skip-link, .avail, .hero-ctas, .contact-links { display:none; }
+    header.top, .skip-link, .avail, .hero-ctas, .contact-links, #lightbox, .to-top { display:none; }
+    .chips li { background:none; border:1px solid #ccc; color:#000; }
     .wrap { max-width:none; padding:0; }
     section, .hero, #contact, #looking { padding:18px 0; }
     .hero h1 { font-size:30px; }
@@ -226,6 +282,13 @@
 <header class="top">
   <div class="top-inner">
     <a href="#top" class="name-mark" data-en="Ahmed Ezeldin" data-ar="أحمد عزالدين">Ahmed Ezeldin</a>
+    <nav class="sec-nav" aria-label="Sections" data-label-en="Sections" data-label-ar="الأقسام">
+      <a href="#project" data-en="Project" data-ar="المشروع">Project</a>
+      <a href="#skills" data-en="Skills" data-ar="المهارات">Skills</a>
+      <a href="#education" data-en="Education" data-ar="التعليم">Education</a>
+      <a href="#experience" data-en="Experience" data-ar="الخبرة">Experience</a>
+      <a href="#contact" data-en="Contact" data-ar="تواصل">Contact</a>
+    </nav>
     <div class="top-actions">
       <button id="lang-toggle" type="button" aria-label="Switch to Arabic" aria-pressed="false">EN / AR</button>
       <a class="btn btn-outline" dir="ltr" href="mailto:ahmedasaad19730@gmail.com" data-en="Email" data-ar="راسلني">Email</a>
@@ -268,6 +331,15 @@
       <div class="project-box">
         <h3 data-en="Medicine Cooler" data-ar="مبرّد الأدوية">Medicine Cooler</h3>
         <div class="project-sub" data-en="Team engineering design project &middot; University of Lethbridge (ENGG 1600)" data-ar="مشروع تصميم هندسي جماعي · جامعة ليثبريدج (ENGG 1600)">Team engineering design project · University of Lethbridge (ENGG 1600)</div>
+        <ul class="chips chips-sm" aria-label="Technologies used">
+          <li>ESP32</li>
+          <li>Arduino/C++</li>
+          <li>DS18B20</li>
+          <li>128×64 OLED</li>
+          <li data-en="Relay control" data-ar="التحكم بالمرحّل">Relay control</li>
+          <li data-en="Peltier cooling" data-ar="تبريد بلتييه">Peltier cooling</li>
+          <li data-en="3D-printed enclosure" data-ar="هيكل مطبوع ثلاثي الأبعاد">3D-printed enclosure</li>
+        </ul>
         <p data-en="A four-person first-year design project: a smart cooler to keep temperature-sensitive medication such as insulin within a 2–8°C target range. I wrote the ESP32 firmware and designed the enclosure."
            data-ar="مشروع تصميم من إعداد أربعة طلاب في السنة الأولى: حافظة ذكية لإبقاء الأدوية الحساسة للحرارة مثل الإنسولين ضمن نطاق مستهدف بين 2 و8 درجات مئوية. كتبتُ البرنامج الثابت للـ ESP32 وصمّمتُ الهيكل.">
           A four-person first-year design project: a smart cooler to keep temperature-sensitive medication such as insulin within a 2–8°C target range. I wrote the ESP32 firmware and designed the enclosure.
@@ -278,10 +350,10 @@
           <li><span data-en="Assembled the Peltier thermoelectric cooling stage and integrated it with the relay control, then bench-tested the full system with an ice-water setup." data-ar="جمّعتُ مرحلة التبريد الكهروحرارية بوحدة بلتييه ودمجتُها مع التحكم بالمرحّل، ثم اختبرتُ النظام كاملاً على الطاولة باستخدام ماء مثلج.">Assembled the Peltier thermoelectric cooling stage and integrated it with the relay control, then bench-tested the full system with an ice-water setup.</span></li>
         </ul>
         <figure class="project-media">
-          <img src="/media/medicine-cooler-unit.jpg" width="675" height="1200" loading="lazy"
-               alt="The 3D-printed control unit powered on, its OLED reading “Medicine Cooler — 21.9 C — STATUS: COOLING ON”, with the ESP32 and wiring in the open printed enclosure." data-alt-en="The 3D-printed control unit powered on, its OLED reading “Medicine Cooler — 21.9 C — STATUS: COOLING ON”, with the ESP32 and wiring in the open printed enclosure." data-alt-ar="وحدة التحكم المطبوعة ثلاثية الأبعاد أثناء التشغيل، وتعرض شاشة OLED «Medicine Cooler — 21.9 C — STATUS: COOLING ON»، مع ESP32 والأسلاك داخل الهيكل المطبوع المفتوح." />
-          <img src="/media/medicine-cooler-build.jpg" width="675" height="1200" loading="lazy"
-               alt="The assembled insulated enclosure with a Peltier heat-sink and fan mounted on the back panel, wired through a relay module in a separate electronics box." data-alt-en="The assembled insulated enclosure with a Peltier heat-sink and fan mounted on the back panel, wired through a relay module in a separate electronics box." data-alt-ar="الهيكل المعزول بعد تجميعه، مع مشتت حرارة ومروحة بلتييه مثبتين على اللوحة الخلفية، وموصلين عبر وحدة مرحّل داخل صندوق إلكترونيات منفصل." />
+          <a href="/media/medicine-cooler-unit.jpg"><img src="/media/medicine-cooler-unit.jpg" width="675" height="1200" loading="lazy" decoding="async"
+               alt="The 3D-printed control unit powered on, its OLED reading “Medicine Cooler — 21.9 C — STATUS: COOLING ON”, with the ESP32 and wiring in the open printed enclosure." data-alt-en="The 3D-printed control unit powered on, its OLED reading “Medicine Cooler — 21.9 C — STATUS: COOLING ON”, with the ESP32 and wiring in the open printed enclosure." data-alt-ar="وحدة التحكم المطبوعة ثلاثية الأبعاد أثناء التشغيل، وتعرض شاشة OLED «Medicine Cooler — 21.9 C — STATUS: COOLING ON»، مع ESP32 والأسلاك داخل الهيكل المطبوع المفتوح." /></a>
+          <a href="/media/medicine-cooler-build.jpg"><img src="/media/medicine-cooler-build.jpg" width="675" height="1200" loading="lazy" decoding="async"
+               alt="The assembled insulated enclosure with a Peltier heat-sink and fan mounted on the back panel, wired through a relay module in a separate electronics box." data-alt-en="The assembled insulated enclosure with a Peltier heat-sink and fan mounted on the back panel, wired through a relay module in a separate electronics box." data-alt-ar="الهيكل المعزول بعد تجميعه، مع مشتت حرارة ومروحة بلتييه مثبتين على اللوحة الخلفية، وموصلين عبر وحدة مرحّل داخل صندوق إلكترونيات منفصل." /></a>
           <figcaption data-en="The control unit running, and the assembled cooler with its Peltier cooling stage and relay-switched electronics."
                       data-ar="وحدة التحكم أثناء التشغيل، والمبرّد المُجمَّع مع مرحلة تبريد بلتييه وإلكترونيات مُبدَّلة بالمرحّل.">The control unit running, and the assembled cooler with its Peltier cooling stage and relay-switched electronics.</figcaption>
         </figure>
@@ -296,17 +368,25 @@
       <div class="skill-cols">
         <div>
           <h3 data-en="Technical" data-ar="تقنية">Technical</h3>
-          <p data-en="Engineering design process &middot; Embedded systems (ESP32, Arduino/C++) &middot; CAD for 3D printing &middot; Breadboard prototyping &amp; bench testing &middot; Systems thinking &middot; Technical reporting"
-             data-ar="عملية التصميم الهندسي · الأنظمة المدمجة (ESP32، لغة Arduino/C++) · التصميم للطباعة ثلاثية الأبعاد · التجريب على لوحة التجارب والاختبار المخبري · التفكير المنظومي · إعداد التقارير التقنية">
-            Engineering design process · Embedded systems (ESP32, Arduino/C++) · CAD for 3D printing · Breadboard prototyping &amp; bench testing · Systems thinking · Technical reporting
-          </p>
+          <ul class="chips">
+            <li data-en="Engineering design process" data-ar="عملية التصميم الهندسي">Engineering design process</li>
+            <li data-en="Embedded systems (ESP32, Arduino/C++)" data-ar="الأنظمة المدمجة (ESP32، لغة Arduino/C++)">Embedded systems (ESP32, Arduino/C++)</li>
+            <li data-en="CAD for 3D printing" data-ar="التصميم للطباعة ثلاثية الأبعاد">CAD for 3D printing</li>
+            <li data-en="Breadboard prototyping &amp; bench testing" data-ar="التجريب على لوحة التجارب والاختبار المخبري">Breadboard prototyping &amp; bench testing</li>
+            <li data-en="Systems thinking" data-ar="التفكير المنظومي">Systems thinking</li>
+            <li data-en="Technical reporting" data-ar="إعداد التقارير التقنية">Technical reporting</li>
+          </ul>
         </div>
         <div>
           <h3 data-en="Professional" data-ar="مهنية">Professional</h3>
-          <p data-en="Teamwork &amp; collaboration &middot; Communication &amp; presentation &middot; Adaptability &middot; Leadership &middot; Attention to detail &middot; Reliability under pressure"
-             data-ar="العمل الجماعي والتعاون · التواصل والعرض · التكيّف · القيادة · الانتباه للتفاصيل · الموثوقية تحت الضغط">
-            Teamwork &amp; collaboration · Communication &amp; presentation · Adaptability · Leadership · Attention to detail · Reliability under pressure
-          </p>
+          <ul class="chips">
+            <li data-en="Teamwork &amp; collaboration" data-ar="العمل الجماعي والتعاون">Teamwork &amp; collaboration</li>
+            <li data-en="Communication &amp; presentation" data-ar="التواصل والعرض">Communication &amp; presentation</li>
+            <li data-en="Adaptability" data-ar="التكيّف">Adaptability</li>
+            <li data-en="Leadership" data-ar="القيادة">Leadership</li>
+            <li data-en="Attention to detail" data-ar="الانتباه للتفاصيل">Attention to detail</li>
+            <li data-en="Reliability under pressure" data-ar="الموثوقية تحت الضغط">Reliability under pressure</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -444,11 +524,20 @@
   </section>
 </main>
 
-<footer>&copy; 2026 Ahmed Ezeldin</footer>
+<footer>&copy; 2026 Ahmed Ezeldin &middot; <a class="to-top" href="#top" data-en="Back to top ↑" data-ar="العودة إلى الأعلى ↑">Back to top ↑</a></footer>
+
+<dialog id="lightbox" aria-label="Project photo">
+  <img src="" alt="" />
+  <button type="button" data-en="Close" data-ar="إغلاق">Close</button>
+</dialog>
 
 <script>
   const langToggle = document.getElementById('lang-toggle');
   let currentLang = 'en';
+  const titles = {
+    en: document.title,
+    ar: 'أحمد عزالدين — طالب هندسة كهربائية، جامعة ألبرتا'
+  };
   function applyLang(lang) {
     currentLang = lang === 'ar' ? 'ar' : 'en';
     document.documentElement.lang = currentLang;
@@ -458,6 +547,10 @@
     });
     document.querySelectorAll('[data-alt-en][data-alt-ar]').forEach(el => {
       el.alt = currentLang === 'ar' ? el.dataset.altAr : el.dataset.altEn;
+    });
+    document.title = titles[currentLang];
+    document.querySelectorAll('[data-label-en][data-label-ar]').forEach(el => {
+      el.setAttribute('aria-label', currentLang === 'ar' ? el.dataset.labelAr : el.dataset.labelEn);
     });
     langToggle.setAttribute('aria-label', currentLang === 'ar' ? 'Switch to English' : 'Switch to Arabic');
     langToggle.setAttribute('aria-pressed', String(currentLang === 'ar'));
@@ -469,6 +562,41 @@
     applyLang(currentLang === 'en' ? 'ar' : 'en');
     try { localStorage.setItem('portfolio-language', currentLang); } catch { /* Preference is optional. */ }
   });
+
+  // Highlight the section currently in view in the header navigation.
+  const navLinks = [...document.querySelectorAll('.sec-nav a')];
+  if ('IntersectionObserver' in window && navLinks.length) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach(link => {
+          if (link.hash === '#' + entry.target.id) link.setAttribute('aria-current', 'true');
+          else link.removeAttribute('aria-current');
+        });
+      });
+    }, { rootMargin: '-25% 0px -70% 0px' });
+    navLinks.forEach(link => {
+      const target = document.querySelector(link.hash);
+      if (target) sectionObserver.observe(target);
+    });
+  }
+
+  // Open project photos in a viewer instead of navigating away.
+  const lightbox = document.getElementById('lightbox');
+  if (lightbox && typeof lightbox.showModal === 'function') {
+    const lightboxImg = lightbox.querySelector('img');
+    document.querySelectorAll('.project-media a').forEach(link => {
+      link.addEventListener('click', event => {
+        event.preventDefault();
+        const thumb = link.querySelector('img');
+        lightboxImg.src = link.href;
+        lightboxImg.alt = thumb.alt;
+        lightbox.showModal();
+      });
+    });
+    lightbox.querySelector('button').addEventListener('click', () => lightbox.close());
+    lightbox.addEventListener('click', event => { if (event.target === lightbox) lightbox.close(); });
+  }
 </script>
 
 </body>
