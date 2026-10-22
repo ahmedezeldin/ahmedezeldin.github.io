@@ -125,6 +125,13 @@
   .btn-primary:hover { background:var(--btn-bg-hover); }
   .btn-outline { border-color:var(--line); color:var(--ink); background:var(--surface); }
   .btn-outline:hover { border-color:var(--steel); color:var(--steel); }
+  /* Icons are CSS masks so the language toggle can replace button text safely. */
+  .icon-download::before, .icon-view::before {
+    content:""; width:16px; height:16px; flex:0 0 16px; background:currentColor;
+    -webkit-mask:var(--icon) center / contain no-repeat; mask:var(--icon) center / contain no-repeat;
+  }
+  .icon-download { --icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 3v12M7 10l5 5 5-5M5 21h14'/%3E%3C/svg%3E"); }
+  .icon-view { --icon:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E"); }
   #lang-toggle {
     font-family:inherit; font-size:14px; font-weight:600;
     background:var(--surface); border:1px solid var(--line); color:var(--text-dim);
@@ -292,7 +299,7 @@
     <div class="top-actions">
       <button id="lang-toggle" type="button" aria-label="Switch to Arabic" aria-pressed="false">EN / AR</button>
       <a class="btn btn-outline" dir="ltr" href="mailto:ahmedasaad19730@gmail.com" data-en="Email" data-ar="راسلني">Email</a>
-      <a class="btn btn-primary" href="/Ahmed_Ezeldin_Resume.pdf" download="Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</a>
+      <a class="btn btn-primary icon-download" href="/Ahmed_Ezeldin_Resume.pdf" download="Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</a>
     </div>
   </div>
 </header>
@@ -319,8 +326,8 @@
       </p>
 
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="/Ahmed_Ezeldin_Resume.pdf" download="Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume (PDF)" data-ar="تحميل السيرة الذاتية (PDF)">Download Resume (PDF)</a>
-        <a class="btn btn-outline" href="/Ahmed_Ezeldin_Resume.pdf" target="_blank" rel="noopener" data-en="View Resume" data-ar="عرض السيرة الذاتية">View Resume</a>
+        <a class="btn btn-primary icon-download" href="/Ahmed_Ezeldin_Resume.pdf" download="Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume (PDF)" data-ar="تحميل السيرة الذاتية (PDF)">Download Resume (PDF)</a>
+        <a class="btn btn-outline icon-view" href="/Ahmed_Ezeldin_Resume.pdf" target="_blank" rel="noopener" data-en="View Resume" data-ar="عرض السيرة الذاتية">View Resume</a>
         <a class="btn btn-outline" dir="ltr" href="mailto:ahmedasaad19730@gmail.com" data-en="Contact Me" data-ar="تواصل معي">Contact Me</a>
       </div>
     </div>
@@ -519,8 +526,8 @@
         <a class="btn btn-outline" dir="ltr" href="tel:+18254494924" data-en="Call" data-ar="اتصل">Call</a>
         <a class="btn btn-outline" href="https://www.linkedin.com/in/ahmed-ezeldin-1aa757217/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-outline" href="https://github.com/ahmedezeldin" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn btn-outline" href="/Ahmed_Ezeldin_Resume.pdf" download="Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</a>
-        <a class="btn btn-outline" href="/Ahmed_Ezeldin_Resume.pdf" target="_blank" rel="noopener" data-en="View Resume" data-ar="عرض السيرة الذاتية">View Resume</a>
+        <a class="btn btn-outline icon-download" href="/Ahmed_Ezeldin_Resume.pdf" download="Ahmed_Ezeldin_Resume.pdf" data-en="Download Resume" data-ar="تحميل السيرة الذاتية">Download Resume</a>
+        <a class="btn btn-outline icon-view" href="/Ahmed_Ezeldin_Resume.pdf" target="_blank" rel="noopener" data-en="View Resume" data-ar="عرض السيرة الذاتية">View Resume</a>
       </div>
     </div>
   </section>
