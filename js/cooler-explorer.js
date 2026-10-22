@@ -280,17 +280,30 @@ async function start() {
   const KF = {
     rot:  [0.62, 0.35, -0.3, 1.15, 0.5],
     elev: [0.5, 0.75, 0.4, 0.45, 0.95],
-    dist: [0.92, 1.9, 1.5, 1.0, 1.0],
+    dist: [0.92, 1.65, 1.5, 1.0, 1.0],
     // Point the camera at (rig-local x, y) for each step.
     fx:   [0, 0, 6.5, -11, 0],
     fy:   [5.5, 15, 6.5, 8.5, 7],
+    // Horizontal screen shift (fraction of width) that leaves room for the caption.
+    sx:   [0.2, 0.18, 0, -0.2, 0.2],
   };
+
+  // Each step's caption sits beside the part it describes.
+  const CAPTIONS = [
+    { part: 'shellR', dx: 10, dy: 6, side: 'right' },
+    { part: 'liner', dx: 11, dy: 4, side: 'right' },
+    { part: 'sink', dx: 1.5, dy: -5, side: 'below' },
+    { part: 'tray', dz: -6.5, dy: 3, side: 'left' },
+    { part: 'shellR', dx: 13, dy: 8, side: 'right' },
+  ];
+  let capSizes = [];
+  const measureCaptions = () => { capSizes = stepEls.map(el => [el.offsetWidth, el.offsetHeight]); };
 
   // Labels anchored to parts.
   const LABELS = [
     { part: 'lid', step: 1, en: 'Insulated lid', ar: 'غطاء معزول', dy: 1.6 },
     { part: 'shellL', step: 1, en: 'Printed outer shell', ar: 'الغلاف الخارجي المطبوع', dx: -9, dy: 8, dz: 4 },
-    { part: 'insulation', step: 1, en: 'Insulation layer', ar: 'طبقة العزل', dx: 10.5, dy: 6, dz: 2 },
+    { part: 'insulation', step: 1, en: 'Insulation layer', ar: 'طبقة العزل', dx: -10, dy: 5, dz: 2 },
     { part: 'liner', step: 1, en: 'Inner liner', ar: 'البطانة الداخلية', dx: -9.5, dy: 6, dz: 2 },
     { part: 'peltier', step: 2, en: 'Peltier module', ar: 'وحدة بلتييه', dy: -2.6 },
     { part: 'sink', step: 2, en: 'Heat sink', ar: 'مشتت الحرارة', dx: 1.4, dy: 4.4 },
@@ -312,16 +325,13 @@ async function start() {
     LABELS.forEach((l, i) => { labelEls[i].textContent = ar ? l.ar : l.en; });
   }
   setLabelText();
-  new MutationObserver(() => { setLabelText(); dirty = true; })
+  new MutationObserver(() => { setLabelText(); measureCaptions(); dirty = true; })
     .observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
 
-  // Readable mirror of the OLED for the control-loop step.
-  const hud = document.createElement('div');
-  hud.className = 'explorer-hud';
-  view.appendChild(hud);
+  // Readable mirror of the OLED inside the control-loop caption.
+  const hud = root.querySelector('.explorer-hud');
   let lastHud = '';
-  function updateHud(show, temp, cooling, alert) {
-    hud.classList.toggle('is-on', show);
+  function updateHud(temp, cooling, alert) {
     const ar = document.documentElement.lang === 'ar';
     const t = ar
       ? { temp: 'الحرارة', target: 'المستهدف', relay: 'المرحّل', buzzer: 'الصفارة', on: 'يعمل', off: 'متوقف', alarm: 'تنبيه' }
@@ -410,14 +420,17 @@ async function start() {
     drawOled(temp, status, alert);
     relayLed.material.emissiveIntensity = cooling ? 2.2 : 0;
     M.liner.emissiveIntensity = cooling ? 0.35 * w[4] : 0.08 * w[4];
-    updateHud(w[4] > 0.5, temp, cooling, alert);
+    updateHud(temp, cooling, alert);
     coldLight.intensity = cooling ? 40 * w[4] : 6 * w[4];
     if (cooling && !reduceMotion) blades.rotation.x += dt * 14;
 
-    // Camera framing.
+    // Camera framing; docked captions push the model up instead of sideways.
     const aspect = camera.aspect;
-    const base = 46 * Math.max(1, 1.25 / aspect);
+    const base = 82 * Math.max(1, 0.75 / aspect);
     const dist = base * kf(KF.dist, p);
+    const docked = root.classList.contains('is-docked');
+    const sx = docked ? 0 : kf(KF.sx, p), sy = docked ? 0.19 : 0;
+    camera.setViewOffset(viewW, viewH, sx * viewW, sy * viewH, viewW, viewH);
     rig.rotation.y = kf(KF.rot, p);
     lookAt.set(kf(KF.fx, p), kf(KF.fy, p), 0).applyAxisAngle(Y_AXIS, rig.rotation.y);
     camera.position.set(0, kf(KF.elev, p), 1).normalize().multiplyScalar(dist).add(lookAt);
@@ -439,15 +452,36 @@ async function start() {
       el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
     });
 
+    // Captions follow their anchor point, clamped inside the view.
+    if (!docked && !root.classList.contains('is-static')) {
+      CAPTIONS.forEach((c, i) => {
+        const [cw, ch] = capSizes[i] || [0, 0];
+        parts[c.part].getWorldPosition(v);
+        v.add(new THREE.Vector3(c.dx || 0, c.dy || 0, c.dz || 0).applyAxisAngle(Y_AXIS, rig.rotation.y));
+        v.project(camera);
+        const ax = (v.x * 0.5 + 0.5) * viewW, ay = (-v.y * 0.5 + 0.5) * viewH, gap = 28;
+        let x = ax + gap, y = ay - ch / 2;
+        if (c.side === 'left') x = ax - gap - cw;
+        if (c.side === 'below') { x = ax - cw / 2; y = ay + gap; }
+        x = Math.min(Math.max(x, 0), viewW - cw);
+        y = Math.min(Math.max(y, 48), viewH - ch - 56);
+        stepEls[i].style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
+      });
+    }
+
     return cooling;
   }
 
+  let viewW = 1, viewH = 1;
   function resize() {
-    const { clientWidth: w, clientHeight: h } = view;
+    const w = canvas.clientWidth, h = canvas.clientHeight;
     if (!w || !h) return;
+    viewW = w; viewH = h;
+    root.classList.toggle('is-docked', w < 720);
     renderer.setSize(w, h, false);
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
+    measureCaptions();
     dirty = true;
   }
   new ResizeObserver(resize).observe(view);
@@ -479,6 +513,8 @@ async function start() {
     window.scrollTo({ top, behavior: reduceMotion ? 'auto' : 'smooth' });
   }));
 
+  update(pNow, 0);
+  measureCaptions();
   update(pNow, 0);
   renderer.render(scene, camera);
   root.classList.add('is-ready');

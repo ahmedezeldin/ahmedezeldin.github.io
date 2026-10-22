@@ -239,54 +239,59 @@
   .looking-item .value { font-size:16px; font-weight:600; color:var(--ink); }
   #contact { padding:40px 0; }
   .contact-links { display:flex; flex-wrap:wrap; gap:12px; margin-top:20px; }
-  /* Scroll-driven 3D walkthrough of the finished cooler design. */
-  :root { --header-h:77px; }
-  .explorer { position:relative; height:460vh; margin-top:24px; }
-  .explorer-stage {
-    position:sticky; top:var(--header-h); height:calc(100vh - var(--header-h)); height:calc(100svh - var(--header-h));
-    display:grid; grid-template-columns:minmax(0,1.55fr) minmax(0,1fr); gap:32px; align-items:center;
-  }
-  .explorer-view {
-    position:relative; height:calc(100% - 48px); min-height:0; overflow:hidden;
-    border:1px solid var(--line); border-radius:14px; background:var(--surface); box-shadow:var(--shadow);
-  }
+  /* Scroll-driven 3D walkthrough: the model sits on the page background and each step's caption
+     appears next to the parts it describes. */
+  :root { --header-h:77px; --caption-bg:rgba(255,255,255,0.88); }
+  @media (prefers-color-scheme:dark) { :root { --caption-bg:rgba(22,32,43,0.88); } }
+  .explorer { position:relative; height:480vh; margin-top:8px; }
+  .explorer-stage { position:sticky; top:var(--header-h); height:calc(100vh - var(--header-h)); height:calc(100svh - var(--header-h)); }
+  .explorer-view { position:relative; height:100%; }
   .explorer-view canvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
   .explorer-labels { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
   .x-label {
     position:absolute; left:0; top:0; display:flex; align-items:center; gap:6px;
     font-size:12px; font-weight:600; line-height:1.3; color:var(--ink); white-space:nowrap;
-    background:var(--surface); border:1px solid var(--line); padding:4px 9px; border-radius:999px;
-    box-shadow:0 2px 8px rgba(0,0,0,0.08); opacity:0; transition:opacity .25s;
+    background:var(--caption-bg); border:1px solid var(--line); padding:4px 9px; border-radius:999px;
+    opacity:0; transition:opacity .25s;
   }
   .x-label::before { content:""; width:6px; height:6px; flex:0 0 6px; border-radius:50%; background:var(--steel); }
   .x-label.is-on { opacity:1; }
-  .explorer-hud {
-    position:absolute; bottom:16px; inset-inline-start:12px; display:grid; grid-template-columns:auto auto;
-    gap:4px 14px; font-size:12px; padding:10px 12px; border-radius:10px; min-width:170px;
-    background:var(--surface); border:1px solid var(--line); box-shadow:0 4px 14px rgba(0,0,0,0.08);
-    opacity:0; transition:opacity .3s; pointer-events:none;
+  .explorer-eyebrow {
+    position:absolute; top:16px; inset-inline-start:0; display:flex; gap:12px; font-size:13px; font-weight:600;
+    letter-spacing:.06em; text-transform:uppercase; color:var(--steel); pointer-events:none;
   }
-  .explorer-hud.is-on { opacity:1; }
+  [dir="rtl"] .explorer-eyebrow { letter-spacing:normal; }
+  .explorer-count { color:var(--text-dim); font-variant-numeric:tabular-nums; }
+  .explorer-steps { list-style:none; margin:0; padding:0; counter-reset:xstep; }
+  .explorer-steps li {
+    counter-increment:xstep; position:absolute; left:0; top:0; width:min(330px, 42%); margin:0;
+    padding:16px 18px 16px; border:1px solid var(--line); border-inline-start:3px solid var(--steel);
+    border-radius:12px; background:var(--caption-bg); box-shadow:0 10px 30px rgba(10,20,35,0.10);
+    -webkit-backdrop-filter:blur(8px); backdrop-filter:blur(8px);
+    opacity:0; scale:.96; transition:opacity .35s, scale .35s; pointer-events:none; will-change:transform;
+  }
+  .explorer-steps li::before {
+    content:"0" counter(xstep); display:block; font-size:12px; font-weight:700; letter-spacing:.08em;
+    color:var(--steel); margin-bottom:4px; font-variant-numeric:tabular-nums;
+  }
+  .explorer-steps li.is-active { opacity:1; scale:1; pointer-events:auto; }
+  .explorer:not(.is-ready) .explorer-steps li { opacity:0; }
+  .explorer-steps h3 { font-size:18px; margin-bottom:6px; }
+  .explorer-steps p { font-size:15px; line-height:1.55; margin:0; }
+  .explorer-hud {
+    display:grid; grid-template-columns:auto auto; gap:3px 14px; margin-top:12px; padding-top:10px;
+    border-top:1px solid var(--line); font-size:13px;
+  }
   .explorer-hud div { display:contents; }
   .explorer-hud span { color:var(--text-dim); }
   .explorer-hud b { color:var(--ink); font-variant-numeric:tabular-nums; text-align:end; }
   .explorer-hud b.on { color:#2F7FD0; }
   .explorer-hud b.warn { color:#C46A00; }
-  .explorer-eyebrow {
-    display:flex; justify-content:space-between; gap:12px; font-size:13px; font-weight:600;
-    letter-spacing:.06em; text-transform:uppercase; color:var(--steel); margin-bottom:14px;
+  .explorer-nav {
+    position:absolute; bottom:14px; left:50%; transform:translateX(-50%);
+    display:flex; align-items:center; gap:18px; white-space:nowrap;
   }
-  [dir="rtl"] .explorer-eyebrow { letter-spacing:normal; }
-  .explorer-count { color:var(--text-dim); font-variant-numeric:tabular-nums; }
-  .explorer-steps { list-style:none; margin:0; padding:0; display:grid; }
-  .explorer-steps li {
-    grid-area:1 / 1; margin:0; opacity:0; transform:translateY(10px);
-    transition:opacity .35s, transform .35s; pointer-events:none;
-  }
-  .explorer-steps li.is-active { opacity:1; transform:none; pointer-events:auto; }
-  .explorer-steps h3 { font-size:22px; margin-bottom:10px; }
-  .explorer-steps p { font-size:16px; margin:0; }
-  .explorer-dots { display:flex; gap:6px; margin:22px 0 10px; }
+  .explorer-dots { display:flex; gap:6px; }
   .explorer-dots button { position:relative; width:34px; height:24px; padding:0; border:none; background:none; cursor:pointer; }
   .explorer-dots button::after {
     content:""; position:absolute; inset-inline:0; top:9px; height:6px; border-radius:3px;
@@ -295,11 +300,18 @@
   .explorer-dots button[aria-current="step"]::after { background:var(--steel); }
   .explorer-skip { font-size:13px; color:var(--text-dim); }
   .explorer-skip:hover { color:var(--steel); }
+  /* Narrow screens: captions dock along the bottom, under the model. */
+  .explorer.is-docked .explorer-steps li { left:0; right:0; top:auto; bottom:52px; width:auto; transform:none !important; }
+  /* Reduced motion: a still render followed by the steps as a list. */
   .explorer.is-static { height:auto; }
-  .explorer.is-static .explorer-stage { position:relative; top:auto; height:auto; padding:24px 0 0; }
-  .explorer.is-static .explorer-view { height:420px; }
-  .explorer.is-static .explorer-steps li { grid-area:auto; opacity:1; transform:none; margin-bottom:18px; }
-  .explorer.is-static .explorer-dots, .explorer.is-static .explorer-count, .explorer.is-static .explorer-skip { display:none; }
+  .explorer.is-static .explorer-stage { position:relative; top:auto; height:auto; }
+  .explorer.is-static .explorer-view { height:auto; padding-top:44px; }
+  .explorer.is-static .explorer-view canvas { position:relative; height:420px; }
+  .explorer.is-static .explorer-steps li {
+    position:relative; width:auto; opacity:1; scale:1; transform:none !important; margin-top:12px;
+    -webkit-backdrop-filter:none; backdrop-filter:none;
+  }
+  .explorer.is-static .explorer-nav, .explorer.is-static .explorer-count, .explorer.is-static .explorer-labels { display:none; }
   footer { padding:24px; border-top:1px solid var(--line); text-align:center; color:var(--text-dim); font-size:13px; }
   footer a { color:var(--text-dim); }
   footer a:hover { color:var(--steel); }
@@ -309,14 +321,10 @@
     .sec-nav { display:none; }
   }
   @media (max-width:850px) {
-    .explorer { height:420vh; margin-top:28px; }
-    .explorer-stage { grid-template-columns:minmax(0,1fr); grid-template-rows:minmax(0,1fr) auto; gap:4px; align-items:stretch; }
-    .explorer-copy { padding-bottom:18px; }
-    .explorer-view { height:calc(100% - 12px); margin-top:12px; }
-    .explorer-steps h3 { font-size:19px; margin-bottom:6px; }
-    .explorer-steps p { font-size:15px; }
-    .explorer-dots { margin:12px 0 4px; }
-    .explorer.is-static .explorer-view { height:320px; }
+    .explorer { height:440vh; }
+    .explorer-steps h3 { font-size:17px; }
+    .explorer-steps p { font-size:14px; }
+    .explorer.is-static .explorer-view canvas { height:320px; }
     .proj-head, .proj-detail { grid-template-columns:minmax(0,1fr); gap:24px; }
     .project-media { max-width:480px; }
     #skills .wrap, #education .wrap, #experience .wrap { grid-template-columns:140px minmax(0,1fr); gap:0 24px; }
@@ -443,8 +451,6 @@
           <div class="explorer-view">
             <canvas aria-hidden="true"></canvas>
             <div class="explorer-labels" aria-hidden="true"></div>
-          </div>
-          <div class="explorer-copy">
             <div class="explorer-eyebrow"><span data-en="How it works · 3D render" data-ar="كيف يعمل · نموذج ثلاثي الأبعاد">How it works · 3D render</span><span class="explorer-count" dir="ltr">1 / 5</span></div>
             <ol class="explorer-steps">
           <li data-step="0" class="is-active">
@@ -471,16 +477,19 @@
             <h3 data-en="Control loop" data-ar="حلقة التحكم">Control loop</h3>
             <p data-en="The firmware compares each reading with the 2–8°C target: the relay runs the cooling stage while it is too warm, and the buzzer alert escalates if it stays out of range. (Values shown are illustrative.)"
                data-ar="يقارن البرنامج الثابت كل قراءة بالنطاق المستهدف بين 2 و8 درجات مئوية: يشغّل المرحّل مرحلة التبريد ما دامت الحرارة مرتفعة، ويتصاعد التنبيه الصوتي إذا بقيت خارج النطاق. (القيم المعروضة توضيحية.)">The firmware compares each reading with the 2–8°C target: the relay runs the cooling stage while it is too warm, and the buzzer alert escalates if it stays out of range. (Values shown are illustrative.)</p>
+            <div class="explorer-hud" aria-hidden="true"></div>
           </li>
             </ol>
-            <div class="explorer-dots" role="group" aria-label="Steps">
-          <button type="button" aria-label="Step 1" aria-current="step"></button>
-          <button type="button" aria-label="Step 2"></button>
-          <button type="button" aria-label="Step 3"></button>
-          <button type="button" aria-label="Step 4"></button>
-          <button type="button" aria-label="Step 5"></button>
+            <div class="explorer-nav">
+              <div class="explorer-dots" role="group" aria-label="Steps">
+                <button type="button" aria-label="Step 1" aria-current="step"></button>
+                <button type="button" aria-label="Step 2"></button>
+                <button type="button" aria-label="Step 3"></button>
+                <button type="button" aria-label="Step 4"></button>
+                <button type="button" aria-label="Step 5"></button>
+              </div>
+              <a class="explorer-skip" href="#proj-detail" data-en="Skip animation ↓" data-ar="تخطي الرسوم المتحركة ↓">Skip animation ↓</a>
             </div>
-            <a class="explorer-skip" href="#proj-detail" data-en="Skip animation ↓" data-ar="تخطي الرسوم المتحركة ↓">Skip animation ↓</a>
           </div>
         </div>
       </div>
