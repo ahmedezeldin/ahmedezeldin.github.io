@@ -280,9 +280,9 @@ async function start() {
   const KF = {
     rot:  [0.62, 0.35, -0.3, 1.15, 0.5],
     elev: [0.5, 0.75, 0.4, 0.45, 0.95],
-    dist: [1.0, 1.9, 1.35, 1.0, 1.05],
+    dist: [0.92, 1.9, 1.5, 1.0, 1.0],
     // Point the camera at (rig-local x, y) for each step.
-    fx:   [0, 0, 5.5, -11, 0],
+    fx:   [0, 0, 6.5, -11, 0],
     fy:   [5.5, 15, 6.5, 8.5, 7],
   };
 
