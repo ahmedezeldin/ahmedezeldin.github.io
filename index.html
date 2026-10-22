@@ -246,6 +246,9 @@
   .explorer { position:relative; height:480vh; margin-top:8px; }
   .explorer-stage { position:sticky; top:var(--header-h); height:calc(100vh - var(--header-h)); height:calc(100svh - var(--header-h)); }
   .explorer-view { position:relative; height:100%; }
+  /* Canvas, labels and captions span the full window so parts never clip at the content edge. */
+  #project { overflow-x:clip; }
+  .explorer-bleed { position:absolute; top:0; bottom:0; left:calc(50% - 50vw); width:100vw; }
   .explorer-view canvas { position:absolute; inset:0; width:100%; height:100%; display:block; }
   .explorer-labels { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
   .x-label {
@@ -301,11 +304,12 @@
   .explorer-skip { font-size:13px; color:var(--text-dim); }
   .explorer-skip:hover { color:var(--steel); }
   /* Narrow screens: captions dock along the bottom, under the model. */
-  .explorer.is-docked .explorer-steps li { left:0; right:0; top:auto; bottom:52px; width:auto; transform:none !important; }
+  .explorer.is-docked .explorer-steps li { left:20px; right:20px; top:auto; bottom:52px; width:auto; transform:none !important; }
   /* Reduced motion: a still render followed by the steps as a list. */
   .explorer.is-static { height:auto; }
   .explorer.is-static .explorer-stage { position:relative; top:auto; height:auto; }
   .explorer.is-static .explorer-view { height:auto; padding-top:44px; }
+  .explorer.is-static .explorer-bleed { position:relative; left:auto; width:auto; }
   .explorer.is-static .explorer-view canvas { position:relative; height:420px; }
   .explorer.is-static .explorer-steps li {
     position:relative; width:auto; opacity:1; scale:1; transform:none !important; margin-top:12px;
@@ -449,9 +453,9 @@
       <div class="explorer" id="explorer" hidden>
         <div class="explorer-stage">
           <div class="explorer-view">
+            <div class="explorer-bleed">
             <canvas aria-hidden="true"></canvas>
             <div class="explorer-labels" aria-hidden="true"></div>
-            <div class="explorer-eyebrow"><span data-en="How it works · 3D render" data-ar="كيف يعمل · نموذج ثلاثي الأبعاد">How it works · 3D render</span><span class="explorer-count" dir="ltr">1 / 5</span></div>
             <ol class="explorer-steps">
           <li data-step="0" class="is-active">
             <h3 data-en="The finished design" data-ar="التصميم النهائي">The finished design</h3>
@@ -480,6 +484,8 @@
             <div class="explorer-hud" aria-hidden="true"></div>
           </li>
             </ol>
+            </div>
+            <div class="explorer-eyebrow"><span data-en="How it works · 3D render" data-ar="كيف يعمل · نموذج ثلاثي الأبعاد">How it works · 3D render</span><span class="explorer-count" dir="ltr">1 / 5</span></div>
             <div class="explorer-nav">
               <div class="explorer-dots" role="group" aria-label="Steps">
                 <button type="button" aria-label="Step 1" aria-current="step"></button>
@@ -761,6 +767,6 @@
   "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
 } }
 </script>
-<script type="module" src="/js/cooler-explorer.js?v=3"></script>
+<script type="module" src="/js/cooler-explorer.js?v=4"></script>
 </body>
 </html>

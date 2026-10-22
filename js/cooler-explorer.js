@@ -386,6 +386,23 @@ async function start() {
   let pNow = progress(), dirty = true, running = false, last = performance.now();
   let activeStep = -1;
   const v = new THREE.Vector3(), lookAt = new THREE.Vector3(), Y_AXIS = new THREE.Vector3(0, 1, 0);
+  const camDir = new THREE.Vector3(), bounds = new THREE.Box3(), corner = new THREE.Vector3(), centre = new THREE.Vector3();
+
+  // How much farther the camera must be for the whole model to sit inside the given NDC bounds.
+  function fitScale(xLim, yTop, yBot) {
+    camera.updateMatrixWorld();
+    rig.updateMatrixWorld(true);
+    bounds.setFromObject(rig);
+    centre.copy(lookAt).project(camera);
+    let s = 1;
+    for (let i = 0; i < 8; i++) {
+      corner.set(i & 1 ? bounds.max.x : bounds.min.x, i & 2 ? bounds.max.y : bounds.min.y, i & 4 ? bounds.max.z : bounds.min.z).project(camera);
+      const dx = corner.x - centre.x, dy = corner.y - centre.y;
+      s = Math.max(s, dx > 0 ? dx / Math.max(0.05, xLim - centre.x) : -dx / Math.max(0.05, xLim + centre.x));
+      s = Math.max(s, dy > 0 ? dy / Math.max(0.05, yTop - centre.y) : -dy / Math.max(0.05, centre.y - yBot));
+    }
+    return s;
+  }
 
   function setStep(i) {
     if (i === activeStep) return;
@@ -429,12 +446,25 @@ async function start() {
     const base = 82 * Math.max(1, 0.75 / aspect);
     const dist = base * kf(KF.dist, p);
     const docked = root.classList.contains('is-docked');
+    const contentW = Math.min(view.clientWidth || viewW, viewW);
     const sx = docked ? 0 : kf(KF.sx, p), sy = docked ? 0.19 : 0;
-    camera.setViewOffset(viewW, viewH, sx * viewW, sy * viewH, viewW, viewH);
+    camera.setViewOffset(viewW, viewH, sx * contentW, sy * viewH, viewW, viewH);
     rig.rotation.y = kf(KF.rot, p);
     lookAt.set(kf(KF.fx, p), kf(KF.fy, p), 0).applyAxisAngle(Y_AXIS, rig.rotation.y);
-    camera.position.set(0, kf(KF.elev, p), 1).normalize().multiplyScalar(dist).add(lookAt);
+    camDir.set(0, kf(KF.elev, p), 1).normalize();
+    camera.position.copy(camDir).multiplyScalar(dist).add(lookAt);
     camera.lookAt(lookAt);
+
+    // Pull back if any part would leave the visible area (heading at the top, step bar and
+    // docked caption at the bottom).
+    const capH = docked ? (capSizes[activeStep] || capSizes[0] || [0, 0])[1] : 0;
+    const yTop = 1 - 2 * 48 / viewH;
+    const yBot = docked ? 1 - 2 * (viewH - 64 - capH) / viewH : -(1 - 2 * 60 / viewH);
+    const fit = fitScale(0.94, yTop, yBot);
+    if (fit > 1) {
+      camera.position.copy(camDir).multiplyScalar(dist * fit * 1.04).add(lookAt);
+      camera.lookAt(lookAt);
+    }
 
     setStep(Math.min(STEPS - 1, Math.round(Math.min(p, 4))));
 
@@ -463,7 +493,8 @@ async function start() {
         let x = ax + gap, y = ay - ch / 2;
         if (c.side === 'left') x = ax - gap - cw;
         if (c.side === 'below') { x = ax - cw / 2; y = ay + gap; }
-        x = Math.min(Math.max(x, 0), viewW - cw);
+        const pad = Math.max(16, (viewW - contentW) / 2);
+        x = Math.min(Math.max(x, pad), viewW - cw - pad);
         y = Math.min(Math.max(y, 48), viewH - ch - 56);
         stepEls[i].style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`;
       });
@@ -484,7 +515,7 @@ async function start() {
     measureCaptions();
     dirty = true;
   }
-  new ResizeObserver(resize).observe(view);
+  new ResizeObserver(resize).observe(canvas);
   resize();
 
   function frame(now) {
