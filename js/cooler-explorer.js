@@ -517,5 +517,5 @@ async function start() {
   measureCaptions();
   update(pNow, 0);
   renderer.render(scene, camera);
-  root.classList.add('is-ready');
+  root.classList.add('is-ready', 'is-placed');
 }
